@@ -99,6 +99,9 @@
     nextcloud-client
     keepassxc
 
+    # GNOME
+    gnome3.gnome-tweaks
+
     # Coding
     vscode
     git
