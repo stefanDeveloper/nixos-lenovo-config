@@ -10,6 +10,7 @@
       <nixos-hardware/lenovo/thinkpad/t14/amd/gen1>
       ./hardware-configuration.nix
       ./wifi.nix
+      ./umlauts.nix
     ];
   
   nixpkgs.config.allowUnfree = true;  
@@ -60,7 +61,7 @@
   services.gnome.games.enable = false;
 
   # Configure keymap in X11
-  # services.xserver.layout = "us";
+  services.xserver.layout = "us-de";
   # services.xserver.xkbOptions = "eurosign:e";
 
   # Enable CUPS to print documents.
@@ -98,6 +99,7 @@
     discord
     nextcloud-client
     keepassxc
+    libreoffice
 
     # GNOME
     gnome3.gnome-tweaks
@@ -109,6 +111,8 @@
     gcc11
     python39
     python39Packages.pip
+    python39Packages.setuptools
+    python39Packages.jupyter
  ];
  # GNOME
  environment.gnome.excludePackages = with pkgs; [
@@ -120,7 +124,14 @@
    gnome3.simple-scan
  ];
 
-
+  programs.zsh.ohMyZsh = {
+    enable = true;
+    plugins = [ "git" "python" "man" ];
+    theme = "agnoster";
+    customPkgs = [
+      pkgs.nix-zsh-completions
+    ];
+  };
   
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
