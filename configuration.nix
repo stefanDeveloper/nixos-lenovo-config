@@ -61,12 +61,12 @@
   services.gnome.games.enable = false;
 
   # Configure keymap in X11
-  services.xserver.layout = "us-de";
+  services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
 
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
+  services.printing.enable = true;
+  services.printing.drivers = with pkgs; [ canon-cups-ufr2 ];
   # Enable sound.
   # sound.enable = true;
   # hardware.pulseaudio.enable = true;
@@ -159,6 +159,7 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.05"; # Did you read the comment?
-
+  nix.gc.automatic = true;
+  nix.gc.dates = "03:15";
 }
 
