@@ -9,8 +9,6 @@
     [ # Include the results of the hardware scan.
       <nixos-hardware/lenovo/thinkpad/t14/amd/gen1>
       ./hardware-configuration.nix
-      ./wifi.nix
-      ./umlauts.nix
     ];
   
   nixpkgs.config.allowUnfree = true;  
@@ -39,6 +37,8 @@
   networking.interfaces.enp2s0f0.useDHCP = true;
   networking.interfaces.enp5s0.useDHCP = true;
 
+  boot.extraModulePackages = [ config.boot.kernelPackages.rtw89 ];
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -61,8 +61,8 @@
   services.gnome.games.enable = false;
 
   # Configure keymap in X11
-  services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
+  services.xserver.layout = "us,de";
+  # services.xserver.xkbOptions = "eurosign:e, grp:alt_space_toggle";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
