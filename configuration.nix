@@ -11,7 +11,9 @@
       ./hardware-configuration.nix
     ];
   
-  nixpkgs.config.allowUnfree = true;  
+  nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.allowBroken = true;  
+  virtualisation.docker.enable = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -77,7 +79,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.stefan = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
   };
 
   # List packages installed in system profile. To search, run:
@@ -95,11 +97,12 @@
     # Work
     firefox
     google-chrome
-    # termius
     discord
     nextcloud-client
     keepassxc
     libreoffice
+    element-desktop
+    oh-my-zsh
 
     # GNOME
     gnome3.gnome-tweaks
@@ -109,19 +112,25 @@
     git
     cmake
     gcc11
+    opencv2
+    python37
+    python37Packages.pip
+    python37Packages.setuptools
+    python37Packages.jupyter
+    python37Packages.pandas
     python39
     python39Packages.pip
     python39Packages.setuptools
     python39Packages.jupyter
+    texlive.combined.scheme-full
  ];
+
  # GNOME
  environment.gnome.excludePackages = with pkgs; [
    gnome3.gnome-music
    gnome3.epiphany
    gnome3.yelp
-   gnome3.cheese
    gnome3.gnome-maps
-   gnome3.simple-scan
  ];
 
   programs.zsh.ohMyZsh = {
