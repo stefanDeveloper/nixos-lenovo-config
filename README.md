@@ -4,6 +4,8 @@
 
 ## Keyboard Configuration
 
+> More information {documentation](https://nixos.org/manual/nixos/stable/index.html#custom-xkb-layouts)
+
 By default, I use a US layout. However, I need german umlauts so I added a custom layout. Only one problem is that I cannot set it as default. Please run:
 
 ```sh
