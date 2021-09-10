@@ -2,7 +2,7 @@ xkb_symbols "us-de"
 {
   include "us(basic)"            // includes the base US keys
   include "level3(ralt_switch)"  // configures right alt as a third level switch
-
+  
   key <LatA> { [ a, A, adiaeresis, Adiaeresis ] };
   key <LatS> { [ s, S, ssharp, U03A3 ] };
   key <LatO> { [ o, O, odiaeresis, Odiaeresis ] };

@@ -7,6 +7,8 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+      # If you activates this, building increase tremendously
+      # ./umlauts.nix
       <nixos-hardware/lenovo/thinkpad/t14/amd/gen1>
       ./hardware-configuration.nix
     ];
@@ -64,7 +66,7 @@
 
   # Configure keymap in X11
   services.xserver.layout = "us,de";
-  # services.xserver.xkbOptions = "eurosign:e, grp:alt_space_toggle";
+  # services.xserver.xkbOptions = "altwin:alt_win";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -96,31 +98,27 @@
 
     # Work
     firefox
+    thunderbird
     google-chrome
+    # termius
     discord
     nextcloud-client
     keepassxc
     libreoffice
     element-desktop
     oh-my-zsh
+    openconnect
+    remmina
 
     # GNOME
     gnome3.gnome-tweaks
-
+    gnomeExtensions.remmina-search-provider
     # Coding
     vscode
     git
     cmake
     gcc11
-    opencv2
-    python37
-    python37Packages.pip
-    python37Packages.setuptools
-    python37Packages.jupyter
-    python37Packages.pandas
     python39
-    python39Packages.pip
-    python39Packages.setuptools
     python39Packages.jupyter
     texlive.combined.scheme-full
  ];
