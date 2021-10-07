@@ -40,7 +40,10 @@
   networking.useDHCP = false;
   networking.interfaces.enp2s0f0.useDHCP = true;
   networking.interfaces.enp5s0.useDHCP = true;
-
+  # Static definition of namesserver DNS
+  # environment.etc = {
+  #   "resolv.conf".text = "nameserver 192.168.2.45\n";
+  # };
   boot.extraModulePackages = [ config.boot.kernelPackages.rtw89 ];
 
   # Configure network proxy if necessary
@@ -69,6 +72,7 @@
   # services.xserver.xkbOptions = "altwin:alt_win";
 
   # Enable CUPS to print documents.
+  # Currently not working
   services.printing.enable = true;
   services.printing.drivers = with pkgs; [ canon-cups-ufr2 ];
   # Enable sound.
@@ -81,8 +85,11 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.stefan = {
     isNormalUser = true;
+    shell = pkgs.zsh;
     extraGroups = [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
+    
   };
+  
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -95,25 +102,31 @@
     htop
     killall
     pciutils
-
+    zsh
+    oh-my-zsh
+    nmap
+    telnet
+    
     # Work
     firefox
     thunderbird
     google-chrome
     # termius
+    filezilla
     discord
     nextcloud-client
     keepassxc
     libreoffice
     element-desktop
-    oh-my-zsh
     openconnect
     remmina
 
     # GNOME
     gnome3.gnome-tweaks
     gnomeExtensions.remmina-search-provider
+
     # Coding
+    docker-compose
     vscode
     git
     cmake
@@ -121,23 +134,36 @@
     python39
     python39Packages.jupyter
     texlive.combined.scheme-full
- ];
+  ];
 
- # GNOME
- environment.gnome.excludePackages = with pkgs; [
-   gnome3.gnome-music
-   gnome3.epiphany
-   gnome3.yelp
-   gnome3.gnome-maps
- ];
 
-  programs.zsh.ohMyZsh = {
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+
+  # GNOME
+  environment.gnome.excludePackages = with pkgs; [
+    gnome3.gnome-music
+    gnome3.epiphany
+    gnome3.yelp
+    gnome3.gnome-maps
+    gnome3.geary
+  ];
+  
+  # Zsh configuration
+  programs.zsh = {
     enable = true;
-    plugins = [ "git" "python" "man" ];
-    theme = "agnoster";
-    customPkgs = [
-      pkgs.nix-zsh-completions
-    ];
+    shellAliases = {
+      ll = "ls -l";
+      update = "sudo nixos-rebuild switch";
+    };
+    ohMyZsh = {
+      enable = true;
+      plugins = [ "git" "python" "man" ];
+      theme = "agnoster";
+      customPkgs = [
+        pkgs.nix-zsh-completions
+      ];
+    };
   };
   
   # Some programs need SUID wrappers, can be configured further or are
