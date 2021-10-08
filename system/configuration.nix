@@ -11,7 +11,6 @@
       # ./umlauts.nix
       <nixos-hardware/lenovo/thinkpad/t14/amd/gen1>
       ./hardware-configuration.nix
-      ./git.nix
     ];
   
   nixpkgs.config.allowUnfree = true;

@@ -6,7 +6,6 @@ on:
     branches:
       - master
     paths-ignore:
-      - 'GNOME.md'
       - 'README.md'
       - 'notes/**'
       - '.git-crypt/**'
