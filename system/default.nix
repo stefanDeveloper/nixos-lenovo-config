@@ -14,8 +14,19 @@ builtins.listToAttrs (builtins.map (path: {
   ./nixpkgs.nix
   ./services.nix
   ./locale.nix
-  ./security.nix
   ./virtualisation.nix
   ./home.nix
   ./users
+
+  ./workspace
+  ./workspace/gnome
+
+  ./apps
+  ./apps/dev
+  ./apps/messaging
+  ./apps/web
+  ./apps/web/firefox.nix
+  ./apps/web/google-chrome.nix
+  ./apps/web/tor.nix
+  ./apps/media
 ])
