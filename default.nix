@@ -4,6 +4,5 @@
 }:
 
 {
-  home = pkgs.callPackage ./home {};
   system = pkgs.callPackage ./system {};
 }

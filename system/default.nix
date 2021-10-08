@@ -18,6 +18,4 @@ builtins.listToAttrs (builtins.map (path: {
   ./virtualisation.nix
   ./home.nix
   ./users
-  
-  <nixos-hardware/lenovo/thinkpad/t14/amd/gen1>
 ])

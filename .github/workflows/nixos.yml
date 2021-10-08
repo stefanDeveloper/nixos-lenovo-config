@@ -36,4 +36,4 @@ jobs:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
       - name: "Build NixOS config ❄️"
-        run: ./build.sh ci-system
+        run: nix-shell -p nix-build-uncached --run "nix-build-uncached -A system"
