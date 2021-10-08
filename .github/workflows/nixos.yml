@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - master
+      - new-structure
     paths-ignore:
       - 'README.md'
       - 'notes/**'
