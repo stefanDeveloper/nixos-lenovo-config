@@ -41,6 +41,18 @@ in {
         size = 1000000;
         save = size;
       };
+      shellAliases = {
+        ll = "ls -l";
+        update = "sudo nixos-rebuild switch";
+      };
+      ohMyZsh = {
+        enable = true;
+        plugins = [ "git" "python" "man" ];
+        theme = "agnoster";
+        customPkgs = [
+          pkgs.nix-zsh-completions
+        ];
+      };
 
       inherit initExtra;
     };

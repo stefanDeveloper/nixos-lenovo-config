@@ -1,22 +1,33 @@
 {
   description = "NixOS configuration with flakes";
-  inputs.nixos-hardware.url = github:NixOS/nixos-hardware/master;
   
   inputs = {
     home-manager.url = "github:nix-community/home-manager";
 
+    # NixOS profiles covering hardware quirks:
+    # https://github.com/NixOS/nixos-hardware
+    nixos-hardware = {
+      type = "github";
+      owner = "NixOS";
+      repo = "nixos-hardware";
+      flake = false;
+    };
+
   };
   
-  outputs = { self, nixpkgs, nixos-hardware }: {
-    # replace <your-hostname> with your actual hostname
-    nixosConfigurations.nixos-stefan = nixpkgs.lib.nixosSystem {
-      # ...
-      modules = [
-        # ...
-        # add your model from this list: https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
-        nixos-hardware.lenovo.thinkpad.t14.amd.gen1
-      ];
-    };
+  outputs = { self, nixpkgs, ... }: {
+    nixosModules = import ./system;
+
+    nixosConfigurations = with nixpkgs.lib;
+      let
+        hosts = builtins.attrNames (builtins.readDir ./hosts);
+        mkHost = name:
+            nixosSystem {
+              system = removeSuffix "\n" (builtins.readFile (./hosts + "/${name}/system"));
+              modules = [(import (./hosts + "/${name}"))];
+              specialArgs = { inherit inputs; };
+            };
+      in genAttrs hosts mkHost;
   };
 
 }

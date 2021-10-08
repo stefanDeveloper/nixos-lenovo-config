@@ -27,6 +27,5 @@ builtins.listToAttrs (builtins.map (path: {
   ./apps/web
   ./apps/web/firefox.nix
   ./apps/web/google-chrome.nix
-  ./apps/web/tor.nix
   ./apps/media
 ])
