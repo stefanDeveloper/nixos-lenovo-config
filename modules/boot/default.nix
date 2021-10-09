@@ -18,7 +18,7 @@
         enable = lib.mkForce false;
         # Automatically add other operating system to the grub menu
         useOSProber = true;
-        device = "nodev";
+        devices = [ "nodev" ];
       };
     };
     # Use the latest Linux kernel packages
