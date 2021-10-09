@@ -22,6 +22,8 @@
     };
     # Use the latest Linux kernel packages
     kernelPackages = pkgs.linuxPackages_latest;
+
+     extraModulePackages = [ ];
   };
 
 }
