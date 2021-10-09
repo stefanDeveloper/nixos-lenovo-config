@@ -12,6 +12,13 @@
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
+
+      grub = {
+        # Disable the GNU GRUB boot loader.
+        enable = lib.mkForce false;
+        # Automatically add other operating system to the grub menu
+        useOSProber = true;
+      };
     };
   };
 
