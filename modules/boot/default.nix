@@ -10,7 +10,7 @@
 
   boot = {
     loader = {
-      systemd-boot.enable = true;
+      systemd-boot.enable = pkgs.system == "x86_64-linux";
       efi.canTouchEfiVariables = true;
 
       grub = {
