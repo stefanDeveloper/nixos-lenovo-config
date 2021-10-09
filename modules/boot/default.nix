@@ -9,6 +9,7 @@
     ];
 
   boot = {
+    isContainer = true;
     loader = {
       systemd-boot.enable = pkgs.system == "x86_64-linux";
       efi.canTouchEfiVariables = true;
@@ -24,7 +25,6 @@
     # Use the latest Linux kernel packages
     kernelPackages = pkgs.linuxPackages_latest;
 
-     extraModulePackages = [ ];
   };
 
 }
