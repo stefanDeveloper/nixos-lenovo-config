@@ -13,6 +13,16 @@
       flake = false;
     };
 
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    nixpkgs-21-05 = {
+      type = "github";
+      owner = "nixos";
+      repo = "nixpkgs";
+      ref = "nixos-21.05";
+      flake = false;
+    };
+
   };
   
   outputs = { self, nixpkgs, ... }: {
