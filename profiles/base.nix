@@ -6,8 +6,6 @@
     boot
     system
     network
-    nix
-    overlay
     nixpkgs
     services
     security

@@ -37,7 +37,7 @@
 
   environment.sessionVariables.XDG_CURRENT_DESKTOP = "X-Generic";
 
-  home-manager.users.vyorkin = {
+  home-manager.users.stefan = {
     home.activation.gnome = ''
       $DRY_RUN_CMD mkdir -p "$XDG_DATA_HOME/.npm-packages"
     '';
