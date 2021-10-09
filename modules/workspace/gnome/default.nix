@@ -1,5 +1,5 @@
 {
   imports = [
-    ./base.nix
   ];
+  services.gnome.games.enable = false;
 }
