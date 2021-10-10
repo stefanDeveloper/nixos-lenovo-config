@@ -14,6 +14,7 @@ builtins.listToAttrs (builtins.map (path: {
   ./locale.nix
   ./virtualisation.nix
   ./home.nix
+  ./nix.nix
   ./users
   ./gnome
   ./workspace
@@ -22,6 +23,7 @@ builtins.listToAttrs (builtins.map (path: {
 
   ./apps
   ./apps/dev
+  ./apps/dev/git.nix
   ./apps/media
   ./apps/messaging
   ./apps/web

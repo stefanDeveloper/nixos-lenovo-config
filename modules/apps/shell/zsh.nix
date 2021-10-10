@@ -2,7 +2,7 @@
 { pkgs, inputs, ... }:
 
 let
-  initExtra = builtins.readFile "${inputs.zsh-config}/zshrc";
+  #initExtra = builtins.readFile "${inputs.zsh-config}/zshrc";
 in {
   environment.systemPackages = with pkgs; [
     # Terminal/CLI
@@ -19,22 +19,33 @@ in {
     telnet
     niv
   ];
-  environment.sessionVariables.SHELL = "zsh";
+  #environment.sessionVariables.SHELL = "zsh";
   # Symlink /share/zsh
-  environment.pathsToLink = [ "/share/zsh" ];
+  #environment.pathsToLink = [ "/share/zsh" ];
+
+  programs.zsh.
 
   home-manager.users.stefan = {
-    home.file = {
-      ".zshenv" = { source = "${inputs.zsh-config}/zshenv"; };
-      ".zprofile" = { source = "${inputs.zsh-config}/zprofile"; };
-      ".zlogin" = { source = "${inputs.zsh-config}/zlogin"; };
-      ".zlogout" = { source = "${inputs.zsh-config}/zlogout"; };
-      ".zconfig" = { source = "${inputs.zsh-config}/zconfig"; };
-    };
+    #home.file = {
+    #  ".zshenv" = { source = "${inputs.zsh-config}/zshenv"; };
+    #  ".zprofile" = { source = "${inputs.zsh-config}/zprofile"; };
+    #  ".zlogin" = { source = "${inputs.zsh-config}/zlogin"; };
+    #  ".zlogout" = { source = "${inputs.zsh-config}/zlogout"; };
+    #  ".zconfig" = { source = "${inputs.zsh-config}/zconfig"; };
+    #};
 
     programs.zsh = {
       enable = true;
       enableCompletion = true;
+
+      oh-my-zsh = {
+        enable = true;
+        plugins = [ "git" "python" "man" ];
+        theme = "agnoster";
+        customPkgs = [
+          pkgs.nix-zsh-completions
+        ];
+      };
 
       history = rec {
         expireDuplicatesFirst = true;
@@ -45,16 +56,8 @@ in {
         ll = "ls -l";
         update = "sudo nixos-rebuild switch";
       };
-      ohMyZsh = {
-        enable = true;
-        plugins = [ "git" "python" "man" ];
-        theme = "agnoster";
-        customPkgs = [
-          pkgs.nix-zsh-completions
-        ];
-      };
 
-      inherit initExtra;
+      #inherit initExtra;
     };
 
     # Enable zsh integration for broot.

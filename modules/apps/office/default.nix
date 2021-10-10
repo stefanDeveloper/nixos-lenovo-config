@@ -2,7 +2,6 @@
 
 {
   environment.systemPackages = with pkgs; [
-    # Work
     thunderbird
     filezilla
     nextcloud-client
@@ -11,13 +10,6 @@
 
     openconnect
     remmina
-
-    # GNOME
-    gnome3.gnome-tweaks
-
-    # Coding
-    docker-compose
-    vscode
 
     texlive.combined.scheme-full
   ];

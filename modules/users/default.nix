@@ -2,7 +2,7 @@
 { pkgs, ... }:
 
 let
-  stefan = import ./stefan.nix { };
+  stefan = import ./stefan.nix;
 in {
   users = {
 

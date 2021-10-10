@@ -8,7 +8,6 @@
     network
     nixpkgs
     services
-    security
     locale
     home
     users
