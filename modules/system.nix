@@ -1,7 +1,4 @@
-
 {
-  nix.gc.automatic = true;
-  nix.gc.dates = "03:15";
   system = {
     # This value determines the NixOS release from which the default
     # settings for stateful data, like file locations and database versions

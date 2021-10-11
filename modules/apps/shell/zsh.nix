@@ -23,8 +23,6 @@ in {
   # Symlink /share/zsh
   #environment.pathsToLink = [ "/share/zsh" ];
 
-  programs.zsh.
-
   home-manager.users.stefan = {
     #home.file = {
     #  ".zshenv" = { source = "${inputs.zsh-config}/zshenv"; };
@@ -40,13 +38,19 @@ in {
 
       oh-my-zsh = {
         enable = true;
-        plugins = [ "git" "python" "man" ];
         theme = "agnoster";
-        customPkgs = [
-          pkgs.nix-zsh-completions
-        ];
       };
-
+      plugins = [
+        {
+          name = "zsh-syntax-highlighting";
+          src = pkgs.fetchFromGitHub {
+            owner = "zsh-users";
+            repo = "zsh-syntax-highlighting";
+            rev = "2d60a47cc407117815a1d7b331ef226aa400a344";
+            sha256 = "1pnxr39cayhsvggxihsfa3rqys8rr2pag3ddil01w96kw84z4id2";
+          };
+        }
+      ];
       history = rec {
         expireDuplicatesFirst = true;
         size = 1000000;
