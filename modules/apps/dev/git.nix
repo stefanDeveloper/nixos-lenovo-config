@@ -1,4 +1,5 @@
 { inputs, pkgs, ... }:
+
 {
   home-manager.users.stefan = {
     programs.git = {

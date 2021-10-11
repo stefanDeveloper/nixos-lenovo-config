@@ -13,8 +13,6 @@ in {
     htop
     killall
     pciutils
-    zsh
-    oh-my-zsh
     nmap
     telnet
     niv
@@ -31,6 +29,8 @@ in {
     #  ".zlogout" = { source = "${inputs.zsh-config}/zlogout"; };
     #  ".zconfig" = { source = "${inputs.zsh-config}/zconfig"; };
     #};
+
+    home.packages = with pkgs; [git];
 
     programs.zsh = {
       enable = true;

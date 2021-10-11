@@ -16,10 +16,6 @@ builtins.listToAttrs (builtins.map (path: {
   ./home.nix
   ./nix.nix
   ./users
-  ./gnome
-  ./workspace
-  ./workspace/gnome
-  ./gnome
 
   ./apps
   ./apps/dev

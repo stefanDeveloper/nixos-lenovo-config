@@ -1,4 +1,3 @@
-
 {
   imports = [
     ./firefox.nix

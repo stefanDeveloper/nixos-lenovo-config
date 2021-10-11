@@ -3,13 +3,15 @@
 # to /etc/nixos/configuration.nix instead.
 { config, lib, pkgs, modulesPath, ... }:
 
+let
+  ibm_plymouth_theme = pkgs.callPackage ./plymouth/ibm.nix { };
+in
 {
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot = {
-    isContainer = true;
     loader = {
       systemd-boot.enable = pkgs.system == "x86_64-linux";
       efi.canTouchEfiVariables = true;
@@ -23,7 +25,11 @@
     };
     # Use the latest Linux kernel packages
     kernelPackages = pkgs.linuxPackages_latest;
-
   };
-
+  # Enable plymouth boot splash screen
+  plymouth = {
+    enable = true;
+    theme = "ibm";
+    themePackages = [ ibm_plymouth_theme ];
+  };
 }
