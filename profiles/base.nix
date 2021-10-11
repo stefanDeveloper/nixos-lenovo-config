@@ -6,6 +6,7 @@
     boot
     system
     network
+    nix
     nixpkgs
     services
     locale
