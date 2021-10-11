@@ -4,7 +4,7 @@
     docker-compose
   ];
   virtualisation = {
-    #virtualbox.host.enable = true;
+    virtualbox.host.enable = true;
     docker = {
       enable = true;
 
@@ -14,5 +14,5 @@
       };
     };
   };
-  #users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
 }

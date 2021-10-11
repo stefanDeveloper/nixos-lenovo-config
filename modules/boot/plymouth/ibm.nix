@@ -5,7 +5,7 @@ let
     name = "ibm.plymouth";
     text = ''
       [Plymouth Theme]
-      Name=angular
+      Name=ibm
       Description=display kinda fireworks
       Comment=created By Aditya Shakya (@adi1090x)
       ModuleName=script
@@ -20,7 +20,7 @@ in stdenv.mkDerivation rec {
 
   src = fetchGit {
     url = "https://github.com/adi1090x/plymouth-themes";
-    rev = "c2a068e44f476d79fcc87372ad0436d11cf65b14";
+    rev = "bf2f570bee8e84c5c20caac353cbe1d811a4745f";
   };
 
   buildInputs = [ stdenv ];
@@ -35,7 +35,7 @@ in stdenv.mkDerivation rec {
   '';
 
   installPhase = ''
-    cd pack_1 && cp -r angular $install_path
+    cd pack_3 && cp -r ibm $install_path
   '';
 
   meta = with stdenv.lib; { platfotms = platforms.linux; };

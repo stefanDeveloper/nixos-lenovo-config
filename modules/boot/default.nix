@@ -24,12 +24,12 @@ in
       };
     };
     # Use the latest Linux kernel packages
-    kernelPackages = pkgs.linuxPackages_latest;
-  };
-  # Enable plymouth boot splash screen
-  plymouth = {
-    enable = true;
-    theme = "ibm";
-    themePackages = [ ibm_plymouth_theme ];
+    # kernelPackages = pkgs.linuxPackages_latest;
+    # Enable plymouth boot splash screen
+    plymouth = {
+      enable = true;
+      theme = "ibm";
+      themePackages = [ ibm_plymouth_theme ];
+    };
   };
 }
