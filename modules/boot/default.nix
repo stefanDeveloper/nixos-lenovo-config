@@ -22,9 +22,12 @@ in
         # Automatically add other operating system to the grub menu
         useOSProber = true;
       };
+
     };
+    
     # Use the latest Linux kernel packages
     # kernelPackages = pkgs.linuxPackages_latest;
+
     # Enable plymouth boot splash screen
     plymouth = {
       enable = true;

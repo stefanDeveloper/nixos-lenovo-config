@@ -1,10 +1,6 @@
 { config, ... }:
 
 {
-  environment.sessionVariables = config.home-manager.users.stefan.home.sessionVariables // {
-    NIX_AUTO_RUN = "1";
-  };
-
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;

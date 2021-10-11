@@ -4,7 +4,7 @@
   #  description = "Preferred applications";
   #};
 
-  config = rec {
+  config = {
     #defaultApps = {
       #browser = {
       #  cmd = "${pkgs.firefox}/bin/firefox";

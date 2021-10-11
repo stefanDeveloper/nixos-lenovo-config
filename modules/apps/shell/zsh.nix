@@ -1,9 +1,7 @@
 
 { pkgs, inputs, ... }:
 
-let
-  #initExtra = builtins.readFile "${inputs.zsh-config}/zshrc";
-in {
+{
   environment.systemPackages = with pkgs; [
     # Terminal/CLI
     vim
@@ -17,18 +15,8 @@ in {
     telnet
     niv
   ];
-  #environment.sessionVariables.SHELL = "zsh";
-  # Symlink /share/zsh
-  #environment.pathsToLink = [ "/share/zsh" ];
-
+  
   home-manager.users.stefan = {
-    #home.file = {
-    #  ".zshenv" = { source = "${inputs.zsh-config}/zshenv"; };
-    #  ".zprofile" = { source = "${inputs.zsh-config}/zprofile"; };
-    #  ".zlogin" = { source = "${inputs.zsh-config}/zlogin"; };
-    #  ".zlogout" = { source = "${inputs.zsh-config}/zlogout"; };
-    #  ".zconfig" = { source = "${inputs.zsh-config}/zconfig"; };
-    #};
 
     home.packages = with pkgs; [git];
 
@@ -61,11 +49,6 @@ in {
         update = "sudo nixos-rebuild switch";
       };
 
-      #inherit initExtra;
     };
-
-    # Enable zsh integration for broot.
-    # See: https://github.com/Canop/broot
-    programs.broot.enableZshIntegration = true;
   };
 }

@@ -7,7 +7,6 @@
     virtualisation
 
     apps
-    fm
     messaging
     web
     media
