@@ -12,5 +12,6 @@
     ./apps
     ./boot
     ./hardware
+    ./workspace/gnome
   ];
 }

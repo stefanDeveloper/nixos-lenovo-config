@@ -1,9 +1,14 @@
 {pkgs, ...}:
 {
+    services.dbus.packages = [ pkgs.gnome3.dconf ];
+    services.udev.packages = [ pkgs.gnome3.gnome-settings-daemon ];
     services.gnome.games.enable = false;
     environment.systemPackages = with pkgs; [
       # GNOME
       gnome.gnome-tweaks
+      # extensions
+      gnomeExtensions.appindicator
+      gnomeExtensions.dash-to-panel
     ];
     environment.gnome.excludePackages = with pkgs; [ 
       # gnome.cheese 
