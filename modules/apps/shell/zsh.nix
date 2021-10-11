@@ -1,5 +1,5 @@
 
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, config, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -15,6 +15,9 @@
     telnet
     niv
   ];
+
+  environment.pathsToLink = [ "/share/zsh" ];
+  environment.shells = with pkgs; [ zsh ];
   
   home-manager.users.stefan = {
 

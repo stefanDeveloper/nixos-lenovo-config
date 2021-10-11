@@ -1,3 +1,5 @@
+{ config, pkgs, ... }:
+
 {
   home-manager.users.stefan = {
     programs.vscode = {

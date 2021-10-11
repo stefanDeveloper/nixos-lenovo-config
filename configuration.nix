@@ -1,14 +1,7 @@
 { pkgs, config, ... }: 
 {
-  nix = {
-    package = pkgs.nixUnstable;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-   };
-  environment.systemPackages = [
-    (pkgs.writeShellScriptBin "nixFlakes" ''
-      exec ${pkgs.nixUnstable}/bin/nix --experimental-features "nix-command flakes" "$@"
-    '')
+  imports = [
+    <nixos-hardware/lenovo/thinkpad/t14/amd/gen1>
+    ./modules
   ];
 }

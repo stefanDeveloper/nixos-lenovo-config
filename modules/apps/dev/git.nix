@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   home-manager.users.stefan = {

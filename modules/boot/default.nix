@@ -16,14 +16,18 @@ in
       systemd-boot.enable = pkgs.system == "x86_64-linux";
       efi.canTouchEfiVariables = true;
 
-      grub = {
-        # Disable the GNU GRUB boot loader.
-        enable = lib.mkForce false;
-        # Automatically add other operating system to the grub menu
-        useOSProber = true;
-      };
+
 
     };
+
+    initrd = {
+      availableKernelModules = [ "nvme" "ehci_pci" "xhci_pci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+      kernelModules = [ ];
+    };
+    
+    kernelModules = [ "kvm-amd" ];
+
+    extraModulePackages = [ config.boot.kernelPackages.rtw89 ];
     
     # Use the latest Linux kernel packages
     # kernelPackages = pkgs.linuxPackages_latest;
