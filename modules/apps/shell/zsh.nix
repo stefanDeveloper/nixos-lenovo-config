@@ -2,20 +2,6 @@
 { pkgs, inputs, config, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    # Terminal/CLI
-    vim
-    wget
-    zip
-    unzip
-    htop
-    killall
-    pciutils
-    nmap
-    telnet
-    niv
-  ];
-
   environment.pathsToLink = [ "/share/zsh" ];
   environment.shells = with pkgs; [ zsh ];
   
@@ -53,5 +39,9 @@
       };
 
     };
+
+    # Enable zsh integration for broot.
+    # See: https://github.com/Canop/broot
+    programs.broot.enableZshIntegration = true;
   };
 }
