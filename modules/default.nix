@@ -1,5 +1,6 @@
 {
   imports = [
+    ./fonts.nix
     ./home.nix
     ./locale.nix
     ./network.nix
