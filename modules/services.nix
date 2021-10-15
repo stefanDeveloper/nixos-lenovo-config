@@ -12,8 +12,6 @@
       layout = "us,de";
       # xkbOptions = "altwin:alt_win";
     };
-    
-    gnome.games.enable = false;
 
     # Enable CUPS to print documents.
     # Currently not working

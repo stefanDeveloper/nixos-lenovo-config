@@ -1,5 +1,9 @@
 {
   imports = [
+    ./boot
+    ./hardware
+    ./system.nix
+    ./users
     ./fonts.nix
     ./home.nix
     ./locale.nix
@@ -7,12 +11,8 @@
     ./nix.nix
     ./nixpkgs.nix
     ./services.nix
-    ./system.nix
     ./virtualisation.nix
-    ./users
     ./apps
-    ./boot
-    ./hardware
     ./workspace/gnome
   ];
 }

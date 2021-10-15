@@ -3,11 +3,9 @@
 
 {
   environment.pathsToLink = [ "/share/zsh" ];
-  environment.shells = with pkgs; [ zsh ];
+  environment.shells = with pkgs; [ bashInteractive zsh ];
   
   home-manager.users.stefan = {
-
-    home.packages = with pkgs; [git];
 
     programs.zsh = {
       enable = true;
@@ -35,7 +33,7 @@
       };
       shellAliases = {
         ll = "ls -l";
-        update = "sudo nixos-rebuild switch";
+        update = "sudo nixos-rebuild switch --upgrade";
       };
 
     };
