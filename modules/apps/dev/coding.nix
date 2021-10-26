@@ -1,0 +1,12 @@
+{ inputs, pkgs, ... }:
+
+{
+  environment.systemPackages = with pkgs; [
+    cmake
+    gcc11
+    python39
+    python39Packages.pip
+    python39Packages.setuptools
+    python39Packages.jupyter
+  ];
+}
