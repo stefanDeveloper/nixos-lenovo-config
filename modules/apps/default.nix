@@ -2,6 +2,7 @@
     imports = [
         ./dev
         ./media
+        ./reading
         ./messaging
         ./office
         ./shell/zsh.nix
