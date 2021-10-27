@@ -19,7 +19,6 @@
       gnome-photos 
       gnome.gedit 
       epiphany
-      evince
       gnome.gnome-characters
       gnome.totem
       gnome-tour
