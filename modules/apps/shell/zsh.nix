@@ -46,6 +46,7 @@
       };
       shellAliases = {
         ll = "ls -l";
+        ltex-ls = "/home/stefan/Downloads/ltex-ls-15.1.0/bin/ltex-ls";
         update = "sudo nixos-rebuild switch";
       };
 

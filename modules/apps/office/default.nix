@@ -12,5 +12,8 @@
     remmina
 
     texlive.combined.scheme-full
+    gthumb
+    meld
+    obs-studio
   ];
 }

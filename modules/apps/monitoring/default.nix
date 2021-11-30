@@ -1,5 +1,5 @@
 {
   imports = [
-    ./fonts.nix
+    ./htop.nix
   ];
 }

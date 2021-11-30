@@ -28,7 +28,14 @@ builtins.listToAttrs (builtins.map (path: {
   ./apps/web/google-chrome.nix
   ./apps/office
   ./apps/shell/zsh.nix
+  ./apps/shell/alacritty.nix
+  ./apps/shell/fish.nix
+  ./apps/fm
+  ./apps/tools
+  ./apps/terminal/kitty.nix
+  ./apps/monitoring
 
   ./workspace/gnome
+  ./workspace/i3
   ./workspace
   ])

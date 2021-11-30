@@ -6,6 +6,8 @@
       slack
       discord
       element-desktop
+
+      tdesktop
     ];
   };
 }
