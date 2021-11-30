@@ -2,6 +2,8 @@
 
 {
   environment.systemPackages = with pkgs; [
+    nixFlakes
+    
     cmake
     gcc11
     python39
