@@ -1,6 +1,15 @@
 {pkgs,...}:
 {
+  environment.systemPackages = [
+    (pkgs.writeShellScriptBin "nixFlakes" ''
+      exec ${pkgs.nixUnstable}/bin/nix --experimental-features "nix-command flakes" "$@"
+    '')
+  ];
   nix = {
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
     # Enable automatic garbage collection
     gc = {
       automatic = true;
