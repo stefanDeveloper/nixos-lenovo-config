@@ -1,25 +1,61 @@
-{ config, pkgs, callPackage, ... }: 
+{ pkgs, lib, ... }:
+
 {
-  environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw 
-  services.xserver = {
+  imports = [
+    ./alacritty.nix
+    ./compton.nix
+    ./i3.nix
+    ./polybar.nix
+    ./redshift.nix
+    ./rofi.nix
+    ./vscode.nix
+  ];
+
+  xsession.windowManager.i3 = {
     enable = true;
+    package = pkgs.i3-gaps;
 
-    desktopManager = {
-      xterm.enable = false;
-    };
-   
-    displayManager = {
-        defaultSession = "none+i3";
-    };
+    config = rec {
+      modifier = "Mod4";
+      bars = [ ];
 
-    windowManager.i3 = {
-      enable = true;
-      extraPackages = with pkgs; [
-        dmenu #application launcher most people use
-        i3status # gives you the default i3 status bar
-        i3lock #default i3 screen locker
-        i3blocks #if you are planning on using i3blocks over i3status
-     ];
+      window.border = 0;
+
+      gaps = {
+        inner = 15;
+        outer = 5;
+      };
+
+      keybindings = lib.mkOptionDefault {
+        "XF86AudioMute" = "exec amixer set Master toggle";
+        "XF86AudioLowerVolume" = "exec amixer set Master 4%-";
+        "XF86AudioRaiseVolume" = "exec amixer set Master 4%+";
+        "XF86MonBrightnessDown" = "exec brightnessctl set 4%-";
+        "XF86MonBrightnessUp" = "exec brightnessctl set 4%+";
+        "${modifier}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
+        "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -modi drun -show drun";
+        "${modifier}+Shift+d" = "exec ${pkgs.rofi}/bin/rofi -show window";
+        "${modifier}+b" = "exec ${pkgs.brave}/bin/brave";
+        "${modifier}+Shift+x" = "exec systemctl suspend";
+      };
+
+      startup = [
+        {
+          command = "exec i3-msg workspace 1";
+          always = true;
+          notification = false;
+        }
+        {
+          command = "systemctl --user restart polybar.service";
+          always = true;
+          notification = false;
+        }
+        {
+          command = "${pkgs.feh}/bin/feh --bg-scale ~/background.jpg";
+          always = true;
+          notification = false;
+        }
+      ];
     };
   };
 }
