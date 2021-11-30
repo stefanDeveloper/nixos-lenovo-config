@@ -3,13 +3,21 @@
     services.gnome.games.enable = false;
     environment.systemPackages = with pkgs; [
       # GNOME
-      gnome3.gnome-tweaks
+      gnome.gnome-tweaks
     ];
-    environment.gnome.excludePackages = with pkgs; [
-      gnome3.gnome-music
-      gnome3.epiphany
-      gnome3.yelp
-      gnome3.gnome-maps
-      gnome3.geary
+    environment.gnome.excludePackages = with pkgs; [ 
+      # gnome.cheese 
+      # gnome.gnome-terminal 
+      gnome-photos 
+      gnome.gedit 
+      epiphany
+      gnome.gnome-characters
+      gnome.totem
+      gnome-tour
+
+      gnome.gnome-music
+      gnome.yelp
+      gnome.gnome-maps
+      gnome.geary
     ];
 }

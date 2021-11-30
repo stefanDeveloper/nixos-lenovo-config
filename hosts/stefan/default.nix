@@ -2,6 +2,6 @@
   imports = with inputs.self.nixosModules; [
     ./hardware
 
-    inputs.self.nixosProfiles.desktop-i3
+    inputs.self.nixosProfiles.desktop-gnome
   ];
 }
