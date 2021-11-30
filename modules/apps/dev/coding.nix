@@ -8,5 +8,15 @@
     python39Packages.pip
     python39Packages.setuptools
     python39Packages.jupyter
+
+    pre-commit
+
+    vagrant
+
+    ansible
+    ansible-lint
+    jmespath
+
+    jdk11
   ];
 }
