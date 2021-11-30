@@ -6,41 +6,51 @@
 
       font = rec {
         normal.family = "JetBrains Mono";
-        size = 12;
+        size = 8.0;
         bold = { style = "Bold"; };
       };
+      title = "Terminal";
 
-      window.padding = {
-        x = 4;
-        y = 10;
+      padding = { y = 5; };
+      dimensions = {
+        lines = 75;
+        columns = 100;
       };
 
       shell.program = "${pkgs.zsh}/bin/zsh";
 
-      cursor.style = "Block";
-
       live_config_reload = true;
 
-      background_opacity = 0.9;
+     background_opacity = 0.3;
 
       colors = {
         primary = {
-          background = "#000000";
-          foreground = "#FFFFFF";
+          background = "0x000000";
+          foreground = "0xEBEBEB";
         };
         cursor = {
-          text = "#111111";
-          cursor = "#FFFFFF";
+          text = "0xFF261E";
+          cursor = "0xFF261E";
         };
         normal = {
-          black = "#000000";
-          red = "#FF0000";
-          green = "#22BC22";
-          yellow = "#FFFF00";
-          blue = "#0000FF";
-          cyan = "#00FFFF";
-          magenta = "#FF00FF";
-          white = "#FFFFFF";
+          black = "0x0D0D0D";
+          red = "0xFF301B";
+          green = "0xA0E521";
+          yellow = "0xFFC620";
+          blue = "0x178AD1";
+          magenta = "0x9f7df5";
+          cyan = "0x21DEEF";
+          white = "0xEBEBEB";
+        };
+        bright = {
+          black = "0x6D7070";
+          red = "0xFF4352";
+          green = "0xB8E466";
+          yellow = "0xFFD750";
+          blue = "0x1BA6FA";
+          magenta = "0xB978EA";
+          cyan = "0x73FBF1";
+          white = "0xFEFEF8";
         };
       };
     };

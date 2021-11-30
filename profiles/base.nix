@@ -18,5 +18,7 @@
 
     git
     zsh
+    alacritty
+    kitty
   ];
 }
