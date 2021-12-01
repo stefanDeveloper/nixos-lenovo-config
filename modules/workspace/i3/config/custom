@@ -1,6 +1,5 @@
 # set modifier
-set $super Mod4
-set $alt Mod1
+set $super Mod1
 
 # set font
 font pango: Noto Sans 8
@@ -12,6 +11,7 @@ floating_modifier $super
 exec --no-startup-id hsetroot -center ~/.wallpaper.png
 exec --no-startup-id xsettingsd &
 exec --no-startup-id compton -b
+exec --no-startup-id nitrogen --restore
 
 # start a terminal
 bindsym $super+Return exec i3-sensible-terminal
@@ -40,7 +40,6 @@ bindsym XF86AudioStop exec mpc stop
 
 # kill focused window
 bindsym $super+c kill
-bindsym $alt+F4 kill
 
 # change focus
 bindsym $super+Left focus left
@@ -73,8 +72,8 @@ bindsym $super+space floating toggle
 bindsym $super+Shift+space focus mode_toggle
 
 # switch to workspace
-bindsym $alt+Control+Right workspace next
-bindsym $alt+Control+Left workspace prev
+bindsym $super+Control+Right workspace next
+bindsym $super+Control+Left workspace prev
 bindsym $super+1 workspace 1
 bindsym $super+2 workspace 2
 bindsym $super+3 workspace 3
@@ -123,16 +122,16 @@ bar {
 }
 
 # window rules, you can find the window class using xprop
-for_window [class=".*"] border pixel 4
-assign [class=URxvt] 1
-assign [class=Firefox|Transmission-gtk] 2
-assign [class=Thunar|File-roller] 3
-assign [class=Geany|Evince|Gucharmap|Soffice|libreoffice*] 4
-assign [class=Audacity|Vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape] 5
-assign [class=Lxappearance|System-config-printer.py|Lxtask|GParted|Pavucontrol|Exo-helper*|Lxrandr|Arandr] 6
-for_window [class=Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol] floating enable
-for_window [class=URxvt|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
-for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
+#for_window [class=".*"] border pixel 4
+#assign [class=URxvt] 1
+#assign [class=Firefox|Transmission-gtk] 2
+#assign [class=Thunar|File-roller] 3
+#assign [class=Geany|Evince|Gucharmap|Soffice|libreoffice*] 4
+#assign [class=Audacity|Vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape] 5
+#assign [class=Lxappearance|System-config-printer.py|Lxtask|GParted|Pavucontrol|Exo-helper*|Lxrandr|Arandr] 6
+#for_window [class=Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol] floating enable
+#for_window [class=URxvt|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
+#for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
 
 # colour of border, background, text, indicator, and child_border
 client.focused              #bf616a #2f343f #d8dee8 #bf616a #d8dee8
