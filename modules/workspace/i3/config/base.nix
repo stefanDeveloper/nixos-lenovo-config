@@ -43,7 +43,7 @@ in rec {
     forceWrapping = true;
   };
 
-  modifier = env.mod;
+  modifier = env.alt;
 
   window = {
     border = 1;
@@ -58,24 +58,6 @@ in rec {
         criteria = { floating = ""; };
       }
     ];
-  };
-
-  modes = {
-    resize = {
-      Down = "resize grow height ${env.step2} px";
-      Up = "resize shrink height ${env.step2} px";
-
-      Escape = "mode default";
-      Return = "mode default";
-
-      Right = "resize grow width ${env.step2} px";
-      Left = "resize shrink width ${env.step2} px";
-
-      h = "resize shrink width ${env.step2} px";
-      j = "resize grow height ${env.step2} px";
-      k = "resize shrink height ${env.step2} px";
-      l = "resize grow width ${env.step2} px";
-    };
   };
 
   keybindings = {

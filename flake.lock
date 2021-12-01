@@ -88,6 +88,22 @@
         "type": "indirect"
       }
     },
+    "nixos-artwork": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1638232904,
+        "narHash": "sha256-M7sqO3VBRibOCDRWmtD/36qPiLVQPDQ7+cjx6mww2ws=",
+        "owner": "nixos",
+        "repo": "artwork",
+        "rev": "ce8d391e4e8498c7b26fabeabeb4950265337c42",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "artwork",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "flake": false,
       "locked": {
@@ -187,6 +203,7 @@
         "deploy-rs": "deploy-rs",
         "home-manager": "home-manager",
         "nix": "nix",
+        "nixos-artwork": "nixos-artwork",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-21-05": "nixpkgs-21-05"

@@ -3,6 +3,9 @@
     ./base.nix
 
     workspace
+    cursor
+    gtk
+    qt
 
     virtualisation
 
@@ -17,10 +20,8 @@
     editor
     
     zsh
+    fish
     alacritty
     kitty
-
-    gtk
-    qt
   ];
 }

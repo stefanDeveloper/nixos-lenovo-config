@@ -1,5 +1,5 @@
 
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, lib,... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -15,6 +15,9 @@
     telnet
     niv
   ];
+
+  environment.pathsToLink = [ "/share/zsh" ];
+  environment.shells = with pkgs; [ bashInteractive zsh ];
   
   home-manager.users.stefan = {
 
@@ -47,16 +50,6 @@
             sha256 = "0h7f27gz586xxw7cc0wyiv3bx0x3qih2wwh05ad85bh2h834ar8d";
           };
         }
-        {
-          name = "powerlevel10k";
-          src = pkgs.zsh-powerlevel10k;
-          file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-        }
-        #{
-        #  name = "powerlevel10k-config";
-        #  src = lib.cleanSource ./p10k-config;
-        #  file = "p10k.zsh";
-        #}
       ];
       history = rec {
         expireDuplicatesFirst = true;
@@ -65,7 +58,7 @@
       };
       shellAliases = {
         ll = "ls -l";
-        ltex-ls = "/home/stefan/Downloads/ltex-ls-15.1.0/bin/ltex-ls";
+        #ltex-ls = "/home/stefan/Downloads/ltex-ls-15.1.0/bin/ltex-ls";
         update = "sudo nixos-rebuild switch";
       };
 

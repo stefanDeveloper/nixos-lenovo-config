@@ -26,6 +26,13 @@
     # Nix-flakes deployment tool
     deploy-rs.url = "github:serokell/deploy-rs";
 
+    nixos-artwork = {
+      type = "github";
+      owner = "nixos";
+      repo = "artwork";
+      flake = false;
+    };
+
   };
   
   outputs = { nixpkgs, nix, self, deploy-rs, ... }@inputs:  {
