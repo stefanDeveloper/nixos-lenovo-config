@@ -20,7 +20,7 @@
     windowManager.i3 = {
       enable = true;
       package = pkgs.i3-gaps;
-      #configFile = ./config/custom;
+      configFile = ./config/custom;
     };
   };
 
