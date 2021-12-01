@@ -19,5 +19,8 @@
     zsh
     alacritty
     kitty
+
+    gtk
+    qt
   ];
 }

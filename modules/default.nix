@@ -58,6 +58,8 @@ builtins.listToAttrs (builtins.map (path: {
 
   ./apps/streaming
 
+  ./workspace/gtk.nix
+  ./workspace/qt.nix
   ./workspace/gnome
   ./workspace/i3
   ./workspace
