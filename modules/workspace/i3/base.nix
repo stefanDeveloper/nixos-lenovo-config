@@ -1,9 +1,6 @@
 { pkgs, lib, config, ... }:
 
-let
-  cfg = import ./config/base.nix { inherit pkgs lib config; };
-  env = import ./config/env.nix { };
-in {
+{
   # links /libexec from derivations to /run/current-system/sw 
   environment.pathsToLink = [ "/libexec" ];
   # Support settings to be stored
@@ -23,6 +20,7 @@ in {
     windowManager.i3 = {
       enable = true;
       package = pkgs.i3-gaps;
+      configFile = ./config/custom;
     };
   };
 
@@ -36,7 +34,7 @@ in {
     dunst             # notification
     betterlockscreen  # lockscreen
     i3lock-pixeled    # i3lock
-    polybar
+    i3status
   ];
 
   home-manager.users.stefan = {
