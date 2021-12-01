@@ -5,6 +5,7 @@ builtins.listToAttrs (builtins.map (path: {
   in if isNull m then [ b ] else m);
   value = import path;
 })[
+  # Default imports
   ./hardware
   ./boot
   ./system.nix
@@ -16,24 +17,46 @@ builtins.listToAttrs (builtins.map (path: {
   ./home.nix
   ./nix.nix
   ./users
-
+  
   ./apps
+
+  # Development
   ./apps/dev
   ./apps/dev/git.nix
+  # Editors
+  ./apps/editor
+  ./apps/editor/vscode.nix
+  ./apps/editor/vim.nix
+  ./apps/editor/emacs.nix
+  # Media
   ./apps/media
+  
   ./apps/messaging
+  
   ./apps/web
   ./apps/web/firefox.nix
   ./apps/web/tor.nix
   ./apps/web/google-chrome.nix
+
   ./apps/office
+  
   ./apps/shell/zsh.nix
-  ./apps/shell/alacritty.nix
   ./apps/shell/fish.nix
-  ./apps/fm
-  ./apps/tools
+
+  ./apps/terminal
+  ./apps/terminal/alacritty.nix
   ./apps/terminal/kitty.nix
+  ./apps/terminal/tmux.nix
+
+  ./apps/fm
+  
+  ./apps/tools
+  
   ./apps/monitoring
+  
+  ./apps/reading
+
+  ./apps/streaming
 
   ./workspace/gnome
   ./workspace/i3

@@ -12,13 +12,11 @@
     locale
     home
     users
+
     monitoring
     fm
     tools
 
     git
-    zsh
-    alacritty
-    kitty
   ];
 }

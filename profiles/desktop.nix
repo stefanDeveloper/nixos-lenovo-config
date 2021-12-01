@@ -12,6 +12,12 @@
     media
     dev
     office
+    reading
+
+    editor
+    
     zsh
+    alacritty
+    kitty
   ];
 }
