@@ -49,6 +49,10 @@
         source = ./rofi;
         target = ".config/rofi";
       };
+      "i3status" = {
+        source = ./i3status.conf;
+        target = ".config/i3/i3status.conf";
+      };
     };
   };
 }

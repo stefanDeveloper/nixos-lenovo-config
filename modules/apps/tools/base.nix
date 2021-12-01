@@ -13,5 +13,7 @@
     screenfetch
     tree
     git
+
+    brightnessctl # Brightness
   ];
 }
