@@ -9,6 +9,8 @@
         showCpuUsage = true;
         treeView = true;
         hideUserlandThreads = true;
+        sort_direction = true;
+        sort_key = "PERCENT_CPU";
       };
     };
   };

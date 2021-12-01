@@ -12,7 +12,7 @@
       };
       editor = {
         cmd =
-          "${config.home-manager.users.vyorkin.programs.emacs.finalPackage}/bin/emacsclient -c $@";
+          "${config.home-manager.users.stefan.programs.emacs.finalPackage}/bin/emacsclient -c $@";
         desktop = "emacsclient";
       };
       browser = {
@@ -46,7 +46,7 @@
       VISUAL = config.defaultApps.editor.cmd;
     };
 
-    home-manager.users.vyorkin.xdg.mimeApps = {
+    home-manager.users.stefan.xdg.mimeApps = {
       enable = true;
       defaultApplications = with config.defaultApps;
         builtins.mapAttrs (name: value:
