@@ -34,7 +34,7 @@
     dunst             # notification
     betterlockscreen  # lockscreen
     i3lock-pixeled    # i3lock
-    i3status
+    i3status          # status bar
   ];
 
   home-manager.users.stefan = {

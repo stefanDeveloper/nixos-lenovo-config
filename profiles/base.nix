@@ -12,6 +12,7 @@
     locale
     home
     users
+    us-de
 
     monitoring
     fm
