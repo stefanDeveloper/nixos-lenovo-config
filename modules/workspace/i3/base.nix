@@ -32,10 +32,13 @@
     nitrogen          # wallpaper
     rofi              # app launcher
     dunst             # notification
-    betterlockscreen  # lockscreen
+    multilockscreen   # lockscreen
     i3lock-pixeled    # i3lock
     i3status          # status bar
-    gtkmm2
+    # Under investigation, don't know if it solves the problem
+    lxappearance
+    gtkmm2            # for nitrogen
+    gnome-icon-theme  # for nitrogen
   ];
 
   home-manager.users.stefan = {

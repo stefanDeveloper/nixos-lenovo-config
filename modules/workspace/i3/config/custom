@@ -2,7 +2,7 @@
 set $super Mod1
 
 # set font
-font pango: Noto Sans 8
+font pango: Noto Sans 9
 
 # Use Mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
@@ -93,7 +93,7 @@ bindsym $super+Shift+6 move container to workspace 6
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $super+Shift+r restart
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $super+Shift+c reload
 
 # exit i3
 bindsym $super+q exec "i3-nagbar -t warning -m 'Really, exit?' -b 'Yes' 'i3-msg exit'"
