@@ -5,7 +5,6 @@
     xserver = {
       # Configure keymap in X11
       layout = "us,de";
-      # xkbOptions = "altwin:alt_win";
     };
     
     # Enable CUPS to print documents.

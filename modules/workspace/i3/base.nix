@@ -35,6 +35,7 @@
     betterlockscreen  # lockscreen
     i3lock-pixeled    # i3lock
     i3status          # status bar
+    gtkmm2
   ];
 
   home-manager.users.stefan = {

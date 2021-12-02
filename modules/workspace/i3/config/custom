@@ -8,7 +8,6 @@ font pango: Noto Sans 8
 floating_modifier $super
 
 #autostart
-#exec --no-startup-id hsetroot -center ~/.wallpaper.png
 exec --no-startup-id setxkbmap us-de
 exec --no-startup-id xsettingsd &
 exec --no-startup-id compton -b
