@@ -86,6 +86,7 @@ bindsym $super+Shift+space focus mode_toggle
 # switch to workspace
 bindsym $super+Control+Right workspace next
 bindsym $super+Control+Left workspace prev
+
 bindsym $super+1 workspace 1
 bindsym $super+2 workspace 2
 bindsym $super+3 workspace 3
@@ -96,6 +97,17 @@ bindsym $super+7 workspace 7
 bindsym $super+8 workspace 8
 bindsym $super+9 workspace 9
 bindsym $super+0 workspace 10
+
+bindsym $super+1 workspace 11
+bindsym $super+2 workspace 12
+bindsym $super+3 workspace 13
+bindsym $super+4 workspace 14
+bindsym $super+5 workspace 15
+bindsym $super+6 workspace 16
+bindsym $super+7 workspace 17
+bindsym $super+8 workspace 18
+bindsym $super+9 workspace 19
+bindsym $super+0 workspace 20
 
 # move focused container to workspace
 bindsym $super+Shift+1 move container to workspace 1
@@ -109,44 +121,48 @@ bindsym $super+Shift+8 move container to workspace 8
 bindsym $super+Shift+9 move container to workspace 9
 bindsym $super+Shift+0 move container to workspace 10
 
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $super+Shift+r restart
-# reload the configuration file
-bindsym $super+Shift+c reload
+bindsym $super+Control+1 move container to workspace 11
+bindsym $super+Control+2 move container to workspace 12
+bindsym $super+Control+3 move container to workspace 13
+bindsym $super+Control+4 move container to workspace 14
+bindsym $super+Control+5 move container to workspace 15
+bindsym $super+Control+6 move container to workspace 16
+bindsym $super+Control+7 move container to workspace 17
+bindsym $super+Control+8 move container to workspace 18
+bindsym $super+Control+9 move container to workspace 19
+bindsym $super+Control+0 move container to workspace 20
 
-# exit i3
-bindsym $super+q exec "i3-nagbar -t warning -m 'Really, exit?' -b 'Yes' 'i3-msg exit'"
-# suspend
-bindsym $super+Shift+q exec --no-startup-id systemctl suspend
+workspace 1  output DisplayPort-1 eDP
+workspace 2  output DisplayPort-1 eDP
+workspace 3  output DisplayPort-1 eDP
+workspace 4  output DisplayPort-1 eDP
+workspace 5  output DisplayPort-1 eDP
+workspace 6  output DisplayPort-1 eDP
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        bindsym Left resize shrink width 5 px or 5 ppt
-        bindsym Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 5 px or 5 ppt
-        bindsym Return mode "default"
-}
-bindsym $super+r mode "resize"
+workspace 7  output HDMI-A-1 DisplayPort-1 eDP HDMI-A-0
+workspace 8  output HDMI-A-1 DisplayPort-1 eDP HDMI-A-0
+workspace 9  output HDMI-A-0 DisplayPort-1 eDP HDMI-A-0
+workspace 10 output HDMI-A-0 DisplayPort-1 eDP HDMI-A-0
 
-# panel
-bar {
-        colors {
-                background #2f343f
-                statusline #2f343f
-                separator #4b5262
+workspace 11 output DisplayPort-1 HDMI-A-0 eDP
+workspace 12 output DisplayPort-1 HDMI-A-0 eDP
 
-                # colour of border, background, and text
-                focused_workspace       #2f343f #bf616a #d8dee8
-                active_workspace        #2f343f #2f343f #d8dee8
-                inactive_workspace      #2f343f #2f343f #d8dee8
-                urgent_workspacei       #2f343f #ebcb8b #2f343f
-        }
-        status_command i3status -c ~/.config/i3/i3status.conf
-}
+workspace 13 output HDMI-A-0 DisplayPort-1 eDP
+workspace 14 output HDMI-A-0 DisplayPort-1 eDP
 
-bindsym $super+comma workspace prev
-bindsym $super+period workspace next
+workspace 15 output HDMI-A-0 DisplayPort-1 eDP
+workspace 16 output HDMI-A-0 DisplayPort-1 eDP
+
+workspace 17 output DisplayPort-1 HDMI-A-0 eDP
+workspace 18 output DisplayPort-1 HDMI-A-0 eDP
+workspace 19 output DisplayPort-1 HDMI-A-0 eDP
+workspace 20 output DisplayPort-1 HDMI-A-0 eDP
+
+# App quick focus
+#tbc
+
+# App quick launch
+#tbc
 
 # Quick lock for leaving workspace
 bindsym $super+l exec $lock
@@ -178,16 +194,51 @@ mode "$display_mode" {
 }
 bindsym $super+b mode $display_mode
 
-# window rules, you can find the window class using xprop
-for_window [class=".*"] border pixel 4
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $super+Shift+r restart
+# reload the configuration file
+bindsym $super+Shift+c reload
 
+# exit i3
+bindsym $super+q exec "i3-nagbar -t warning -m 'Really, exit?' -b 'Yes' 'i3-msg exit'"
+# suspend
+bindsym $super+Shift+q exec --no-startup-id systemctl suspend
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
+        bindsym Return mode "default"
+}
+bindsym $super+r mode "resize"
+
+# panel
+bar {
+        font pango: Noto Sans 9
+        colors {
+                background #2f343f
+                statusline #2f343f
+                separator #4b5262
+
+                # colour of border, background, and text
+                focused_workspace       #2f343f #bf616a #d8dee8
+                active_workspace        #2f343f #2f343f #d8dee8
+                inactive_workspace      #2f343f #2f343f #d8dee8
+                urgent_workspace        #2f343f #ebcb8b #2f343f
+        }
+        status_command i3status -c ~/.config/i3/i3status.conf
+}
+
+# window rules, you can find the window class using xprop
+for_window [class=".*"] border pixel 2
 assign [class="Element"] 1
 assign [class="Firefox"] 2
 assign [class="Visual Studio Code"] 3
 assign [class="Gimp|Vlc|Slack|(?i)Spotify"] 10
 assign [class="Skype|Gitter|Telegram"] 10
 assign [class="(?i)Discord"] 10
-
 for_window [class="Nitrogen"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Arandr"] floating enable
@@ -199,9 +250,3 @@ client.unfocused            #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.urgent               #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.background           #2f343f
-
-# App quick focus
-#tbc
-
-# App quick launch
-#tbc
