@@ -11,6 +11,7 @@ floating_modifier $super
 exec --no-startup-id setxkbmap us-de
 exec --no-startup-id xsettingsd &
 exec --no-startup-id compton -b
+exec --no-startup-id nextcloud &
 exec --no-startup-id nitrogen --restore
 
 # start a terminal
