@@ -1,5 +1,6 @@
 # set modifier
 set $super Mod1
+set $hyper Mod4
 
 # lock screen
 # set $lock i3lock-pixeled
@@ -98,16 +99,16 @@ bindsym $super+8 workspace 8
 bindsym $super+9 workspace 9
 bindsym $super+0 workspace 10
 
-bindsym $super+1 workspace 11
-bindsym $super+2 workspace 12
-bindsym $super+3 workspace 13
-bindsym $super+4 workspace 14
-bindsym $super+5 workspace 15
-bindsym $super+6 workspace 16
-bindsym $super+7 workspace 17
-bindsym $super+8 workspace 18
-bindsym $super+9 workspace 19
-bindsym $super+0 workspace 20
+bindsym $hyper+1 workspace 11
+bindsym $hyper+2 workspace 12
+bindsym $hyper+3 workspace 13
+bindsym $hyper+4 workspace 14
+bindsym $hyper+5 workspace 15
+bindsym $hyper+6 workspace 16
+bindsym $hyper+7 workspace 17
+bindsym $hyper+8 workspace 18
+bindsym $hyper+9 workspace 19
+bindsym $hyper+0 workspace 20
 
 # move focused container to workspace
 bindsym $super+Shift+1 move container to workspace 1
@@ -121,16 +122,16 @@ bindsym $super+Shift+8 move container to workspace 8
 bindsym $super+Shift+9 move container to workspace 9
 bindsym $super+Shift+0 move container to workspace 10
 
-bindsym $super+Control+1 move container to workspace 11
-bindsym $super+Control+2 move container to workspace 12
-bindsym $super+Control+3 move container to workspace 13
-bindsym $super+Control+4 move container to workspace 14
-bindsym $super+Control+5 move container to workspace 15
-bindsym $super+Control+6 move container to workspace 16
-bindsym $super+Control+7 move container to workspace 17
-bindsym $super+Control+8 move container to workspace 18
-bindsym $super+Control+9 move container to workspace 19
-bindsym $super+Control+0 move container to workspace 20
+bindsym $hyper+Shift+1 move container to workspace 11
+bindsym $hyper+Shift+2 move container to workspace 12
+bindsym $hyper+Shift+3 move container to workspace 13
+bindsym $hyper+Shift+4 move container to workspace 14
+bindsym $hyper+Shift+5 move container to workspace 15
+bindsym $hyper+Shift+6 move container to workspace 16
+bindsym $hyper+Shift+7 move container to workspace 17
+bindsym $hyper+Shift+8 move container to workspace 18
+bindsym $hyper+Shift+9 move container to workspace 19
+bindsym $hyper+Shift+0 move container to workspace 20
 
 workspace 1  output DisplayPort-1 eDP
 workspace 2  output DisplayPort-1 eDP
@@ -139,10 +140,10 @@ workspace 4  output DisplayPort-1 eDP
 workspace 5  output DisplayPort-1 eDP
 workspace 6  output DisplayPort-1 eDP
 
-workspace 7  output HDMI-A-1 DisplayPort-1 eDP HDMI-A-0
-workspace 8  output HDMI-A-1 DisplayPort-1 eDP HDMI-A-0
-workspace 9  output HDMI-A-0 DisplayPort-1 eDP HDMI-A-0
-workspace 10 output HDMI-A-0 DisplayPort-1 eDP HDMI-A-0
+workspace 7  output HDMI-A-0 DisplayPort-1 eDP
+workspace 8  output HDMI-A-0 DisplayPort-1 eDP
+workspace 9  output HDMI-A-0 DisplayPort-1 eDP
+workspace 10 output HDMI-A-0 DisplayPort-1 eDP
 
 workspace 11 output DisplayPort-1 HDMI-A-0 eDP
 workspace 12 output DisplayPort-1 HDMI-A-0 eDP
@@ -233,11 +234,11 @@ bar {
 
 # window rules, you can find the window class using xprop
 for_window [class=".*"] border pixel 2
-assign [class="Element"] 1
+assign [class="Visual Studio Code"] 1
 assign [class="Firefox"] 2
-assign [class="Visual Studio Code"] 3
+assign [class="Thunderbird"] 3
 assign [class="Gimp|Vlc|Slack|(?i)Spotify"] 10
-assign [class="Skype|Gitter|Telegram"] 10
+assign [class="Element|Skype|Gitter|Telegram"] 10
 assign [class="(?i)Discord"] 10
 for_window [class="Nitrogen"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal

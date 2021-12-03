@@ -2,6 +2,8 @@
 
 > For further information, please refer to the [documentation](https://nixos.org/manual/nixos/stable/)
 
+![Desktop](./img/desktop.png)
+
 ## Getting Started
 
 Build the project
