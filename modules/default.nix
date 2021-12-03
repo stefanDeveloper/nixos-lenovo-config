@@ -59,6 +59,8 @@ builtins.listToAttrs (builtins.map (path: {
 
   ./apps/streaming
 
+  ./x11
+
   ./workspace/cursor.nix
   ./workspace/gtk.nix
   ./workspace/qt.nix

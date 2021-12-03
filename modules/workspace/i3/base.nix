@@ -37,6 +37,8 @@
     multilockscreen   # lockscreen
     i3lock-pixeled    # i3lock
     i3status          # status bar
+    flameshot         # screenshot capture
+    xautolock         # autolock inactivity
     # Under investigation, don't know if it solves the problem
     lxappearance
     gtkmm2            # for nitrogen

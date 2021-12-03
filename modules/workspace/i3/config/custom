@@ -1,6 +1,16 @@
 # set modifier
 set $super Mod1
 
+# lock screen
+# set $lock i3lock-pixeled
+set $lock multilockscreen -l
+
+set $term1 alacritty
+set $term2 kitty
+set $browser1 firefox
+set $browser2 google-chrome-stable
+set $browser3 tor-browser
+
 # set font
 font pango: Noto Sans 9
 
@@ -13,18 +23,18 @@ exec --no-startup-id xsettingsd &
 exec --no-startup-id compton -b
 exec --no-startup-id nextcloud &
 exec --no-startup-id nitrogen --restore
+exec --no-startup-id xautolock -detectsleep -time 10 -locker "$lock" -notify 30 -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'"
 
 # start a terminal
-bindsym $super+Return exec alacritty
+bindsym $super+Return exec $term1
 
 # start dmenu (a program launcher)
 bindsym $super+Shift+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=8'"
 bindsym $super+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8' -show-icons
 
 # common apps keybinds
-bindsym Print exec scrot 'Cheese_%a-%d%b%y_%H.%M.png' -e 'viewnior ~/$f'
-bindsym $super+l exec i3lock-pixeled
-bindsym $super+Shift+w exec firefox
+bindsym --release Print exec "flameshot gui"
+bindsym $super+Shift+w exec $browser1
 
 bindsym XF86MonBrightnessUp exec brightnessctl s 10+  # increase screen brightness
 bindsym XF86MonBrightnessDown exec brightnessctl s 10-  # decrease screen brightness
@@ -34,11 +44,11 @@ bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
 bindsym XF86AudioMute exec amixer set Master toggle
 
-# music control
-bindsym XF86AudioNext exec mpc next
-bindsym XF86AudioPrev exec mpc prev
-bindsym XF86AudioPlay exec mpc toggle
-bindsym XF86AudioStop exec mpc stop
+# music control - not working
+# bindsym XF86AudioNext exec mpc next
+# bindsym XF86AudioPrev exec mpc prev
+# bindsym XF86AudioPlay exec mpc toggle
+# bindsym XF86AudioStop exec mpc stop
 
 # kill focused window
 bindsym $super+c kill
@@ -82,6 +92,10 @@ bindsym $super+3 workspace 3
 bindsym $super+4 workspace 4
 bindsym $super+5 workspace 5
 bindsym $super+6 workspace 6
+bindsym $super+7 workspace 7
+bindsym $super+8 workspace 8
+bindsym $super+9 workspace 9
+bindsym $super+0 workspace 10
 
 # move focused container to workspace
 bindsym $super+Shift+1 move container to workspace 1
@@ -90,6 +104,10 @@ bindsym $super+Shift+3 move container to workspace 3
 bindsym $super+Shift+4 move container to workspace 4
 bindsym $super+Shift+5 move container to workspace 5
 bindsym $super+Shift+6 move container to workspace 6
+bindsym $super+Shift+7 move container to workspace 7
+bindsym $super+Shift+8 move container to workspace 8
+bindsym $super+Shift+9 move container to workspace 9
+bindsym $super+Shift+0 move container to workspace 10
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $super+Shift+r restart
@@ -98,6 +116,8 @@ bindsym $super+Shift+c reload
 
 # exit i3
 bindsym $super+q exec "i3-nagbar -t warning -m 'Really, exit?' -b 'Yes' 'i3-msg exit'"
+# suspend
+bindsym $super+Shift+q exec --no-startup-id systemctl suspend
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -125,17 +145,52 @@ bar {
         status_command i3status -c ~/.config/i3/i3status.conf
 }
 
+bindsym $super+comma workspace prev
+bindsym $super+period workspace next
+
+# Quick lock for leaving workspace
+bindsym $super+l exec $lock
+# Detailed system mode
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $lock, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec systemctl suspend, mode "default"
+    bindsym h exec systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $super+Shift+l mode "$mode_system"
+
+set $display_mode Display [w]ork [h]ome [d]esk [t]v [m]obile
+mode "$display_mode" {
+  bindsym w exec --no-startup-id autorandr --load work, mode "default"
+  bindsym h exec --no-startup-id autorandr --load home, mode "default"
+  bindsym d exec --no-startup-id autorandr --load desk, mode "default"
+  bindsym t exec --no-startup-id autorandr --load tv, mode "default"
+  bindsym m exec --no-startup-id autorandr --load mobile, mode "default"
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $super+b mode $display_mode
+
 # window rules, you can find the window class using xprop
-#for_window [class=".*"] border pixel 4
-#assign [class=URxvt] 1
-#assign [class=Firefox|Transmission-gtk] 2
-#assign [class=Thunar|File-roller] 3
-#assign [class=Geany|Evince|Gucharmap|Soffice|libreoffice*] 4
-#assign [class=Audacity|Vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape] 5
-#assign [class=Lxappearance|System-config-printer.py|Lxtask|GParted|Pavucontrol|Exo-helper*|Lxrandr|Arandr] 6
-#for_window [class=Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol] floating enable
-#for_window [class=URxvt|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
-#for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
+for_window [class=".*"] border pixel 4
+
+assign [class="Element"] 1
+assign [class="Firefox"] 2
+assign [class="Visual Studio Code"] 3
+assign [class="Gimp|Vlc|Slack|(?i)Spotify"] 10
+assign [class="Skype|Gitter|Telegram"] 10
+assign [class="(?i)Discord"] 10
+
+for_window [class="Nitrogen"] floating enable border normal
+for_window [class="(?i)virtualbox"] floating enable border normal
+for_window [class="Arandr"] floating enable
 
 # colour of border, background, text, indicator, and child_border
 client.focused              #bf616a #2f343f #d8dee8 #bf616a #d8dee8
@@ -144,3 +199,9 @@ client.unfocused            #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.urgent               #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.background           #2f343f
+
+# App quick focus
+#tbc
+
+# App quick launch
+#tbc
