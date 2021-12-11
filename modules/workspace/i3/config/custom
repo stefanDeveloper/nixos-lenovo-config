@@ -30,7 +30,7 @@ exec --no-startup-id xautolock -detectsleep -time 10 -locker "$lock" -notify 30 
 bindsym $super+Return exec $term1
 
 # start dmenu (a program launcher)
-bindsym $super+Shift+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=8'"
+bindsym $super+Shift+d exec --no-startup-id "dmenu_run -nf '#F3F4F5' -nb '#2F343F' -sb '#1793D1' -sf '#f3f4f5' -fn 'firacode-12' -p 'run:'"
 bindsym $super+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8' -show-icons
 
 # common apps keybinds
