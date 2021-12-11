@@ -15,11 +15,11 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixpkgs-21-05 = {
+    nixpkgs-21-11 = {
       type = "github";
       owner = "nixos";
       repo = "nixpkgs";
-      ref = "nixos-21.05";
+      ref = "nixos-21.11";
       flake = false;
     };
 
