@@ -8,6 +8,7 @@
       element-desktop
 
       tdesktop
+      threema-desktop
     ];
   };
 }

@@ -23,5 +23,6 @@
     fish
     alacritty
     kitty
+    tmux
   ];
 }

@@ -23,6 +23,27 @@
       flake = false;
     };
 
+    #zsh-config = {
+    #  type = "github";
+    #  owner = "stefanDeveloper";
+    #  repo = "zshrc";
+    #  flake = false;
+    #};
+    
+    #tpm = {
+    #  type = "github";
+    #  owner = "tmux-plugins";
+    #  repo = "tpm";
+    #  flake = false;
+    #};
+
+    #tmux-config = {
+    #  type = "github";
+    #  owner = "stefanDeveloper";
+    #  repo = "tmux.conf";
+    #  flake = false;
+    #};
+
     # Nix-flakes deployment tool
     deploy-rs.url = "github:serokell/deploy-rs";
 
