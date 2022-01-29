@@ -9,6 +9,7 @@
 
       tdesktop
       threema-desktop
+      signal-desktop
     ];
   };
 }
