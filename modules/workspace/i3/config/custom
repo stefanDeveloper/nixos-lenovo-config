@@ -4,7 +4,7 @@ set $hyper Mod4
 
 # lock screen
 # set $lock i3lock-pixeled
-set $lock multilockscreen -l
+set $lock multilockscreen -l -- -t -ef -n
 
 set $term1 alacritty
 set $term2 kitty
@@ -18,13 +18,21 @@ font pango: Noto Sans 9
 # Use Mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
 
-#autostart
+# autostart
 exec --no-startup-id setxkbmap us-de
 exec --no-startup-id xsettingsd &
 exec --no-startup-id compton -b
+# start applications
 exec --no-startup-id nextcloud &
+exec --no-startup-id seafile-applet
+exec --no-startup-id element-desktop
+exec --no-startup-id signal-desktop
+exec --no-startup-id telegram-desktop
+exec --no-startup-id firefox
+exec --no-startup-id thunderbird
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id xautolock -detectsleep -time 10 -locker "$lock" -notify 30 -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'"
+exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 60 "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'" "" --timer 300 "$lock" "" --timer 3600 "systemctl suspend" ""
+# exec --no-startup-id xautolock -detectsleep -time 10 -locker "$lock" -notify 30 -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'"
 
 # start a terminal
 bindsym $super+Return exec $term1
@@ -234,15 +242,16 @@ bar {
 
 # window rules, you can find the window class using xprop
 for_window [class=".*"] border pixel 2
-assign [class="Visual Studio Code"] 1
+assign [class="(?i)Visual Studio Code"] 1
 assign [class="Firefox"] 2
 assign [class="Thunderbird"] 3
-assign [class="Gimp|Vlc|Slack|(?i)Spotify"] 10
-assign [class="Element|Skype|Gitter|Telegram"] 10
+assign [class="Gimp|Vlc|Slack|(?i)Spotify"] 8
+assign [class="Signal|Telegram"] 9
+assign [class="Element|Threema"] 10
 assign [class="(?i)Discord"] 10
 for_window [class="Nitrogen"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="Arandr"] floating enable
+for_window [class="ARandR"] floating enable
 
 # colour of border, background, text, indicator, and child_border
 client.focused              #bf616a #2f343f #d8dee8 #bf616a #d8dee8

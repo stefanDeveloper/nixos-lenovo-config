@@ -9,6 +9,9 @@
 Build the project
 
 ```sh
+# Update channels
+nix-channel update
+# Update system
 nixos-rebuild switch  --flake '.#stefan' --upgrade
 ```
 
@@ -17,11 +20,21 @@ nixos-rebuild switch  --flake '.#stefan' --upgrade
 i3 config
 
 ```json
+...
 "files.associations": {
     "**/.i3/config": "i3",
     "**/i3/config": "i3",
     "**/i3/config/*": "i3",
 },
+...
+```
+
+### i3
+
+```sh
+# Restart and reload
+i3-msg reload
+i3-msg restart
 ```
 
 ## NixOS Flake
@@ -142,6 +155,7 @@ autorandr --save
 ## Other
 
 * `nitrogen`: Change background
+* `multilockscreen`: Lock i3
 
 ## Credits
 

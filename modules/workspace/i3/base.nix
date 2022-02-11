@@ -39,6 +39,7 @@
     i3status          # status bar
     flameshot         # screenshot capture
     xautolock         # autolock inactivity
+    xidlehook         # autolock fetch to allow videos, music without locking
     # Under investigation, don't know if it solves the problem
     lxappearance
     gtkmm2            # for nitrogen
