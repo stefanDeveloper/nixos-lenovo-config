@@ -114,6 +114,31 @@ lpadmin -p Canon-XXXXX -E -v ipp://XXX.XXX.X.XX/ipp/print -m everywhere
 
 * `tmui`: configure Wifi connection
 
+## Display & Screens
+
+Set `multilockscreen`:
+
+```sh
+multilockscreen -u path_to_file --fx dim,pixel
+```
+
+Set background:
+
+```sh
+nitrogen --no-recurse ~/Documents/git/nixos-artwork/wallpapers
+```
+
+Set up new display:
+
+```sh
+# See what displays are available
+xrandr
+# Set display
+xrandr --output DisplayPort-1 --auto --left-of eDP
+# Save
+autorandr --save
+```
+
 ## Other
 
 * `nitrogen`: Change background
