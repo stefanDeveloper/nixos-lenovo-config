@@ -5,11 +5,13 @@
     thunderbird
     filezilla
     nextcloud-client
+    seafile-client
     keepassxc
     libreoffice
 
     openconnect
     remmina
+    obs-studio
 
     texlive.combined.scheme-full
     gthumb                        # edit images
