@@ -2,6 +2,8 @@
 
 {
   users = {
+    mutableUsers = true;
+    # defaultUserShell = pkgs.zsh;
     users = {
       stefan = {
         isNormalUser = true;
@@ -14,4 +16,6 @@
       };
     };
   };
+  nix.trustedUsers = [ "root" "stefan" ];
+  security.sudo.wheelNeedsPassword = false;
 }
