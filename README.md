@@ -6,7 +6,10 @@
 
 ## Getting Started
 
-Build the project
+First, install NixOS as it is recommended by the official documentation.
+If full disk encryption is required, read [here](https://nixos.wiki/wiki/Full_Disk_Encryption) for more information.
+
+Build the project:
 
 ```sh
 # Update channels
@@ -15,18 +18,25 @@ nix-channel update
 nixos-rebuild switch  --flake '.#stefan' --upgrade
 ```
 
+Make sure `flake` is already available during set up otherwise it might fail.
+
+### Building custom host
+
+To build a custom host, just copy a default one and adapt to your needs.
+**Important: install bootloader might fail, add `--install-bootloader` during NixOS build**
+
 ### VS Code
 
-i3 config
+Use extension [i3](https://marketplace.visualstudio.com/items?itemName=dcasella.i3) with `i3` config to lint your profile:
 
 ```json
-...
+// ...
 "files.associations": {
     "**/.i3/config": "i3",
     "**/i3/config": "i3",
     "**/i3/config/*": "i3",
 },
-...
+// ...
 ```
 
 ### i3
@@ -81,6 +91,7 @@ When in this mode:
 * when you see: `nix build '.#something'`, the `.` means current directory, and `#something` means to build the `something` output attribute
 
 #### Useful Commands and Examples
+
 ##### nixos-rebuild
 * `nixos-rebuild build --flake '.#'`
   * looks for `flake.nix` in `.` (current dir)
@@ -91,6 +102,7 @@ When in this mode:
   * since it's `nixos-rebuild`, it automatically tries to build:
     * `#nixosConfigurations.mysystem.config.system.build.toplevel`
     * (note that this time we specifically asked, and got to build the `mysystem` config)
+
 ##### nix build
 * `nix build 'github:colemickens/nixpkgs-wayland#obs-studio'`
   * looks for `flake.nix`  in (a checkout of `github.com/colemickens/nixpkgs-wayland`)
@@ -98,6 +110,7 @@ When in this mode:
     * `#obs-studio`
     * `#packages.{currentSystem}.obs-studio`
     * TODO: finish fleshing out this list
+
 ##### nix flake
 * `nix flake update --recreate-lock-file`
   * updates all inputs and recreating `flake.lock`
