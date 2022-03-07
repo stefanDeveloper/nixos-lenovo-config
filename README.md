@@ -163,6 +163,17 @@ xrandr --output DisplayPort-1 --auto --left-of eDP
 autorandr --save
 ```
 
+### Fonts
+
+#### VSCode and Zsh
+
+Set the font in the `settings.json` correctly:
+```json
+{
+  "terminal.integrated.fontFamily": "'Source Code Pro for Powerline', 'Hack Nerd Font'"
+}
+```
+
 ## Other
 
 * `nitrogen`: Change background
