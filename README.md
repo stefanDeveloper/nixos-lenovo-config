@@ -30,13 +30,11 @@ To build a custom host, just copy a default one and adapt to your needs.
 Use extension [i3](https://marketplace.visualstudio.com/items?itemName=dcasella.i3) with `i3` config to lint your profile:
 
 ```json
-// ...
 "files.associations": {
     "**/.i3/config": "i3",
     "**/i3/config": "i3",
     "**/i3/config/*": "i3",
 },
-// ...
 ```
 
 ### i3
