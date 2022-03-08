@@ -53,10 +53,11 @@
       repo = "artwork";
       flake = false;
     };
+    nur.url = github:nix-community/NUR;
 
   };
-  
-  outputs = { nixpkgs, nix, self, deploy-rs, ... }@inputs:  {
+
+  outputs = { nixpkgs, nix, self, deploy-rs, nur, ... }@inputs:  {
     nixosModules = import ./modules;
     nixosProfiles = import ./profiles;
 
@@ -66,7 +67,10 @@
         mkHost = name:
             nixosSystem {
               system = removeSuffix "\n" (builtins.readFile (./hosts + "/${name}/system"));
-              modules = [(import (./hosts + "/${name}"))];
+              modules = [
+                (import (./hosts + "/${name}"))
+                { nixpkgs.overlays = [ nur.overlay ]; }
+              ];
               specialArgs = { inherit inputs; };
             };
       in genAttrs hosts mkHost;

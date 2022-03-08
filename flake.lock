@@ -198,6 +198,21 @@
         "type": "github"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1646721260,
+        "narHash": "sha256-r8ZWtEwiRxLKOtsT2yvU9Rs1oqL/RsSkPkgupXsw1bU=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "25adb63e9381cb0342cdbe2d2d56266f4974a2c5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "deploy-rs": "deploy-rs",
@@ -206,7 +221,8 @@
         "nixos-artwork": "nixos-artwork",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
-        "nixpkgs-21-11": "nixpkgs-21-11"
+        "nixpkgs-21-11": "nixpkgs-21-11",
+        "nur": "nur"
       }
     },
     "utils": {
