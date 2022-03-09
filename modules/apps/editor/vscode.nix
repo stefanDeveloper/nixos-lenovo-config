@@ -4,6 +4,10 @@
     programs.vscode = {
       enable = true;
       package = pkgs.vscodium;    # You can skip this if you want to use the unfree version
+      userSettings = {
+        "terminal.integrated.fontFamily" = "'Source Code Pro for Powerline', 'Hack Nerd Font'";
+        "workbench.colorTheme" = "Visual Studio Dark";
+      };
       extensions = with pkgs.vscode-extensions; [
         dracula-theme.theme-dracula
         
