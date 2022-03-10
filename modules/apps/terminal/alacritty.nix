@@ -3,7 +3,9 @@
   home-manager.users.stefan.programs.alacritty = {
     enable = true;
     settings = {
-
+      env = {
+        TERM = "xterm-256color";
+      };
       font = rec {
         normal.family = "JetBrains Mono";
         size = 8.0;
