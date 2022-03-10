@@ -10,16 +10,19 @@
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         darkreader
         ublock-origin
+        startpage-private-search
       ];
       profiles.default = {
         id = 0;
         settings = {
           "extensions.autoDisableScopes" = 0;
 
-          "browser.search.defaultenginename" = "Google";
-          "browser.search.selectedEngine" = "Google";
-          "browser.urlbar.placeholderName" = "Google";
+          "browser.search.defaultenginename" = "Startpage.com - English";
+          "browser.search.selectedEngine" = "Startpage";
+          "browser.urlbar.placeholderName" = "Startpage";
           "browser.search.region" = "US";
+          "browser.startup.homepage" = "about:blank";
+          "browser.newtabpage.enabled" = true;
 
           "browser.uidensity" = 1;
           "browser.search.openintab" = true;
