@@ -54,6 +54,22 @@
         "type": "github"
       }
     },
+    "kitty-themes": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1642593129,
+        "narHash": "sha256-RcDmZ1fbNX18+X3xCqqdRbD+XYPsgNte1IXUNt6CxIA=",
+        "owner": "dexpota",
+        "repo": "kitty-themes",
+        "rev": "b1abdd54ba655ef34f75a568d78625981bf1722c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dexpota",
+        "repo": "kitty-themes",
+        "type": "github"
+      }
+    },
     "lowdown-src": {
       "flake": false,
       "locked": {
@@ -217,12 +233,47 @@
       "inputs": {
         "deploy-rs": "deploy-rs",
         "home-manager": "home-manager",
+        "kitty-themes": "kitty-themes",
         "nix": "nix",
         "nixos-artwork": "nixos-artwork",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-21-11": "nixpkgs-21-11",
-        "nur": "nur"
+        "nur": "nur",
+        "tmux-config": "tmux-config",
+        "tpm": "tpm"
+      }
+    },
+    "tmux-config": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1623969654,
+        "narHash": "sha256-jxJQ1Nj55RFTQKyadyTgsYc4NHp9oMB8ZieynPy3ZAA=",
+        "owner": "stefanDeveloper",
+        "repo": "tmux.conf",
+        "rev": "b1be41c9b93ff1d1ed94dd3f282d18ee232bc027",
+        "type": "github"
+      },
+      "original": {
+        "owner": "stefanDeveloper",
+        "repo": "tmux.conf",
+        "type": "github"
+      }
+    },
+    "tpm": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1641035158,
+        "narHash": "sha256-aGRy5ah1Dxb+94QoIkOy0nKlmAOFq2y5xnf2B852JY0=",
+        "owner": "tmux-plugins",
+        "repo": "tpm",
+        "rev": "b699a7e01c253ffb7818b02d62bce24190ec1019",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tmux-plugins",
+        "repo": "tpm",
+        "type": "github"
       }
     },
     "utils": {

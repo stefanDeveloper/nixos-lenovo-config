@@ -18,11 +18,15 @@
           "extensions.autoDisableScopes" = 0;
 
           "browser.search.defaultenginename" = "Startpage.com - English";
-          "browser.search.selectedEngine" = "Startpage";
-          "browser.urlbar.placeholderName" = "Startpage";
+          "browser.search.selectedEngine" = "Startpage.com - English";
+          "browser.urlbar.placeholderName" = "Startpage.com - English";
           "browser.search.region" = "US";
           "browser.startup.homepage" = "about:blank";
           "browser.newtabpage.enabled" = true;
+
+          "services.sync.username" = "stefan-machmeier@outlook.com";
+
+          "browser.toolbars.bookmarks.visibility" = "always";
 
           "browser.uidensity" = 1;
           "browser.search.openintab" = true;

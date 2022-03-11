@@ -23,24 +23,31 @@
       flake = false;
     };
 
-    #zsh-config = {
-    #  type = "github";
-    #  owner = "stefanDeveloper";
-    #  repo = "zshrc";
-    #  flake = false;
-    #};
+    kitty-themes = {
+      type = "github";
+      owner = "dexpota";
+      repo = "kitty-themes";
+      flake = false;
+    };
     
-    #tpm = {
-    #  type = "github";
-    #  owner = "tmux-plugins";
-    #  repo = "tpm";
-    #  flake = false;
-    #};
+    tpm = {
+      type = "github";
+      owner = "tmux-plugins";
+      repo = "tpm";
+      flake = false;
+    };
 
-    #tmux-config = {
+    tmux-config = {
+      type = "github";
+      owner = "stefanDeveloper";
+      repo = "tmux.conf";
+      flake = false;
+    };
+
+    #emacs-config = {
     #  type = "github";
-    #  owner = "stefanDeveloper";
-    #  repo = "tmux.conf";
+    #  owner = "vyorkin";
+    #  repo = "emacs.d";
     #  flake = false;
     #};
 
@@ -53,6 +60,7 @@
       repo = "artwork";
       flake = false;
     };
+
     nur.url = github:nix-community/NUR;
 
   };
@@ -78,17 +86,20 @@
     legacyPackages.x86_64-linux =
       (builtins.head (builtins.attrValues self.nixosConfigurations)).pkgs;
 
-    #defaultApp = deploy-rs.defaultApp;
+    defaultApp = deploy-rs.defaultApp;
 
-    #deploy = {
-    #  user = "root";
-    #  nodes.thinkpad = {
-    #    hostname =
-    #      self.nixosConfigurations.thinkpad.config.networking.hostName;
-    #    profiles.system.path = deploy-rs.x86_64-linux.activate.nixos
-    #      self.nixosConfigurations.thinkpad;
-    #  };
-    #};
+    deploy = {
+      user = "root";
+      nodes.stefan = {
+        hostname = self.nixosConfigurations.stefan.config.networking.hostName;
+        profiles.system.path = deploy-rs.x86_64-linux.activate.nixos self.nixosConfigurations.stefan;
+      };
+
+      nodes.work = {
+        hostname = self.nixosConfigurations.work.config.networking.hostName;
+        profiles.system.path = deploy-rs.x86_64-linux.activate.nixos self.nixosConfigurations.work;
+      };
+    };
   };
 
 }
