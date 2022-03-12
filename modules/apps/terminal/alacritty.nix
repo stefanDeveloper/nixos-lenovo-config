@@ -23,7 +23,9 @@
 
       live_config_reload = true;
 
-      background_opacity = 0.3;
+      window = {
+        opacity = 0.3;
+      };
 
       colors = {
         primary = {
