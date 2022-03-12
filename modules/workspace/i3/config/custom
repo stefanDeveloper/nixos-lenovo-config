@@ -225,7 +225,7 @@ bindsym $super+r mode "resize"
 
 # panel
 bar {
-        font pango: Noto Sans 9
+        font pango: Noto Sans 10
         colors {
                 background #2f343f
                 statusline #2f343f
