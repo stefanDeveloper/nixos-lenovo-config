@@ -11,6 +11,7 @@
         darkreader
         ublock-origin
         startpage-private-search
+        momentumdash 
       ];
       profiles.default = {
         id = 0;

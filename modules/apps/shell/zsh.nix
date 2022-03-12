@@ -5,14 +5,7 @@
   environment.systemPackages = with pkgs; [
     # Terminal/CLI
     vim
-    wget
-    zip
-    unzip
-    htop
     killall
-    pciutils
-    nmap
-    telnet
     niv
     zplug
   ];

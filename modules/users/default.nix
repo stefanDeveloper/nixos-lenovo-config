@@ -16,6 +16,6 @@
       };
     };
   };
-  nix.trustedUsers = [ "root" "stefan" ];
+  nix.settings.trust = [ "root" "stefan" ];
   security.sudo.wheelNeedsPassword = false;
 }
