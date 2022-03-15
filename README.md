@@ -18,6 +18,16 @@ nix-channel update
 nixos-rebuild switch  --flake '.#stefan' --upgrade
 ```
 
+Clean old generations:
+
+```sh
+nix-env -p /nix/var/nix/profiles/system --delete-generations old
+nix-collect-garbage -d
+nix-env -p /nix/var/nix/profiles/system --list-generations
+## Remove entries from /boot/loader/entries:
+sudo bash -c "cd /boot/loader/entries; ls | grep -v <current-generation-name> | xargs rm"
+```
+
 Make sure `flake` is already available during set up otherwise it might fail.
 
 ### Building custom host
