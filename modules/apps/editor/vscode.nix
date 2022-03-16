@@ -33,6 +33,8 @@
         ms-toolsai.jupyter
         ms-azuretools.vscode-docker
         ms-vscode.cpptools
+
+        redhat.vscode-yaml
       ]) ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "remote-ssh-edit";
