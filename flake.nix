@@ -13,15 +13,9 @@
       flake = false;
     };
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixpkgs-21-11 = {
-      type = "github";
-      owner = "nixos";
-      repo = "nixpkgs";
-      ref = "nixos-21.11";
-      flake = false;
-    };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.11";
 
     kitty-themes = {
       type = "github";
@@ -29,25 +23,9 @@
       repo = "kitty-themes";
       flake = false;
     };
-    
-    tpm = {
-      type = "github";
-      owner = "tmux-plugins";
-      repo = "tpm";
-      flake = false;
-    };
-
-    tmux-config = {
-      type = "github";
-      owner = "stefanDeveloper";
-      repo = "tmux.conf";
-      flake = false;
-    };
 
     # Nix-flakes deployment tool
     deploy-rs.url = "github:serokell/deploy-rs";
-
-    # nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay";
@@ -67,8 +45,8 @@
       flake = false;
     };
 
+    # NUR community for FireFox, and other apps
     nur.url = github:nix-community/NUR;
-
   };
 
   outputs = { nixpkgs, nix, self, deploy-rs, nur, nix-doom-emacs, home-manager, emacs-overlay, ... }@inputs:  {
@@ -107,5 +85,4 @@
       };
     };
   };
-
 }
