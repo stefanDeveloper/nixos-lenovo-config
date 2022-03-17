@@ -15,6 +15,7 @@ builtins.listToAttrs (builtins.map (path: {
   ./locale.nix
   ./virtualisation.nix
   ./home.nix
+  ./mail.nix
   ./nix.nix
   ./users
   ./keyboard-layout/us-de.nix

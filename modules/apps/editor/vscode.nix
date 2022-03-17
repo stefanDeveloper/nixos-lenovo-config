@@ -15,6 +15,10 @@
             "**/i3/config" = "i3";
             "**/i3/config/*" = "i3";
         };
+        
+        "[nix]" = {
+          "editor.defaultFormatter" = "B4dM4n.nixpkgs-fmt";
+        };
       };
       extensions = (with pkgs.vscode-extensions; [
         dracula-theme.theme-dracula

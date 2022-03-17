@@ -69,6 +69,22 @@
         "type": "github"
       }
     },
+    "emacs-overlay_2": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1647537202,
+        "narHash": "sha256-Ku2gXwzaC9sZGcc8EuJzJLRSGRInkMy/D7O+6LvF4Mk=",
+        "owner": "nix-community",
+        "repo": "emacs-overlay",
+        "rev": "6fdb3c0cefe2574073b31b27d2b2f5df9532cd5a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "emacs-overlay",
+        "type": "github"
+      }
+    },
     "emacs-so-long": {
       "flake": false,
       "locked": {
@@ -270,9 +286,7 @@
       "inputs": {
         "doom-emacs": "doom-emacs",
         "doom-snippets": "doom-snippets",
-        "emacs-overlay": [
-          "emacs-overlay"
-        ],
+        "emacs-overlay": "emacs-overlay_2",
         "emacs-so-long": "emacs-so-long",
         "evil-markdown": "evil-markdown",
         "evil-org-mode": "evil-org-mode",
@@ -281,9 +295,7 @@
         "flake-utils": "flake-utils",
         "format-all": "format-all",
         "nix-straight": "nix-straight",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
+        "nixpkgs": "nixpkgs_4",
         "nose": "nose",
         "ob-racket": "ob-racket",
         "org": "org",
@@ -371,6 +383,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-fmt": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1646412819,
+        "narHash": "sha256-EPTN0qZiww6v3tauQ5ellIEJGXHFPIFCRQhxRO8bA4U=",
+        "owner": "nix-community",
+        "repo": "nixpkgs-fmt",
+        "rev": "79da650fa1a148fb759b40bf89d74a35284bceb8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs-fmt",
+        "type": "github"
+      }
+    },
     "nixpkgs-regression": {
       "locked": {
         "lastModified": 1643052045,
@@ -432,6 +460,21 @@
       }
     },
     "nixpkgs_4": {
+      "locked": {
+        "lastModified": 1647350163,
+        "narHash": "sha256-OcMI+PFEHTONthXuEQNddt16Ml7qGvanL3x8QOl2Aao=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "3eb07eeafb52bcbf02ce800f032f18d666a9498d",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixpkgs-unstable",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_5": {
       "locked": {
         "lastModified": 1647282937,
         "narHash": "sha256-K8Oo6QyFCfiEWTRpQVfzcwI3YNMKlz6Tu8rr+o3rzRQ=",
@@ -584,7 +627,8 @@
         "nix-doom-emacs": "nix-doom-emacs",
         "nixos-artwork": "nixos-artwork",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_5",
+        "nixpkgs-fmt": "nixpkgs-fmt",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nur": "nur"
       }

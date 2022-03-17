@@ -23,9 +23,11 @@
 
       live_config_reload = true;
 
-      window = {
-        opacity = 0.3;
-      };
+      # NixOS 22.05
+      # window = {
+      #   opacity = 0.3;
+      # };
+      background_opacity = 0.3;
 
       colors = {
         primary = {
