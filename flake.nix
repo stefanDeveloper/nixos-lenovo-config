@@ -44,16 +44,22 @@
       flake = false;
     };
 
-    #emacs-config = {
-    #  type = "github";
-    #  owner = "vyorkin";
-    #  repo = "emacs.d";
-    #  flake = false;
-    #};
-
     # Nix-flakes deployment tool
     deploy-rs.url = "github:serokell/deploy-rs";
 
+    # nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
+
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
+      flake = false;
+    };
+
+    nix-doom-emacs = {
+      url = "github:nix-community/nix-doom-emacs";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.emacs-overlay.follows = "emacs-overlay";
+    };
+    
     nixos-artwork = {
       type = "github";
       owner = "nixos";
@@ -65,7 +71,7 @@
 
   };
 
-  outputs = { nixpkgs, nix, self, deploy-rs, nur, ... }@inputs:  {
+  outputs = { nixpkgs, nix, self, deploy-rs, nur, nix-doom-emacs, home-manager, emacs-overlay, ... }@inputs:  {
     nixosModules = import ./modules;
     nixosProfiles = import ./profiles;
 
