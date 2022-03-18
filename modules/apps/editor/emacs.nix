@@ -1,15 +1,6 @@
 { pkgs, inputs, config, doom-emacs, ... } :
 
 {
-  
-  services.pcscd.enable = true;
-  
-  programs.gnupg.agent = {
-    enable = true;
-    pinentryFlavor = "curses";
-    enableSSHSupport = true;
-  };
-
   home-manager.users.stefan = {
 
     programs.emacs = {
@@ -30,7 +21,7 @@
       enable = true;
       doomPrivateDir = "${config.users.users.stefan.home}/doom.d";
       # emacsPackagesOverlay = self: super: {
-          # fixes https://github.com/vlaci/nix-doom-emacs/issues/394
+          # fixes https://github.com/vlaci/nix-doom-emacs/issues/395
       #   gitignore-mode = pkgs.emacsPackages.git-modes;
       #   gitconfig-mode = pkgs.emacsPackages.git-modes;
       # };

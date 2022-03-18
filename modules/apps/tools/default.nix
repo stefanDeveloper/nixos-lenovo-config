@@ -8,5 +8,6 @@
     ./websocket.nix
     ./disk.nix
     ./network.nix
+    ./crypto.nix
   ];
 }
