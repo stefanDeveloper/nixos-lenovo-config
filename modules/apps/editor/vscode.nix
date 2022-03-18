@@ -71,12 +71,6 @@
           sha256 = "dieCzNOIcZiTGu4Mv5zYlG7jLhaEsJR05qbzzzQ7RWc=";
         }
         {
-          name = "markdown-all-in-one";
-          publisher = "yzhang";
-          version = "3.4.0";
-          sha256 = "C5d2I0srdUGcmmvW2tRlMvD1RyFsUqECIQ0xLZ7ODkY=";
-        }
-        {
           name = "markdown-preview-enhanced";
           publisher = "shd101wyy";
           version = "0.6.2";
