@@ -38,9 +38,9 @@
     };
 
     nix-doom-emacs = {
-      url = "github:nix-community/nix-doom-emacs";
-      #inputs.nixpkgs.follows = "nixpkgs";
-      #inputs.emacs-overlay.follows = "emacs-overlay";
+      url = "github:nix-community/nix-doom-emacs/update/nixpkgs-3e644bd62489b516292c816f70bf0052c693b3c7";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.emacs-overlay.follows = "emacs-overlay";
     };
     
     nixos-artwork = {
@@ -54,7 +54,7 @@
     nur.url = github:nix-community/NUR;
   };
 
-  outputs = { nixpkgs, nix, self, deploy-rs, nur, nix-doom-emacs, home-manager, emacs-overlay, nixpkgs-fmt, ... } @ inputs:  {
+  outputs = { nixpkgs, nixpkgs-unstable, nix, self, deploy-rs, nur, nix-doom-emacs, home-manager, emacs-overlay, nixpkgs-fmt, ... } @ inputs:  {
     nixosModules = import ./modules;
     nixosProfiles = import ./profiles;
 

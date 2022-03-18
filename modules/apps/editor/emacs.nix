@@ -1,13 +1,20 @@
-{ pkgs, inputs, config, ... } :
+{ pkgs, inputs, config, doom-emacs, ... } :
 
 {
+  
   services.pcscd.enable = true;
+  
   programs.gnupg.agent = {
     enable = true;
     pinentryFlavor = "curses";
     enableSSHSupport = true;
   };
+
   home-manager.users.stefan = {
+
+    programs.emacs = {
+      enable = true;
+    };
 
     #home.file = {
     #  "emacs-doom" = {
@@ -16,6 +23,7 @@
     #  };
     #};
 
+    
     imports = [ inputs.nix-doom-emacs.hmModule ];
 
     programs.doom-emacs = {
