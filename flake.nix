@@ -38,7 +38,7 @@
     };
 
     nix-doom-emacs = {
-      url = "github:nix-community/nix-doom-emacs/update/nixpkgs-3e644bd62489b516292c816f70bf0052c693b3c7";
+      url = "github:nix-community/nix-doom-emacs";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.emacs-overlay.follows = "emacs-overlay";
     };

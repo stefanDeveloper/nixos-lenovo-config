@@ -24,7 +24,7 @@
         dracula-theme.theme-dracula
         
         jnoortheen.nix-ide
-        vscodevim.vim
+        # vscodevim.vim
         bbenoist.nix
         ms-python.vscode-pylance
 

@@ -19,7 +19,7 @@
 
     programs.doom-emacs = {
       enable = true;
-      doomPrivateDir = "${config.users.users.stefan.home}/doom.d";
+      doomPrivateDir = "${config.users.users.stefan.home}/.doom.d";
       # emacsPackagesOverlay = self: super: {
           # fixes https://github.com/vlaci/nix-doom-emacs/issues/395
       #   gitignore-mode = pkgs.emacsPackages.git-modes;
