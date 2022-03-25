@@ -38,9 +38,8 @@
     };
 
     nix-doom-emacs = {
-      url = "github:nix-community/nix-doom-emacs";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.emacs-overlay.follows = "emacs-overlay";
+      url = "github:hlissner/doom-emacs";
+      flake = false;
     };
     
     nixos-artwork = {
