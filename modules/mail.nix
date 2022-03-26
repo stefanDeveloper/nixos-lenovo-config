@@ -22,7 +22,7 @@
             enable = true;
             create = "both";
             expunge = "both";
-            patterns = ["*" "INBOX/*" "Sent" "Drafts" "Junk" "Archive"];
+            patterns = ["*"];
             extraConfig = {
               channel = {
                 Sync = "All";
@@ -46,6 +46,9 @@
           passwordCommand = "${pkgs.gnupg}/bin/gpg -q --for-your-eyes-only --no-tty --exit-on-status-write-error --batch --recipient stefan-machmeier@outlook.com --passphrase-file ${config.users.users.stefan.home}/private.pass -d ${config.users.users.stefan.home}/prv.pass.gpg";
           smtp = {
             host = "smtp.office365.com";
+            tls = {
+              useStartTls = true;
+            };
           };
           userName = "stefan-machmeier@outlook.com";
         };
@@ -62,7 +65,7 @@
             enable = true;
             create = "both";
             expunge = "both";
-            patterns = ["*" "INBOX/*" "Sent" "Drafts" "Junk" "Archive"];
+            patterns = ["*"];
             
             extraConfig = {
               channel = {
@@ -77,9 +80,6 @@
           };
           msmtp = {
             enable = true;
-            extraConfig = {
-              password = "plain-text-password";
-            };
           };
           astroid.enable = true;
           notmuch.enable = true;
@@ -142,16 +142,16 @@
       };  
     };
 
-    home.file."msmtp" = {
+    home.file."bin/msmtp" = {
       text = ''
       #!${pkgs.stdenv.shell}
-      ${pkgs.compton}/bin/notify-send "Sending mail ✉️"
+      ${pkgs.libnotify}/bin/notify-send "Sending mail ✉️"
       ${pkgs.msmtp}/bin/msmtp --read-envelope-from $@
       '';
       executable = true;
     };
 
-    home.file."msync" = {
+    home.file."bin/msync" = {
       text = ''
       #!${pkgs.stdenv.shell}
       ${pkgs.libnotify}/bin/notify-send "Syncing mails 📫️"
@@ -164,6 +164,7 @@
       enable = true;
       preExec = "${config.users.users.stefan.home}/mbsync/preExec";
       postExec = "${config.users.users.stefan.home}/mbsync/postExec";
+      frequency = "*:0/30";
     };
     
     home.file."mbsync/preExec" = {

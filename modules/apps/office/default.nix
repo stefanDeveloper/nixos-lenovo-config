@@ -2,13 +2,14 @@
 
 {
   environment.systemPackages = with pkgs; [
-    thunderbird
-    filezilla
-    nextcloud-client
-    seafile-client
-    keepassxc
-    libreoffice
-    gimp
+    thunderbird                         # Mail
+    filezilla                           # SFTP, FTP client
+    nextcloud-client                    # Nextcloud client
+    seafile-client                      # Seafile Cloud
+    keepassxc                           # Password database
+    libreoffice                         # Office 
+    gimp                                # Image editing
+    apache-directory-studio             # LDAP
 
     openconnect                          # VPN university
     remmina                              # RPD, VNC client
