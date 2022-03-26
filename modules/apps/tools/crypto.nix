@@ -1,5 +1,8 @@
 { pkgs, ... } :
 { 
+  environment.systemPackages = with pkgs; [
+    openssl
+  ];
   services.pcscd.enable = true;
   
   programs.gnupg.agent = {
