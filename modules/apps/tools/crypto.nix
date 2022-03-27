@@ -1,4 +1,4 @@
-{ pkgs, ... } :
+{ pkgs, inputs, ... } :
 { 
   environment.systemPackages = with pkgs; [
     openssl
@@ -13,9 +13,9 @@
 
   home-manager.users.stefan = {
       home.file = {
-      ".gnupg/gpg.conf" = { source = "${inputs.gpg-conf}/gpg.conf"; };
-      ".gnupg/gpgsm.conf" = { source = "${inputs.gpg-conf}/gpgsm.conf"; };
-      ".gnupg/gpg-agent.conf" = { source = "${inputs.gpg-conf}/gpg-agent.conf"; };
+      ".gnupg/gpg.conf" = { source = "${inputs.gpg-config}/gpg.conf"; };
+      ".gnupg/gpgsm.conf" = { source = "${inputs.gpg-config}/gpgsm.conf"; };
+      ".gnupg/gpg-agent.conf" = { source = "${inputs.gpg-config}/gpg-agent.conf"; };
     };
   };
 }

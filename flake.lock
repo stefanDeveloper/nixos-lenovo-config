@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "defaultencrypt": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1599228943,
+        "narHash": "sha256-jtTXuHy2EsJroyt5PX+L3rJaX3xrdjcLnNpk3w9/470=",
+        "owner": "lechten",
+        "repo": "defaultencrypt",
+        "rev": "83fb2d46061127b51d65d3548ffbe18642398a52",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "lechten",
+        "repo": "defaultencrypt",
+        "type": "gitlab"
+      }
+    },
     "deploy-rs": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -17,6 +33,22 @@
       "original": {
         "owner": "serokell",
         "repo": "deploy-rs",
+        "type": "github"
+      }
+    },
+    "doom-emacs-config": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1648365900,
+        "narHash": "sha256-l8J5qfEdRentc9TEZ9+z1utvRdFgPrJm7j93/i5ESjo=",
+        "owner": "stefanDeveloper",
+        "repo": ".doom.d-conf",
+        "rev": "8e0ab4f921070c9c384fd504875b4fd2843d811c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "stefanDeveloper",
+        "repo": ".doom.d-conf",
         "type": "github"
       }
     },
@@ -49,6 +81,22 @@
       "original": {
         "owner": "edolstra",
         "repo": "flake-compat",
+        "type": "github"
+      }
+    },
+    "gpg-config": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1648366838,
+        "narHash": "sha256-zdkzmy8ZbzjnXuiWsdJ0WkNvl8ru8b+nhdfDocvOWyw=",
+        "owner": "stefanDeveloper",
+        "repo": "gpg-conf",
+        "rev": "e70fb12a6ed46b4c5cf1a470a1b0abbe069dfffa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "stefanDeveloper",
+        "repo": "gpg-conf",
         "type": "github"
       }
     },
@@ -294,8 +342,11 @@
     },
     "root": {
       "inputs": {
+        "defaultencrypt": "defaultencrypt",
         "deploy-rs": "deploy-rs",
+        "doom-emacs-config": "doom-emacs-config",
         "emacs-overlay": "emacs-overlay",
+        "gpg-config": "gpg-config",
         "home-manager": "home-manager",
         "kitty-themes": "kitty-themes",
         "nix": "nix",
