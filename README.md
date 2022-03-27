@@ -107,9 +107,9 @@ autorandr --save
 ## Doom-Emacs
 
 ```sh
-
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+~/.emacs.d/bin/doom install
 ```
-
 
 ## Mail Configuration
 
@@ -149,6 +149,13 @@ gpgsm --verify sig file
 
 # Add to trusted
 gpgsm --list-keys 2>/dev/null | grep fingerprint | awk '{print $2 " S"}' >> ~/.gnupg/trustlist.txt
+```
+
+To sync `notmuch`, create `private.pass` with passphrase and `prv.pass` with password.
+Encrypt with:
+
+```sh
+gpg --batch --yes --symmetric --recipient stefan-machmeier@outlook.com --passphrase-file private.pass --encrypt prv.pass
 ```
 
 For more information, follow [this](https://www.claws-mail.org/faq/index.php/S/MIME_howto) and [this](https://www.mew.org/en/feature/smime.html).
