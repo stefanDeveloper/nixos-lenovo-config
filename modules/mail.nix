@@ -1,10 +1,6 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    libnotify
-  ];
-  
   home-manager.users.stefan = {
     accounts.email = {
       maildirBasePath = "mails";
@@ -194,10 +190,6 @@
       ${pkgs.libnotify}/bin/notify-send "Mails synced 📬"
       '';
       executable = true;
-    };
-
-    home.file = {
-      ".doom.d" = { source = inputs.doom-emacs-config; };
     };
   };
 }
