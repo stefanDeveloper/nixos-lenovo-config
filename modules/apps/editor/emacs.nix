@@ -5,5 +5,8 @@
     programs.emacs = {
       enable = true;
     };
+    home.file = {
+      ".emacs.d" = { source = inputs.nix-doom-emacs; };
+    };
   };
 }

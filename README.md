@@ -14,6 +14,8 @@ Build the project:
 ```sh
 # Update channels
 nix-channel update
+# Update flake
+nix flake update
 # Update system
 nixos-rebuild switch  --flake '.#stefan' --upgrade
 ```
@@ -54,77 +56,6 @@ Use extension [i3](https://marketplace.visualstudio.com/items?itemName=dcasella.
 i3-msg reload
 i3-msg restart
 ```
-
-## NixOS Flake
-
-### Overview of Flakes (and why you want it)
-
-Flakes is a few things:
-* `flake.nix`: a Nix file, with a specific structure to describe inputs and outputs for a Nix project
-  * See [NixOS Wiki - Flakes - Input Schema](https://nixos.wiki/wiki/Flakes#Input_schema) for flake input examples
-  * See [NixOS Wiki - Flakes - Output Schema](https://nixos.wiki/wiki/Flakes#Input_schema) for flake output examples
-* `flake.lock`: a manifest that "locks" inputs and records the exact versions in use
-* CLI support for flake-related features
-* pure (by default) evaluations
-
-This ultimately enables:
-* properly hermetic builds
-* fully reproducable and portable Nix projects
-* faster Nix operations due to evaluation caching enabled by pure evaluations)
-
-This removes the need for:
-* using `niv` or other tooling to lock dependencies
-* manually documenting or scripting to ensure `NIX_PATH` is set consistently for your team
-* the need for the *"the impure eval tree of sorrow"* that comes with all of today's Nix impurities
-
-### Important Related Reading
-
-* [NixOS Wiki - Flakes](https://nixos.wiki/wiki/Flakes)
-  * a somewhat haphazard collection of factoids/snippets related to flakes
-  * particularly look at: **[Flake Schema](https://nixos.wiki/wiki/Flakes#Flake_schema)**, and it's two sections: **[Input Schema](https://nixos.wiki/wiki/Flakes#Input_schema)**, **[Output Schema](https://nixos.wiki/wiki/Flakes#Output_schema)**
-* [Tweag - NixOS flakes](https://www.tweag.io/blog/2020-07-31-nixos-flakes/)
-  * this article describes how to enable flake support in `nix` and `nix-daemon`
-  * reading this article is a **pre-requisite**
-  * this README.md assumes you've enabled flakes system-wide
-  * omit using `boot.isContainer = true;` on `configuration.nix` (as the article suggests) if you want to use `nixos-rebuild` rather than `nixos-container` 
-
-### Nix CLI - Flakes Usage
-
-Nix is in flakes mode when:
-* `--flake` is used with the `nixos-rebuild` command
-* or, when `nix build` is used with an argument like `'.#something'`  (the hash symbol separates the flake source from the attribute to build)
-
-When in this mode:
-* Nix flake commands will implicitly take a directory path, it expects a `flake.nix` inside
-* when you see: `nix build '.#something'`, the `.` means current directory, and `#something` means to build the `something` output attribute
-
-#### Useful Commands and Examples
-
-##### nixos-rebuild
-* `nixos-rebuild build --flake '.#'`
-  * looks for `flake.nix` in `.` (current dir)
-  * since it's `nixos-rebuild`, it automatically tries to build:
-    * `#nixosConfigurations.{hostname}.config.system.build.toplevel`
-* `nixos-rebuild build --flake '/code/nixos-config#mysystem'`
-  * looks for `flake.nix` in `/code/nixos-config`
-  * since it's `nixos-rebuild`, it automatically tries to build:
-    * `#nixosConfigurations.mysystem.config.system.build.toplevel`
-    * (note that this time we specifically asked, and got to build the `mysystem` config)
-
-##### nix build
-* `nix build 'github:colemickens/nixpkgs-wayland#obs-studio'`
-  * looks for `flake.nix`  in (a checkout of `github.com/colemickens/nixpkgs-wayland`)
-  * builds and run the first attribute found:
-    * `#obs-studio`
-    * `#packages.{currentSystem}.obs-studio`
-    * TODO: finish fleshing out this list
-
-##### nix flake
-* `nix flake update --recreate-lock-file`
-  * updates all inputs and recreating `flake.lock`
-* `nix flake update --update-input nixpkgs`
-  * updates a single input to latest and recording it in `flake.lock`
-
 
 ## Keyboard Configuration
 
@@ -172,6 +103,55 @@ xrandr --output DisplayPort-1 --auto --left-of eDP
 # Save
 autorandr --save
 ```
+
+## Doom-Emacs
+
+```sh
+
+```
+
+
+## Mail Configuration
+
+For GPG use `gpg`:
+
+First, load your private key into GPG
+```sh
+# Import key 
+gpg --import private.key
+# Trust key
+expect -c 'spawn gpg --edit-key {KEY} trust quit; send "5\ry\r"; expect eof'
+# Or 
+gpg --edit-key {KEY} trust quit
+# enter 5<RETURN> (I trust ultimately)
+# enter y<RETURN> (Really set this key to ultimate trust - Yes)
+```
+
+For S/MIME use `gpgsm`:
+
+```sh
+# Extract key and cert
+openssl pkcs12 -in keycert.p12 -out keycert.pem -nodes
+# Extract private key
+openssl pkcs12 -in keycert.pem -export -out key.p12 -nocerts -nodes
+# Load key
+gpgsm --import key.p12
+
+# Extracting cert
+openssl pkcs12 -in keycert.p12 -out certs.pem -nokeys
+# Load cert
+gpgsm --import certs.pem
+
+# Testing
+# Sign a random file, create file before
+gpgsm --detach-sign file > sig
+gpgsm --verify sig file
+
+# Add to trusted
+gpgsm --list-keys 2>/dev/null | grep fingerprint | awk '{print $2 " S"}' >> ~/.gnupg/trustlist.txt
+```
+
+For more information, follow [this](https://www.claws-mail.org/faq/index.php/S/MIME_howto) and [this](https://www.mew.org/en/feature/smime.html).
 
 ### Fonts
 

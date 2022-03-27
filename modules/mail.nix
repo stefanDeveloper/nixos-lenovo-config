@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -194,6 +194,10 @@
       ${pkgs.libnotify}/bin/notify-send "Mails synced 📬"
       '';
       executable = true;
+    };
+
+    home.file = {
+      ".doom.d" = { source = inputs.doom-emacs-config; };
     };
   };
 }

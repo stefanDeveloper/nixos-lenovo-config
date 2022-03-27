@@ -41,6 +41,22 @@
       url = "github:hlissner/doom-emacs";
       flake = false;
     };
+
+    defaultencrypt = {
+      url = "gitlab:lechten/defaultencrypt";
+      flake = false;
+    };
+
+    doom-emacs-config = {
+      url = "github:stefanDeveloper/.doom.d-conf";
+      flake = false;
+    };
+
+    gpg-config = {
+      url = "github:stefanDeveloper/gpg-conf";
+      flake = false;
+    };
+    
     
     nixos-artwork = {
       type = "github";
@@ -53,7 +69,7 @@
     nur.url = github:nix-community/NUR;
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, nix, self, deploy-rs, nur, nix-doom-emacs, home-manager, emacs-overlay, nixpkgs-fmt, ... } @ inputs:  {
+  outputs = { nixpkgs, nixpkgs-unstable, nix, self, deploy-rs, nur, nix-doom-emacs, home-manager, emacs-overlay, nixpkgs-fmt, defaultencrypt, doom-emacs-config, gpg-config, ... } @ inputs:  {
     nixosModules = import ./modules;
     nixosProfiles = import ./profiles;
 
