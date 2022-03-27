@@ -6,8 +6,9 @@
       enable = true;
     };
     home.file = {
-      ".emacs.d" = { source = inputs.nix-doom-emacs; };
-      ".doom.d" = { source = inputs.doom-emacs-config; };
+      ".doom.d/config.el" =  { source = "${inputs.doom-emacs-config}/config.el"; };
+      ".doom.d/init.el" =  { source = "${inputs.doom-emacs-config}/init.el"; };
+      ".doom.d/packages.el" =  { source = "${inputs.doom-emacs-config}/packages.el"; };
       ".doom.d/defaultencrypt" = { source = inputs.defaultencrypt; };
     };
   };
