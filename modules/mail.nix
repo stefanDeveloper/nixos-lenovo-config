@@ -29,7 +29,10 @@
               };
             };
           };
-          msmtp.enable = true;
+          primary = lib.mkIf ( config.networking.hostName == "nixos-stefan") true;
+          msmtp = {
+            enable = true;
+          };
           astroid.enable = true;
           notmuch.enable = true;
           realName = "Stefan Machmeier";
@@ -79,7 +82,7 @@
           };
           astroid.enable = true;
           notmuch.enable = true;
-          primary = true;
+          primary =  lib.mkIf ( config.networking.hostName == "nixos-work") true;
           realName = "Stefan Machmeier";
           signature = {
             text = ''
@@ -167,9 +170,9 @@
       text = ''
       #!${pkgs.stdenv.shell}
 
-      export NOTMUCH_CONFIG=${config.users.users.stefan.home}/.config/notmuch/default/config
-
       ${pkgs.coreutils}/bin/mkdir -p ${config.users.users.stefan.home}/mails/private ${config.users.users.stefan.home}/mails/work
+      
+      # Currently not used, no moving necessary
       # ${pkgs.afew}/bin/afew -C ${config.users.users.stefan.home}/.config/notmuch/default/config -m -v
       '';
       executable = true;
@@ -179,14 +182,15 @@
       text = ''
       #!${pkgs.stdenv.shell}
 
-      export NOTMUCH_CONFIG=${config.users.users.stefan.home}/.config/notmuch/default/config
-
       ${pkgs.notmuch}/bin/notmuch new
+
+      # Currently not used, no moving necessary
       # ${pkgs.afew}/bin/afew -C ${config.users.users.stefan.home}/.config/notmuch/default/config --tag --new -v
+      
       # Remove inbox (lower-case)
-      ${pkgs.notmuch}/bin/notmuch tag -inbox -- tag:Inbox
+      # ${pkgs.notmuch}/bin/notmuch tag -inbox -- tag:Inbox
       # Remove Inbox tagged message that are not in an Inbox
-      ${pkgs.notmuch}/bin/notmuch tag -Inbox -- not folder:private/Inbox not folder:work/Inbox and tag:Inbox
+      # ${pkgs.notmuch}/bin/notmuch tag -Inbox -- not folder:private/Inbox not folder:work/Inbox and tag:Inbox
       ${pkgs.libnotify}/bin/notify-send "Mails synced 📬"
       '';
       executable = true;
