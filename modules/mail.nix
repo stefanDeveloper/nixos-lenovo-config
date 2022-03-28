@@ -111,23 +111,27 @@
         hooks = {
           preNew = "mbsync --all";
         };
+        new.tags = ["new"];
       };
       afew = {
         enable = true;
         extraConfig = ''
           [SpamFilter]
+          [InboxFilter]
           [KillThreadsFilter]
           [ListMailsFilter]
           [ArchiveSentMailsFilter]
-          [FolderNameFilter]
-          maildir_separator = /
-
-          [MailMover]
-          folders = private/Inbox work/Inbox
-          rename = true
-
-          private/Inbox = 'NOT tag:Inbox':"private/Inbox"
-          work/Inbox = 'NOT tag:Inbox':"work/Inbox"
+          [SentMailsFilter]
+          sent_tag = sent
+          [MeFilter]
+          [Filter.1]
+          query = 'stefan.machmeier@urz.uni-heidelberg.de'
+          tags = +work
+          message = work
+          [Filter.2]
+          query = 'stefan-machmeier@outlook.com'
+          tags = +private
+          message = private
         '';
       };
 
@@ -169,11 +173,7 @@
     home.file."mbsync/preExec" = {
       text = ''
       #!${pkgs.stdenv.shell}
-
       ${pkgs.coreutils}/bin/mkdir -p ${config.users.users.stefan.home}/mails/private ${config.users.users.stefan.home}/mails/work
-      
-      # Currently not used, no moving necessary
-      # ${pkgs.afew}/bin/afew -C ${config.users.users.stefan.home}/.config/notmuch/default/config -m -v
       '';
       executable = true;
     };
@@ -181,16 +181,8 @@
     home.file."mbsync/postExec" = {
       text = ''
       #!${pkgs.stdenv.shell}
-
       ${pkgs.notmuch}/bin/notmuch new
-
-      # Currently not used, no moving necessary
-      # ${pkgs.afew}/bin/afew -C ${config.users.users.stefan.home}/.config/notmuch/default/config --tag --new -v
-      
-      # Remove inbox (lower-case)
-      # ${pkgs.notmuch}/bin/notmuch tag -inbox -- tag:Inbox
-      # Remove Inbox tagged message that are not in an Inbox
-      # ${pkgs.notmuch}/bin/notmuch tag -Inbox -- not folder:private/Inbox not folder:work/Inbox and tag:Inbox
+      ${pkgs.afew}/bin/afew -C ${config.users.users.stefan.home}/.config/notmuch/default/config --tag --new -v      
       ${pkgs.libnotify}/bin/notify-send "Mails synced 📬"
       '';
       executable = true;
