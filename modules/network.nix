@@ -1,6 +1,5 @@
 {
   networking = {
-      # hostName = "nixos-stefan";
       networkmanager = {
           enable = true;
       };
