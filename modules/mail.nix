@@ -117,13 +117,12 @@
         enable = true;
         extraConfig = ''
           [SpamFilter]
-          [InboxFilter]
           [KillThreadsFilter]
           [ListMailsFilter]
           [ArchiveSentMailsFilter]
           [SentMailsFilter]
           sent_tag = sent
-          [MeFilter]
+          [InboxFilter]
           [Filter.1]
           query = to'stefan.machmeier@urz.uni-heidelberg.de'
           tags = +work
@@ -131,6 +130,14 @@
           [Filter.2]
           query = to'stefan-machmeier@outlook.com'
           tags = +private
+          message = private
+          [Filter.3]
+          query = from'stefan.machmeier@urz.uni-heidelberg.de'
+          tags = -inbox
+          message = work
+          [Filter.4]
+          query = from'stefan-machmeier@outlook.com'
+          tags = -inbox
           message = private
         '';
       };
