@@ -125,11 +125,11 @@
           sent_tag = sent
           [MeFilter]
           [Filter.1]
-          query = 'stefan.machmeier@urz.uni-heidelberg.de'
+          query = to'stefan.machmeier@urz.uni-heidelberg.de'
           tags = +work
           message = work
           [Filter.2]
-          query = 'stefan-machmeier@outlook.com'
+          query = to'stefan-machmeier@outlook.com'
           tags = +private
           message = private
         '';

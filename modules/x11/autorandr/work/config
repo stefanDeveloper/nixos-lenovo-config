@@ -6,16 +6,20 @@ output DisplayPort-1
 off
 output DisplayPort-2
 off
-output DisplayPort-3
-off
 output DisplayPort-4
+crtc 2
+mode 2560x1440
+pos 4480x0
+rate 59.95
+rotate right
+output DisplayPort-3
 crtc 0
 mode 2560x1440
-pos 1920x0
+pos 1920x1120
 primary
-rate 59.95
+rate 164.96
 output eDP
 crtc 1
 mode 1920x1080
-pos 0x360
+pos 0x1480
 rate 60.03

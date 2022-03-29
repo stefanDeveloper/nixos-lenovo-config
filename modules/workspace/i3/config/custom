@@ -96,16 +96,16 @@ bindsym $super+Shift+space focus mode_toggle
 bindsym $super+Control+Right workspace next
 bindsym $super+Control+Left workspace prev
 
-bindsym $super+1 workspace 1
-bindsym $super+2 workspace 2
-bindsym $super+3 workspace 3
+bindsym $super+1 workspace "1:coding"
+bindsym $super+2 workspace "2:browser"
+bindsym $super+3 workspace "3:mail"
 bindsym $super+4 workspace 4
 bindsym $super+5 workspace 5
 bindsym $super+6 workspace 6
 bindsym $super+7 workspace 7
 bindsym $super+8 workspace 8
 bindsym $super+9 workspace 9
-bindsym $super+0 workspace 10
+bindsym $super+0 workspace "10:messenger"
 
 bindsym $hyper+1 workspace 11
 bindsym $hyper+2 workspace 12
@@ -119,16 +119,16 @@ bindsym $hyper+9 workspace 19
 bindsym $hyper+0 workspace 20
 
 # move focused container to workspace
-bindsym $super+Shift+1 move container to workspace 1
-bindsym $super+Shift+2 move container to workspace 2
-bindsym $super+Shift+3 move container to workspace 3
+bindsym $super+Shift+1 move container to workspace "1:coding"
+bindsym $super+Shift+2 move container to workspace "2:browser"
+bindsym $super+Shift+3 move container to workspace "3:mail"
 bindsym $super+Shift+4 move container to workspace 4
 bindsym $super+Shift+5 move container to workspace 5
 bindsym $super+Shift+6 move container to workspace 6
 bindsym $super+Shift+7 move container to workspace 7
 bindsym $super+Shift+8 move container to workspace 8
 bindsym $super+Shift+9 move container to workspace 9
-bindsym $super+Shift+0 move container to workspace 10
+bindsym $super+Shift+0 move container to workspace "10:messenger"
 
 bindsym $hyper+Shift+1 move container to workspace 11
 bindsym $hyper+Shift+2 move container to workspace 12
@@ -141,31 +141,31 @@ bindsym $hyper+Shift+8 move container to workspace 18
 bindsym $hyper+Shift+9 move container to workspace 19
 bindsym $hyper+Shift+0 move container to workspace 20
 
-workspace 1  output DisplayPort-1 DisplayPort-4 eDP
-workspace 2  output DisplayPort-1 DisplayPort-4 eDP
-workspace 3  output DisplayPort-1 DisplayPort-4 eDP
-workspace 4  output DisplayPort-1 DisplayPort-4 eDP
-workspace 5  output DisplayPort-1 DisplayPort-4 eDP
-workspace 6  output DisplayPort-1 DisplayPort-4 eDP
+workspace 1  output DisplayPort-1 DisplayPort-3 eDP
+workspace 2  output DisplayPort-1 DisplayPort-3 eDP
+workspace 3  output DisplayPort-1 DisplayPort-3 eDP
+workspace 4  output DisplayPort-1 DisplayPort-3 eDP
+workspace 5  output DisplayPort-1 DisplayPort-3 eDP
+workspace 6  output DisplayPort-1 DisplayPort-3 eDP
 
 workspace 7  output HDMI-A-0 DisplayPort-1 DisplayPort-4 eDP
 workspace 8  output HDMI-A-0 DisplayPort-1 DisplayPort-4 eDP
 workspace 9  output HDMI-A-0 DisplayPort-1 DisplayPort-4 eDP
 workspace 10 output HDMI-A-0 DisplayPort-1 DisplayPort-4 eDP
 
-workspace 11 output DisplayPort-1 HDMI-A-0 eDP
-workspace 12 output DisplayPort-1 HDMI-A-0 eDP
+workspace 11 output HDMI-A-0 DisplayPort-1 DisplayPort-4 eDP
+workspace 12 output HDMI-A-0 DisplayPort-1 DisplayPort-4 eDP
 
-workspace 13 output HDMI-A-0 DisplayPort-1 eDP
-workspace 14 output HDMI-A-0 DisplayPort-1 eDP
+workspace 13 output HDMI-A-0 DisplayPort-1 DisplayPort-4 eDP
+workspace 14 output HDMI-A-0 DisplayPort-1 DisplayPort-4 eDP
 
-workspace 15 output HDMI-A-0 DisplayPort-1 eDP
-workspace 16 output HDMI-A-0 DisplayPort-1 eDP
+workspace 15 output HDMI-A-0 DisplayPort-1 DisplayPort-4 eDP
+workspace 16 output HDMI-A-0 DisplayPort-1 DisplayPort-4 eDP
 
-workspace 17 output DisplayPort-1 HDMI-A-0 eDP
-workspace 18 output DisplayPort-1 HDMI-A-0 eDP
-workspace 19 output DisplayPort-1 HDMI-A-0 eDP
-workspace 20 output DisplayPort-1 HDMI-A-0 eDP
+workspace 17 output DisplayPort-1 HDMI-A-0 DisplayPort-4 eDP
+workspace 18 output DisplayPort-1 HDMI-A-0 DisplayPort-4 eDP
+workspace 19 output DisplayPort-1 HDMI-A-0 DisplayPort-4 eDP
+workspace 20 output DisplayPort-1 HDMI-A-0 DisplayPort-4 eDP
 
 # App quick focus
 #tbc
@@ -210,6 +210,7 @@ bindsym $super+Shift+c reload
 
 # exit i3
 bindsym $super+q exec "i3-nagbar -t warning -m 'Really, exit?' -b 'Yes' 'i3-msg exit'"
+
 # suspend
 bindsym $super+Shift+q exec --no-startup-id systemctl suspend
 
@@ -225,6 +226,7 @@ bindsym $super+r mode "resize"
 
 # panel
 bar {
+        strip_workspace_numbers yes
         font pango: Noto Sans 12
         colors {
                 background #2f343f
@@ -242,13 +244,14 @@ bar {
 
 # window rules, you can find the window class using xprop
 for_window [class=".*"] border pixel 2
-assign [class="(?i)Visual Studio Code"] 1
-assign [class="Firefox"] 2
-assign [class="Thunderbird"] 3
+assign [class="(?i)Visual Studio Code"] "1:coding"
+assign [class="Firefox"] "2:browser"
+assign [class="Thunderbird"] "3:mail"
 assign [class="Gimp|Vlc|Slack|(?i)Spotify"] 8
 assign [class="Signal|Telegram"] 9
-assign [class="Element|Threema"] 10
-assign [class="(?i)Discord"] 10
+assign [class="Element|Threema"] "10:messenger"
+assign [class="(?i)Discord"] "10:messenger"
+
 for_window [class="Nitrogen"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="ARandR"] floating enable
