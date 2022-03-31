@@ -30,9 +30,7 @@
             };
           };
           primary = lib.mkIf ( config.networking.hostName == "nixos-stefan") true;
-          msmtp = {
-            enable = true;
-          };
+          msmtp.enable = true;
           astroid.enable = true;
           notmuch.enable = true;
           realName = "Stefan Machmeier";
@@ -77,9 +75,7 @@
               };
             };
           };
-          msmtp = {
-            enable = true;
-          };
+          msmtp.enable = true;
           astroid.enable = true;
           notmuch.enable = true;
           primary =  lib.mkIf ( config.networking.hostName == "nixos-work") true;
@@ -122,23 +118,36 @@
           [ArchiveSentMailsFilter]
           [SentMailsFilter]
           sent_tag = sent
-          [InboxFilter]
+          
           [Filter.1]
-          query = to'stefan.machmeier@urz.uni-heidelberg.de'
+          query = to:stefan.machmeier@urz.uni-heidelberg.de
           tags = +work
-          message = work
+          message = Tag work mails
+
           [Filter.2]
-          query = to'stefan-machmeier@outlook.com'
+          query = to:stefan-machmeier@outlook.com
           tags = +private
-          message = private
+          message = Tag private mails
+
           [Filter.3]
-          query = from'stefan.machmeier@urz.uni-heidelberg.de'
-          tags = -inbox
-          message = work
+          query = 'to:stefan.machmeier@stud.uni-heidelberg.de OR to:tz251r@stud.uni-heidelberg.de'
+          tags = +uni
+          message = Tag uni mails
+
           [Filter.4]
-          query = from'stefan-machmeier@outlook.com'
-          tags = -inbox
-          message = private
+          query = from:lagezentrum@cybersicherheit.bwl.de
+          tags = +bsi;-new
+          message = Tag BSI mails
+
+          [InboxFilter]
+
+          [MailMover]
+          folders = work/Inbox
+          rename = True
+          max_age = 15
+
+          # rules
+          work/Inbox = 'tag:bsi':work/Inbox/BSI
         '';
       };
 

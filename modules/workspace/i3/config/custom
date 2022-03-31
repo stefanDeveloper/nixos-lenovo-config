@@ -96,16 +96,16 @@ bindsym $super+Shift+space focus mode_toggle
 bindsym $super+Control+Right workspace next
 bindsym $super+Control+Left workspace prev
 
-bindsym $super+1 workspace "1:coding"
-bindsym $super+2 workspace "2:browser"
-bindsym $super+3 workspace "3:mail"
+bindsym $super+1 workspace 1
+bindsym $super+2 workspace 2
+bindsym $super+3 workspace 3
 bindsym $super+4 workspace 4
 bindsym $super+5 workspace 5
 bindsym $super+6 workspace 6
 bindsym $super+7 workspace 7
 bindsym $super+8 workspace 8
 bindsym $super+9 workspace 9
-bindsym $super+0 workspace "10:messenger"
+bindsym $super+0 workspace 10
 
 bindsym $hyper+1 workspace 11
 bindsym $hyper+2 workspace 12
@@ -119,16 +119,16 @@ bindsym $hyper+9 workspace 19
 bindsym $hyper+0 workspace 20
 
 # move focused container to workspace
-bindsym $super+Shift+1 move container to workspace "1:coding"
-bindsym $super+Shift+2 move container to workspace "2:browser"
-bindsym $super+Shift+3 move container to workspace "3:mail"
+bindsym $super+Shift+1 move container to workspace 1
+bindsym $super+Shift+2 move container to workspace 2
+bindsym $super+Shift+3 move container to workspace 3
 bindsym $super+Shift+4 move container to workspace 4
 bindsym $super+Shift+5 move container to workspace 5
 bindsym $super+Shift+6 move container to workspace 6
 bindsym $super+Shift+7 move container to workspace 7
 bindsym $super+Shift+8 move container to workspace 8
 bindsym $super+Shift+9 move container to workspace 9
-bindsym $super+Shift+0 move container to workspace "10:messenger"
+bindsym $super+Shift+0 move container to workspace 10
 
 bindsym $hyper+Shift+1 move container to workspace 11
 bindsym $hyper+Shift+2 move container to workspace 12
@@ -244,13 +244,13 @@ bar {
 
 # window rules, you can find the window class using xprop
 for_window [class=".*"] border pixel 2
-assign [class="(?i)Visual Studio Code"] "1:coding"
-assign [class="Firefox"] "2:browser"
-assign [class="Thunderbird"] "3:mail"
+assign [class="(?i)Visual Studio Code"] 1
+assign [class="Firefox"] 2
+assign [class="Thunderbird"] 2
 assign [class="Gimp|Vlc|Slack|(?i)Spotify"] 8
 assign [class="Signal|Telegram"] 9
-assign [class="Element|Threema"] "10:messenger"
-assign [class="(?i)Discord"] "10:messenger"
+assign [class="Element|Threema"] 10
+assign [class="(?i)Discord"] 10
 
 for_window [class="Nitrogen"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
