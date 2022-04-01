@@ -162,47 +162,48 @@
       };  
     };
 
-    home.file."bin/msmtp" = {
-      text = ''
-      #!${pkgs.stdenv.shell}
-      ${pkgs.libnotify}/bin/notify-send "Sending mail ✉️"
-      ${pkgs.msmtp}/bin/msmtp --read-envelope-from $@
-      '';
-      executable = true;
-    };
-
-    home.file."bin/msync" = {
-      text = ''
-      #!${pkgs.stdenv.shell}
-      systemctl --user start mbsync
-      '';
-      executable = true;
-    };
-
     services.mbsync = {
       enable = true;
       preExec = "${config.users.users.stefan.home}/mbsync/preExec";
       postExec = "${config.users.users.stefan.home}/mbsync/postExec";
       frequency = "*:0/15";
     };
-    
-    home.file."mbsync/preExec" = {
-      text = ''
-      #!${pkgs.stdenv.shell}
 
-      ${pkgs.coreutils}/bin/mkdir -p ${config.users.users.stefan.home}/mails/private ${config.users.users.stefan.home}/mails/work
-      '';
-      executable = true;
-    };
+    home.file = {
+      "bin/msmtp" = {
+        text = ''
+        #!${pkgs.stdenv.shell}
+        ${pkgs.libnotify}/bin/notify-send "Sending mail ✉️"
+        ${pkgs.msmtp}/bin/msmtp --read-envelope-from $@
+        '';
+        executable = true;
+      };
+      "bin/msync" = {
+        text = ''
+        #!${pkgs.stdenv.shell}
+        systemctl --user start mbsync
+        '';
+        executable = true;
+      };
+      "mbsync/preExec" = {
+        text = ''
+        #!${pkgs.stdenv.shell}
 
-    home.file."mbsync/postExec" = {
-      text = ''
-      #!${pkgs.stdenv.shell}
+        ${pkgs.coreutils}/bin/mkdir -p ${config.users.users.stefan.home}/mails/private ${config.users.users.stefan.home}/mails/work
+        '';
+        executable = true;
+      };
+      "mbsync/postExec" = {
+        text = ''
+        #!${pkgs.stdenv.shell}
 
-      ${pkgs.notmuch}/bin/notmuch new
-      ${pkgs.afew}/bin/afew -C ${config.users.users.stefan.home}/.config/notmuch/default/config --tag --new -v
-      '';
-      executable = true;
+        ${pkgs.notmuch}/bin/notmuch new
+        ${pkgs.afew}/bin/afew -C ${config.users.users.stefan.home}/.config/notmuch/default/config --tag --new -v
+        '';
+        executable = true;
+      };
+      ".signature.work" = { source = ./signature.work; };
+      ".signature.prv" = { source = ./signature.prv; };
     };
   };
 }

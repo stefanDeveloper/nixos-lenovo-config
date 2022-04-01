@@ -39,11 +39,11 @@
     "doom-emacs-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1648729986,
-        "narHash": "sha256-ObnUURECpwn+TYVFztVbAgP5qitb4pVWRxh9yqwOP5M=",
+        "lastModified": 1648799332,
+        "narHash": "sha256-XAFK4+HbbofLxz+AAJHFK/oyrp7sy3PZ+CFltyeYqEs=",
         "owner": "stefanDeveloper",
         "repo": ".doom.d-conf",
-        "rev": "9f9e8b145a50b65ac54b81a831855ca32abd59c0",
+        "rev": "39984db8a255d144a0271aa1ac8c8c5d800132bd",
         "type": "github"
       },
       "original": {
@@ -81,6 +81,22 @@
       "original": {
         "owner": "edolstra",
         "repo": "flake-compat",
+        "type": "github"
+      }
+    },
+    "gnus-alias": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1307526521,
+        "narHash": "sha256-NMRQ2e4o1ffwNHulFHMFkVqGWp2t3deuN8ywkCwZvg8=",
+        "owner": "altruizine",
+        "repo": "gnus-alias",
+        "rev": "11a0d73e7cec8cbc2001f3492081db1d23a018da",
+        "type": "github"
+      },
+      "original": {
+        "owner": "altruizine",
+        "repo": "gnus-alias",
         "type": "github"
       }
     },
@@ -346,6 +362,7 @@
         "deploy-rs": "deploy-rs",
         "doom-emacs-config": "doom-emacs-config",
         "emacs-overlay": "emacs-overlay",
+        "gnus-alias": "gnus-alias",
         "gpg-config": "gpg-config",
         "home-manager": "home-manager",
         "kitty-themes": "kitty-themes",

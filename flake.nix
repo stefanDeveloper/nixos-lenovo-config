@@ -57,6 +57,10 @@
       flake = false;
     };
     
+    gnus-alias = {
+      url = "github:altruizine/gnus-alias";
+      flake = false;
+    };
     
     nixos-artwork = {
       type = "github";
@@ -69,7 +73,7 @@
     nur.url = github:nix-community/NUR;
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, nix, self, deploy-rs, nur, nix-doom-emacs, home-manager, emacs-overlay, nixpkgs-fmt, defaultencrypt, doom-emacs-config, gpg-config, ... } @ inputs:  {
+  outputs = { nixpkgs, nixpkgs-unstable, nix, self, deploy-rs, nur, nix-doom-emacs, home-manager, emacs-overlay, nixpkgs-fmt, defaultencrypt, doom-emacs-config, gpg-config, gnus-alias, ... } @ inputs:  {
     nixosModules = import ./modules;
     nixosProfiles = import ./profiles;
 

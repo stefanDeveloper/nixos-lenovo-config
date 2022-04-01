@@ -10,6 +10,7 @@
       ".doom.d/init.el" =  { source = "${inputs.doom-emacs-config}/init.el"; };
       ".doom.d/packages.el" =  { source = "${inputs.doom-emacs-config}/packages.el"; };
       ".doom.d/defaultencrypt" = { source = inputs.defaultencrypt; };
+      ".doom.d/gnus-alias" = { source = inputs.gnus-alias; };
     };
   };
 }
