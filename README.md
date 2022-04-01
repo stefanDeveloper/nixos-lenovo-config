@@ -161,6 +161,21 @@ gpg --batch --yes --symmetric --recipient stefan-machmeier@outlook.com --passphr
 
 For more information, follow [this](https://www.claws-mail.org/faq/index.php/S/MIME_howto) and [this](https://www.mew.org/en/feature/smime.html).
 
+Duplicate errors in `notmuch`
+
+```sh
+cd ~/Local/mbsyncmail/INBOX # where my INBOX lives
+find . -name "*U=2:*" -exec ls -l {} \;
+-rw------- 1 simko simko  1523 Dec 20 21:20 ./cur/1419106858.5661_2.pcuds06,U=2:2,S
+-rw------- 1 simko simko 39500 Feb 13 10:20 ./cur/1423819205.29514_1.pcuds06,U=2:2,S
+
+mv ./cur/1423819205.29514_1.pcuds06,U=2:2,S ./cur/1423819205.29514_1.pcuds06
+-rw------- 1 simko simko  1523 Dec 20 21:20 ./cur/1419106858.5661_2.pcuds06,U=2:2,S
+-rw------- 1 simko simko 39500 Feb 13 10:20 ./cur/1423819205.29514_1.pcuds06
+```
+
+More information [here](http://tiborsimko.org/mbsync-duplicate-uid.html)
+
 ### Fonts
 
 #### VSCode and Zsh
