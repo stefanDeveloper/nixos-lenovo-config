@@ -4,7 +4,7 @@ set $hyper Mod4
 
 # lock screen
 # set $lock i3lock-pixeled
-set $lock multilockscreen -l -- -t -ef -n
+set $lock betterlockscreen -l dim -- -t -ef -n
 
 set $term1 alacritty
 set $term2 kitty
@@ -31,6 +31,7 @@ exec --no-startup-id telegram-desktop
 exec --no-startup-id firefox
 exec --no-startup-id thunderbird
 exec --no-startup-id nitrogen --restore
+exec --no-startup-id betterlockscreen -w dim
 exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 60 "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'" "" --timer 300 "$lock" "" --timer 3600 "systemctl suspend" ""
 # exec --no-startup-id xautolock -detectsleep -time 10 -locker "$lock" -notify 30 -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'"
 

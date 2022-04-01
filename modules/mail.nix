@@ -104,9 +104,10 @@
       msmtp.enable = true;
       notmuch = {
         enable = true;
-        hooks = {
-          preNew = "mbsync --all";
-        };
+        # Only used when service mbsync not running
+        #hooks = {
+        #  preNew = "mbsync --all";
+        #};
         new.tags = ["new"];
       };
       afew = {
@@ -173,7 +174,6 @@
     home.file."bin/msync" = {
       text = ''
       #!${pkgs.stdenv.shell}
-      ${pkgs.libnotify}/bin/notify-send "Syncing mails 📫️"
       systemctl --user start mbsync
       '';
       executable = true;
@@ -183,12 +183,13 @@
       enable = true;
       preExec = "${config.users.users.stefan.home}/mbsync/preExec";
       postExec = "${config.users.users.stefan.home}/mbsync/postExec";
-      frequency = "*:0/30";
+      frequency = "*:0/15";
     };
     
     home.file."mbsync/preExec" = {
       text = ''
       #!${pkgs.stdenv.shell}
+
       ${pkgs.coreutils}/bin/mkdir -p ${config.users.users.stefan.home}/mails/private ${config.users.users.stefan.home}/mails/work
       '';
       executable = true;
@@ -197,9 +198,9 @@
     home.file."mbsync/postExec" = {
       text = ''
       #!${pkgs.stdenv.shell}
+
       ${pkgs.notmuch}/bin/notmuch new
-      ${pkgs.afew}/bin/afew -C ${config.users.users.stefan.home}/.config/notmuch/default/config --tag --new -v      
-      ${pkgs.libnotify}/bin/notify-send "Mails synced 📬"
+      ${pkgs.afew}/bin/afew -C ${config.users.users.stefan.home}/.config/notmuch/default/config --tag --new -v
       '';
       executable = true;
     };

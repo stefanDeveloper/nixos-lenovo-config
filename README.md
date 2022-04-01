@@ -84,7 +84,8 @@ lpadmin -p Canon-XXXXX -E -v ipp://XXX.XXX.X.XX/ipp/print -m everywhere
 Set `multilockscreen`:
 
 ```sh
-multilockscreen -u path_to_file --fx dim,pixel
+betterlockscreen -u ~/Documents/nixos-artwork/wallpapers/nix-wallpaper-nineish-dark-gray.svg --display 1 --span
+betterlockscreen -u path_to_file --fx dim,pixel
 ```
 
 Set background:

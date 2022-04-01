@@ -39,6 +39,8 @@
         ms-vscode.cpptools
 
         redhat.vscode-yaml
+
+        bierner.emojisense
       ]) ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "remote-ssh-edit";
@@ -87,6 +89,12 @@
           publisher = "B4dM4n";
           version = "0.0.1";
           sha256 = "vz2kU36B1xkLci2QwLpl/SBEhfSWltIDJ1r7SorHcr8=";
+        }
+        {
+          name = "i3";
+          publisher = "dcasella";
+          version = "0.0.1";
+          sha256 = "Mn1QnwFOC5Gy9jnXJsoKt5S6/aKUJjxni4PR8RTVZlM=";
         }
       ];
     };

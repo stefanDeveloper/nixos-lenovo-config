@@ -34,7 +34,14 @@
     nitrogen          # wallpaper
     rofi              # app launcher
     dunst             # notification
-    multilockscreen   # lockscreen
+    # multilockscreen   # lockscreen, outdated and merged with Betterlockscreen
+    betterlockscreen
+    feh
+    imagemagick
+    xorg.xdpyinfo
+    xorg.xrdb
+    xorg.xset
+
     i3lock-pixeled    # i3lock
     i3status          # status bar
     flameshot         # screenshot capture
@@ -73,6 +80,15 @@
       "weather" = {
         source = ./weather.sh;
         target = ".config/i3/weather.sh";
+      };
+      ".xinitrc" = {
+        text = ''
+        # set desktop background with custom effect
+        betterlockscreen -w dim
+
+        # Alternative (set last used background)
+        source ~/.fehbg
+        '';
       };
     };
   };
