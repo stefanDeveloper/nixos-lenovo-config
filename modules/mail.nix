@@ -105,9 +105,9 @@
       notmuch = {
         enable = true;
         # Only used when service mbsync not running
-        #hooks = {
-        #  preNew = "mbsync --all";
-        #};
+        hooks = {
+          preNew = "mbsync --all";
+        };
         new.tags = ["new"];
       };
       afew = {
@@ -131,7 +131,7 @@
           message = Tag private mails
 
           [Filter.3]
-          query = 'to:stefan.machmeier@stud.uni-heidelberg.de OR to:tz251r@stud.uni-heidelberg.de'
+          query = 'to:stefan.machmeier@stud.uni-heidelberg.de OR to:tz251@stud.uni-heidelberg.de'
           tags = +uni
           message = Tag uni mails
 
@@ -139,6 +139,16 @@
           query = from:lagezentrum@cybersicherheit.bwl.de
           tags = +bsi;-new
           message = Tag BSI mails
+
+          [Filter.5]
+          query = path:private/Archiv/**
+          tags = +archive;-new
+          message = Remove archvie messages
+
+          [Filter.6]
+          query = path:work/Archive/**
+          tags = +archive;-new
+          message = Remove archvie messages
 
           [InboxFilter]
 
