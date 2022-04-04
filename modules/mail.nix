@@ -113,6 +113,10 @@
       afew = {
         enable = true;
         extraConfig = ''
+          [FolderNameFilter]
+          folder_transforms = trash:deleted Archiv:archive Archive:archive
+          maildir_separator = /
+          folder_lowercases = true
           [SpamFilter]
           [KillThreadsFilter]
           [ListMailsFilter]
@@ -136,9 +140,9 @@
           message = Tag uni mails
 
           [Filter.4]
-          query = from:lagezentrum@cybersicherheit.bwl.de
-          tags = +bsi;-new
-          message = Tag BSI mails
+          query = tag:bsi
+          tags = -new;-inbox
+          message = Remove BSI mails
 
           [Filter.5]
           query = path:private/Archiv/**
@@ -149,6 +153,21 @@
           query = path:work/Archive/**
           tags = +archive;-new
           message = Remove archvie messages
+
+          [Filter.7]
+          query = tag:calendar
+          tags = -new
+          message = Remove calendar messages
+
+          [Filter.8]
+          query = tag:trash OR tag:"deleted items"
+          tags = -new;-trash;+deleted
+          message = Remove deleted messages
+
+          [Filter.9]
+          query = path:draft
+          tags = +draft
+          message = Add draft messages
 
           [InboxFilter]
 
