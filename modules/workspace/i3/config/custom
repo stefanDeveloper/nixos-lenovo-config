@@ -142,12 +142,12 @@ bindsym $hyper+Shift+8 move container to workspace 18
 bindsym $hyper+Shift+9 move container to workspace 19
 bindsym $hyper+Shift+0 move container to workspace 20
 
-workspace 1  output DisplayPort-1 DisplayPort-3 eDP
-workspace 2  output DisplayPort-1 DisplayPort-3 eDP
-workspace 3  output DisplayPort-1 DisplayPort-3 eDP
-workspace 4  output DisplayPort-1 DisplayPort-3 eDP
-workspace 5  output DisplayPort-1 DisplayPort-3 eDP
-workspace 6  output DisplayPort-1 DisplayPort-3 eDP
+workspace 1  output DisplayPort-1 DisplayPort-3 DisplayPort-5 eDP
+workspace 2  output DisplayPort-1 DisplayPort-3 DisplayPort-5 eDP
+workspace 3  output DisplayPort-1 DisplayPort-3 DisplayPort-5 eDP
+workspace 4  output DisplayPort-1 DisplayPort-3 DisplayPort-5 eDP
+workspace 5  output DisplayPort-1 DisplayPort-3 DisplayPort-5 eDP
+workspace 6  output DisplayPort-1 DisplayPort-3 DisplayPort-5 eDP
 
 workspace 7  output HDMI-A-0 DisplayPort-1 DisplayPort-4 eDP
 workspace 8  output HDMI-A-0 DisplayPort-1 DisplayPort-4 eDP
