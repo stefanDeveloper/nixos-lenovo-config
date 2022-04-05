@@ -13,6 +13,7 @@
     screenfetch
     tree
     git
+    git-lfs
 
     brightnessctl # Brightness
   ];

@@ -8,6 +8,7 @@
       userEmail = "stefan-machmeier@outlook.com";
       # Enable delta syntax highlighter
       delta.enable = true;
+      lfs.enable = true;
     };
 
     home.packages = with pkgs; [ delta ];
