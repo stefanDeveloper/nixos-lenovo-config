@@ -84,7 +84,7 @@
       ".xinitrc" = {
         text = ''
         # set desktop background with custom effect
-        betterlockscreen -w dim
+        # betterlockscreen -w dim only run that if you want to use the same background as betterlockscreen
 
         # Alternative (set last used background)
         source ~/.fehbg
