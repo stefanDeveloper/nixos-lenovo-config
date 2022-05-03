@@ -6,5 +6,6 @@
     inetutils
     nmap
     iw
+    openstackclient
   ];
 }

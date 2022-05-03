@@ -5,6 +5,9 @@
     programs.emacs = {
       enable = true;
     };
+    services.emacs = {
+      enable = true;
+    };
     home.file = {
       ".doom.d/config.el" =  { source = "${inputs.doom-emacs-config}/config.el"; };
       ".doom.d/init.el" =  { source = "${inputs.doom-emacs-config}/init.el"; };

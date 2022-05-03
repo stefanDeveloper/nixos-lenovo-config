@@ -36,9 +36,15 @@
           realName = "Stefan Machmeier";
           signature = {
             text = ''
-              Mit besten Wünschen
+              --
+              Stefan Machmeier
+
+              Email: stefan-machmeier@outlook.com
+
+              Encryption
+              OpenPGP: https://keys.openpgp.org/vks/v1/by-fingerprint/EC4C531C2E0F840C746429D4A0CBC9D2A1914257
             '';
-            showSignature = "append";
+            showSignature = "attach";
           };
           passwordCommand = "${pkgs.gnupg}/bin/gpg -q --for-your-eyes-only --no-tty --exit-on-status-write-error --batch --recipient stefan-machmeier@outlook.com --passphrase-file ${config.users.users.stefan.home}/private.pass -d ${config.users.users.stefan.home}/prv.pass.gpg";
           smtp = {
@@ -82,9 +88,15 @@
           realName = "Stefan Machmeier";
           signature = {
             text = ''
-              Mit besten Wünschen
+              --
+              Stefan Machmeier
+              Kernteam IT-Sicherheit
+              Universitätsrechenzentrum (URZ)
+              Universität Heidelberg
+              Im Neuenheimer Feld 330, 69120 Heidelberg
+              stefan.machmeier@urz.uni-heidelberg.de
             '';
-            showSignature = "append";
+            showSignature = "attach";
           };
           passwordCommand = "${pkgs.gnupg}/bin/gpg -q --for-your-eyes-only --no-tty --exit-on-status-write-error --batch --recipient stefan-machmeier@outlook.com --passphrase-file ${config.users.users.stefan.home}/private.pass -d ${config.users.users.stefan.home}/work.pass.gpg";
           smtp = {
@@ -140,31 +152,36 @@
           message = Tag uni mails
 
           [Filter.4]
+          query = from:LAGEZENTRUM@CYBERSICHERHEIT.BWL.DE
+          tags = +bsi
+          message = Tag BSI mails
+
+          [Filter.5]
           query = tag:bsi
           tags = -new;-inbox
           message = Remove BSI mails
 
-          [Filter.5]
+          [Filter.6]
           query = path:private/Archiv/**
           tags = +archive;-new
           message = Remove archvie messages
 
-          [Filter.6]
+          [Filter.7]
           query = path:work/Archive/**
           tags = +archive;-new
           message = Remove archvie messages
 
-          [Filter.7]
+          [Filter.8]
           query = tag:calendar
           tags = -new
           message = Remove calendar messages
 
-          [Filter.8]
+          [Filter.9]
           query = tag:trash OR tag:"deleted items"
           tags = -new;-trash;+deleted
           message = Remove deleted messages
 
-          [Filter.9]
+          [Filter.10]
           query = path:draft
           tags = +draft
           message = Add draft messages
@@ -183,10 +200,13 @@
 
       astroid = {
         enable = true;
-        externalEditor = "emacsclient -c";
+        #pollScript = "${pkgs.notmuch}/bin/notmuch new && ${pkgs.afew}/bin/afew -C ${config.users.users.stefan.home}/.config/notmuch/default/config --tag --new -v && ${pkgs.afew}/bin/afew -C ${config.users.users.stefan.home}/.config/notmuch/default/config --move --new -v";
+        pollScript = "mbsync -a";
+        #externalEditor = "emacsclient -q -c %1";
         extraConfig = {
           startup.queries.inbox_private = "folder:private/Inbox";
           startup.queries.inbox_work = "folder:work/Inbox";
+          poll.interval = 30;
         };
       };  
     };
@@ -195,7 +215,7 @@
       enable = true;
       preExec = "${config.users.users.stefan.home}/mbsync/preExec";
       postExec = "${config.users.users.stefan.home}/mbsync/postExec";
-      frequency = "*:0/15";
+      frequency = "*:0/1";
     };
 
     home.file = {
@@ -210,7 +230,7 @@
       "bin/msync" = {
         text = ''
         #!${pkgs.stdenv.shell}
-        systemctl --user start mbsync
+        systemctl --user start mbsync -a
         '';
         executable = true;
       };
@@ -226,8 +246,8 @@
         text = ''
         #!${pkgs.stdenv.shell}
 
-        ${pkgs.notmuch}/bin/notmuch new
         ${pkgs.afew}/bin/afew -C ${config.users.users.stefan.home}/.config/notmuch/default/config --tag --new -v
+        ${pkgs.afew}/bin/afew -C ${config.users.users.stefan.home}/.config/notmuch/default/config --move --new -v
         '';
         executable = true;
       };
