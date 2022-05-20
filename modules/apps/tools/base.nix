@@ -16,5 +16,8 @@
     git-lfs
 
     brightnessctl # Brightness
+
+    update-systemd-resolved
+    
   ];
 }

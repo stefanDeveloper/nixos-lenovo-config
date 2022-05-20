@@ -5,8 +5,10 @@
     XCURSOR_PATH = lib.mkForce "/home/stefan/.icons";
   };
 
+  
+
   home-manager.users.stefan = {
-    xsession.pointerCursor = {
+    home.pointerCursor = {
       package = pkgs.breeze-qt5;
       name = "Breeze";
     };

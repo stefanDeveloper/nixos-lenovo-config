@@ -2,6 +2,7 @@
 { 
   environment.systemPackages = with pkgs; [
     openssl
+    gpg-tui
   ];
   services.pcscd.enable = true;
   

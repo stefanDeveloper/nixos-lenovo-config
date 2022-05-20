@@ -200,8 +200,8 @@
 
       astroid = {
         enable = true;
-        #pollScript = "${pkgs.notmuch}/bin/notmuch new && ${pkgs.afew}/bin/afew -C ${config.users.users.stefan.home}/.config/notmuch/default/config --tag --new -v && ${pkgs.afew}/bin/afew -C ${config.users.users.stefan.home}/.config/notmuch/default/config --move --new -v";
-        pollScript = "mbsync -a";
+        pollScript = "${pkgs.notmuch}/bin/notmuch new && ${pkgs.afew}/bin/afew -C ${config.users.users.stefan.home}/.config/notmuch/default/config --tag --new -v && ${pkgs.afew}/bin/afew -C ${config.users.users.stefan.home}/.config/notmuch/default/config --move --new -v";
+        #pollScript = "mbsync -a";
         #externalEditor = "emacsclient -q -c %1";
         extraConfig = {
           startup.queries.inbox_private = "folder:private/Inbox";

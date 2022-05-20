@@ -87,7 +87,8 @@
         # betterlockscreen -w dim only run that if you want to use the same background as betterlockscreen
 
         # Alternative (set last used background)
-        source ~/.fehbg
+        # source ~/.fehbg
+        nitrogen --restore &
         '';
       };
     };

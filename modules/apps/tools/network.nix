@@ -7,5 +7,7 @@
     nmap
     iw
     openstackclient
+    openvpn
+    tcpdump
   ];
 }

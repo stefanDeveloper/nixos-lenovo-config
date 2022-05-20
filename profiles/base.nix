@@ -19,6 +19,8 @@
     fm
     tools
 
+    pentest
+
     git
   ];
 }

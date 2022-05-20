@@ -18,5 +18,11 @@
     jmespath
 
     jdk11
+
+    ansible
+    ansible-lint
+
+    apache-directory-studio
+
   ];
 } 
