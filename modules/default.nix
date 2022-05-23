@@ -60,8 +60,6 @@ builtins.listToAttrs (builtins.map (path: {
 
   ./apps/streaming
 
-  ./apps/pentest
-
   ./x11
 
   ./workspace/cursor.nix

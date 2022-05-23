@@ -96,6 +96,18 @@
           version = "0.0.1";
           sha256 = "Mn1QnwFOC5Gy9jnXJsoKt5S6/aKUJjxni4PR8RTVZlM=";
         }
+        {
+          name = "jinjahtml";
+          publisher = "samuelcolvin";
+          version = "0.17.0";
+          sha256 = "Kxzsv1P2tS9Nme8L2D/ZJn15syKynxeyBmq/n9VCH4g=";
+        }
+        {
+          name = "vscode-xml";
+          publisher = "redhat";
+          version = "0.20.0";
+          sha256 = "GKBrf9s8n7Wv14RSfwyDma1dM0fGMvRkU/7v2DAcB9A=";
+        }
       ];
     };
   };
