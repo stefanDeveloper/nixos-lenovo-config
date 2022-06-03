@@ -14,6 +14,7 @@
     users
     us-de
     mail
+    pentest
 
     monitoring
     fm

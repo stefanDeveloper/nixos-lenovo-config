@@ -55,6 +55,8 @@ builtins.listToAttrs (builtins.map (path: {
   ./apps/tools
   
   ./apps/monitoring
+
+  ./apps/pentest
   
   ./apps/reading
 
