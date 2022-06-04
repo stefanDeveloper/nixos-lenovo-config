@@ -17,8 +17,8 @@
     };
   };
   # NixOS 22.05
-  # nix.settings.trusted-users = [ "root" "stefan" ];
+  nix.settings.trusted-users = [ "root" "stefan" ];
   # Until NixOS 21.11
-  nix.trustedUsers = [ "root" "stefan" ];
+  # nix.trustedUsers = [ "root" "stefan" ];
   security.sudo.wheelNeedsPassword = false;
 }

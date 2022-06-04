@@ -22,8 +22,8 @@
 
     # While pulseaudio itself only has support for the
     # SBC bluetooth codec there is out-of-tree support for AAC, APTX, APTX-HD and LDAC.
-    extraModules = [pkgs.pulseaudio-modules-bt];
-
+    # NixOS 21.11, in 22.05 the bt functionality is included
+    # extraModules = [pkgs.pulseaudio-modules-bt];
     # For compatibility with 32-bit applications
     support32Bit = true;
   };
