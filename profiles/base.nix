@@ -18,6 +18,7 @@
     monitoring
     fm
     tools
+    pentest
 
     git
   ];
