@@ -36,7 +36,7 @@
           "browser.theme.toolbar-theme" = 0;
           "browser.theme.content-theme" = 0;
 
-          "signon.rememberSignons" = false;
+          "signon.rememberSignons" = true;
         };
       };
     };

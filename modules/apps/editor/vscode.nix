@@ -19,6 +19,19 @@
         "[nix]" = {
           "editor.defaultFormatter" = "B4dM4n.nixpkgs-fmt";
         };
+        "yaml.customTags" = [
+          "!Equals sequence"
+          "!FindInMap sequence"
+          "!GetAtt"
+          "!GetAZs"
+          "!ImportValue"
+          "!Join sequence"
+          "!Ref"
+          "!Select sequence"
+          "!Split sequence"
+          "!Sub"
+          "!vault"
+        ];
       };
       extensions = (with pkgs.vscode-extensions; [
         dracula-theme.theme-dracula
@@ -36,7 +49,7 @@
 
         ms-toolsai.jupyter
         ms-azuretools.vscode-docker
-        ms-vscode.cpptools
+        #ms-vscode.cpptools
 
         redhat.vscode-yaml
 
