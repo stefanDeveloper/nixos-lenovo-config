@@ -2,7 +2,7 @@
   description = "NixOS configuration with flakes";
   
   inputs = {
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/release-22.05";
 
     # NixOS profiles covering hardware quirks:
     # https://github.com/NixOS/nixos-hardware

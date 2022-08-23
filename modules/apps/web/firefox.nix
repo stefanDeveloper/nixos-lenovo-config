@@ -11,7 +11,8 @@
         darkreader
         ublock-origin
         startpage-private-search
-        momentumdash 
+        momentumdash
+        keepassxc-browser
       ];
       profiles.default = {
         id = 0;
