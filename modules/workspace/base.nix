@@ -5,21 +5,12 @@
   # If disabled, core dumps appear in the current directory of the crashing process
   systemd.coredump.enable = true;
 
-  environment.systemPackages = [
-    (pkgs.writeShellScriptBin "lock" ''
-      set -euo pipefail
-      if [[ "$1" == this ]]
-        then args="-s"
-        else args="-san"
-      fi
-    '')
-  ];
-
   home-manager.users.stefan = {
     xdg = {
       enable = true;
       userDirs.enable = true;
     };
+
     # Use services.flameshot.enable = true instead
     # See: https://github.com/nix-community/home-manager/issues/2064
     home.packages = with pkgs; [ flameshot ];

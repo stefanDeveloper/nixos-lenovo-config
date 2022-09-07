@@ -10,7 +10,12 @@ let
   mod = "Mod1";
   hyper = "Mod4";
   lock = pkgs.writeShellScript "lock"
-    "swaylock --clock --indicator --screenshots --effect-scale 0.4 --effect-vignette 0.2:0.5 --effect-blur 4x2 --datestr '%a %e.%m.%Y' --timestr '%k:%M'";
+    "swaylock -f --clock --indicator --screenshots --effect-scale 0.4 --effect-vignette 0.2:0.5 --effect-blur 4x2 --datestr '%a %e.%m.%Y' --timestr '%k:%M'";
+
+  screen_on = pkgs.writeShellScript "lock"
+    "swaymsg 'output * dpms on'";
+  screen_off = pkgs.writeShellScript "lock"
+    "swaymsg 'output * dpms off'";
 
   step1 = "1";
   step2 = "10";
@@ -118,7 +123,7 @@ in
         { command = "${pkgs.xorg.xrdb}/bin/xrdb -merge ~/.Xresources"; }
         {
           command =
-            "swayidle -w timeout 60 '${lock}' timeout 120 'swaymsg output * dpms off' resume 'swaymsg output * dpms on' before-sleep '${lock}'";
+            "swayidle -w timeout 60 '${lock}' timeout 120 '${screen_off}' resume '${screen_on}' before-sleep '${lock}' timeout 300 'systemctl suspend'";
         }
         { command = "${pkgs.swaykbdd}/bin/swaykbdd"; }
         { command = "${pkgs.nextcloud-client}/bin/nextcloud"; }
@@ -280,6 +285,10 @@ in
           "XF86AudioLowerVolume" = "exec ${pkgs.pamixer}/bin/pamixer -d 2";
           "XF86AudioRaiseVolume" = "exec ${pkgs.pamixer}/bin/pamixer -i 2";
           "XF86AudioMute" = "exec ${pkgs.pamixer}/bin/pamixer -t";
+          "XF86AudioMicMute" = "exec ${pkgs.pamixer}/bin/pamixer --default-source -t";
+
+          "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s 10+";
+          "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s 10-";
 
           "${modifier}+XF86AudioLowerVolume" =
             "exec ${pkgs.pamixer}/bin/pamixer -d 1";

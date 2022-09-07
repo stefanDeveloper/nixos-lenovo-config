@@ -68,8 +68,8 @@ builtins.listToAttrs (builtins.map
   ./workspace/gtk.nix
   ./workspace/qt.nix
   ./workspace/x11
-  ./workspace/x11/gnome
-  ./workspace/x11/i3
+  ./workspace/gnome
+  ./workspace/i3
   ./workspace/sway
   ./workspace
 ])
