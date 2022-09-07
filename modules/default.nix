@@ -15,7 +15,6 @@ builtins.listToAttrs (builtins.map (path: {
   ./locale.nix
   ./virtualisation.nix
   ./home.nix
-  ./mail.nix
   ./nix.nix
   ./users
   ./keyboard-layout/us-de.nix
@@ -29,9 +28,10 @@ builtins.listToAttrs (builtins.map (path: {
   ./apps/editor
   ./apps/editor/vscode.nix
   ./apps/editor/vim.nix
-  ./apps/editor/emacs.nix
   # Media
   ./apps/media
+
+  ./overlay.nix
   
   ./apps/messaging
   
@@ -47,8 +47,6 @@ builtins.listToAttrs (builtins.map (path: {
 
   ./apps/terminal
   ./apps/terminal/alacritty.nix
-  ./apps/terminal/kitty.nix
-  ./apps/terminal/tmux.nix
 
   ./apps/fm
   
@@ -60,14 +58,14 @@ builtins.listToAttrs (builtins.map (path: {
   
   ./apps/reading
 
-  ./apps/streaming
-
-  ./x11
+  ./themes.nix
 
   ./workspace/cursor.nix
   ./workspace/gtk.nix
   ./workspace/qt.nix
-  ./workspace/gnome
-  ./workspace/i3
+  ./workspace/x11
+  ./workspace/x11/gnome
+  ./workspace/x11/i3
+  ./workspace/sway
   ./workspace
   ])

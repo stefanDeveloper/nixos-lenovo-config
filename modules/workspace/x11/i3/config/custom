@@ -3,7 +3,6 @@ set $super Mod1
 set $hyper Mod4
 
 # lock screen
-# set $lock i3lock-pixeled
 set $lock betterlockscreen -l dim -- -t -ef -n
 
 set $term1 alacritty
@@ -13,17 +12,20 @@ set $browser2 google-chrome-stable
 set $browser3 tor-browser
 
 # set font
-font pango: Noto Sans 9
+font IBM Plex Sans 12
 
 # Use Mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
 
 # autostart
-exec --no-startup-id setxkbmap us-de
+exec --no-startup-id setxkbmap us
 exec --no-startup-id xsettingsd &
 exec --no-startup-id compton -b
+
 # start applications
 exec --no-startup-id nextcloud &
+exec --no-startup-id remmina &
+exec --no-startup-id flameshot &
 exec --no-startup-id seafile-applet
 exec --no-startup-id element-desktop
 exec --no-startup-id signal-desktop
@@ -33,14 +35,13 @@ exec --no-startup-id thunderbird
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id betterlockscreen -w dim
 exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 60 "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'" "" --timer 300 "$lock" "" --timer 3600 "systemctl suspend" ""
-# exec --no-startup-id xautolock -detectsleep -time 10 -locker "$lock" -notify 30 -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'"
 
 # start a terminal
 bindsym $super+Return exec $term1
 
 # start dmenu (a program launcher)
 bindsym $super+Shift+d exec --no-startup-id "dmenu_run -nf '#F3F4F5' -nb '#2F343F' -sb '#1793D1' -sf '#f3f4f5' -fn 'firacode-12' -p 'run:'"
-bindsym $super+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8' -show-icons
+bindsym $super+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'IBM Plex Sans 12' -show-icons
 
 # common apps keybinds
 bindsym --release Print exec "flameshot gui"
@@ -53,12 +54,6 @@ bindsym XF86MonBrightnessDown exec brightnessctl s 10-  # decrease screen bright
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
 bindsym XF86AudioMute exec amixer set Master toggle
-
-# music control - not working
-# bindsym XF86AudioNext exec mpc next
-# bindsym XF86AudioPrev exec mpc prev
-# bindsym XF86AudioPlay exec mpc toggle
-# bindsym XF86AudioStop exec mpc stop
 
 # kill focused window
 bindsym $super+c kill
@@ -168,12 +163,6 @@ workspace 18 output DisplayPort-1 HDMI-A-0 DisplayPort-5 eDP
 workspace 19 output DisplayPort-1 HDMI-A-0 DisplayPort-5 eDP
 workspace 20 output DisplayPort-1 HDMI-A-0 DisplayPort-5 eDP
 
-# App quick focus
-#tbc
-
-# App quick launch
-#tbc
-
 # Quick lock for leaving workspace
 bindsym $super+l exec $lock
 # Detailed system mode
@@ -228,7 +217,7 @@ bindsym $super+r mode "resize"
 # panel
 bar {
         strip_workspace_numbers yes
-        font pango: Noto Sans 12
+        font pango:IBM Plex Sans, Material Icons, Roboto Mono 12
         colors {
                 background #2f343f
                 statusline #2f343f
@@ -254,7 +243,6 @@ assign [class="Element|Threema"] 10
 assign [class="(?i)Discord"] 10
 
 for_window [class="Nitrogen"] floating enable border normal
-for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="ARandR"] floating enable
 
 # colour of border, background, text, indicator, and child_border

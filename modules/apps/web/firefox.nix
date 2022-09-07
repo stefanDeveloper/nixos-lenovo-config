@@ -1,9 +1,20 @@
 { config, pkgs, lib, ... }:
 
-{
-  programs.browserpass.enable = true;
+let
+  thm = pkgs.my.thmHash;
+  fonts = config.themes.fonts;
+in {
+  environment.sessionVariables = {
+    MOZ_USE_XINPUT2 = "1";
+    MOZ_DBUS_REMOTE = "1";
+    MOZ_ENABLE_WAYLAND= "1";
+  };
 
   home-manager.users.stefan = {
+    programs.browserpass = {
+      enable = true;
+      browsers = [ "firefox" ];
+    };
     programs.firefox = {
       enable = true;
       package = pkgs.firefox;
@@ -16,6 +27,11 @@
       ];
       profiles.default = {
         id = 0;
+        userChrome = ''
+          toolbar#nav-bar, nav-bar-customization-target {
+            background: ${thm.base00} !important;
+          }
+        '';
         settings = {
           "extensions.autoDisableScopes" = 0;
 
@@ -25,6 +41,10 @@
           "browser.search.region" = "US";
           "browser.startup.homepage" = "about:blank";
           "browser.newtabpage.enabled" = true;
+
+          "font.name.monospace.x-western" = "${fonts.mono.family}";
+          "font.name.sans-serif.x-western" = "${fonts.main.family}";
+          "font.name.serif.x-western" = "${fonts.serif.family}";
 
           "services.sync.username" = "stefan-machmeier@outlook.com";
 

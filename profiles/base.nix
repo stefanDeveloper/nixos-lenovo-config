@@ -13,7 +13,9 @@
     home
     users
     us-de
-    mail
+    
+    themes
+    overlay
 
     monitoring
     fm

@@ -54,13 +54,6 @@
     gnome-icon-theme  # for nitrogen
   ];
 
-  #services.cron = {
-  #  enable = true;
-  #  systemCronJobs = [
-  #    "*/5 * * * *      stefan    . /etc/profile; curl -s wttr.in/Reilingen?format=3 > ~/.weather.cache"
-  #  ];
-  #};
-
   home-manager.users.stefan = {
     home.file = {
       ".compton.conf" = { source = ./compton.conf; };
@@ -76,10 +69,6 @@
       "i3status" = {
         source = ./i3status.conf;
         target = ".config/i3/i3status.conf";
-      };
-      "weather" = {
-        source = ./weather.sh;
-        target = ".config/i3/weather.sh";
       };
       ".xinitrc" = {
         text = ''

@@ -12,6 +12,13 @@
       repo = "nixos-hardware";
       flake = false;
     };
+    
+    nix-zsh-completions = {
+      type = "github";
+      owner = "spwhitt";
+      repo = "nix-zsh-completions";
+      flake = false;
+    };
 
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -27,28 +34,13 @@
     # Nix-flakes deployment tool
     deploy-rs.url = "github:serokell/deploy-rs";
 
-    emacs-overlay = {
-      url = "github:nix-community/emacs-overlay";
-      flake = false;
-    };
-
     nixpkgs-fmt = {
       url = "github:nix-community/nixpkgs-fmt";
       flake = false;
     };
 
-    nix-doom-emacs = {
-      url = "github:hlissner/doom-emacs";
-      flake = false;
-    };
-
     defaultencrypt = {
       url = "gitlab:lechten/defaultencrypt";
-      flake = false;
-    };
-
-    doom-emacs-config = {
-      url = "github:stefanDeveloper/.doom.d-conf";
       flake = false;
     };
 
@@ -73,7 +65,7 @@
     nur.url = github:nix-community/NUR;
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, nix, self, deploy-rs, nur, nix-doom-emacs, home-manager, emacs-overlay, nixpkgs-fmt, defaultencrypt, doom-emacs-config, gpg-config, gnus-alias, ... } @ inputs:  {
+  outputs = { nixpkgs, nixpkgs-unstable, nix, self, deploy-rs, nur, home-manager, nixpkgs-fmt, defaultencrypt, gpg-config, gnus-alias, ... } @ inputs:  {
     nixosModules = import ./modules;
     nixosProfiles = import ./profiles;
 

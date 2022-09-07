@@ -7,12 +7,12 @@
   config = rec {
     defaultApps = {
       term = {
-        cmd = "${pkgs.kitty}/bin/kitty";
-        desktop = "kitty";
+        cmd = "${pkgs.alacritty}/bin/alacritty";
+        desktop = "alacritty";
       };
       editor = {
         cmd =
-          "${config.home-manager.users.stefan.programs.emacs.finalPackage}/bin/emacsclient -c $@";
+          "";
         desktop = "emacsclient";
       };
       browser = {

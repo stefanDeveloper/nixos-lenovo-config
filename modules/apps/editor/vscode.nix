@@ -37,7 +37,7 @@
         dracula-theme.theme-dracula
         
         jnoortheen.nix-ide
-        # vscodevim.vim # not my favorite to work with, rather use emacs instead
+        # vscodevim.vim 
         bbenoist.nix
         ms-python.vscode-pylance
 

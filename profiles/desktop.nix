@@ -20,9 +20,6 @@
     editor
     
     zsh
-    fish
     alacritty
-    kitty
-    tmux
   ];
 }

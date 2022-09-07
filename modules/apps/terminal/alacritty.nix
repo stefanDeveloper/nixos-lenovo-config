@@ -7,7 +7,7 @@
         TERM = "xterm-256color";
       };
       font = rec {
-        normal.family = "JetBrains Mono";
+        normal.family = "IBM Plex Mono";
         size = 8.0;
         bold = { style = "Bold"; };
       };
@@ -24,11 +24,9 @@
       live_config_reload = true;
 
       # NixOS 22.05
-       window = {
+      window = {
          opacity = 0.3;
       };
-      # NixOS 21.11
-      # background_opacity = 0.3;
 
       colors = {
         primary = {
