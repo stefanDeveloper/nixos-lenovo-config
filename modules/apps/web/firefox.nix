@@ -3,7 +3,8 @@
 let
   thm = pkgs.my.thmHash;
   fonts = config.themes.fonts;
-in {
+in
+{
   environment.sessionVariables = {
     MOZ_USE_XINPUT2 = "1";
     MOZ_DBUS_REMOTE = "1";

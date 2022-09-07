@@ -43,9 +43,9 @@ Use extension [i3](https://marketplace.visualstudio.com/items?itemName=dcasella.
 
 ```json
 "files.associations": {
-    "**/.i3/config": "i3",
-    "**/i3/config": "i3",
-    "**/i3/config/*": "i3",
+"**/.i3/config": "i3",
+"**/i3/config": "i3",
+"**/i3/config/*": "i3",
 },
 ```
 
@@ -112,7 +112,7 @@ autorandr --save
 Set the font in the `settings.json` correctly:
 ```json
 {
-  "terminal.integrated.fontFamily": "'Source Code Pro for Powerline', 'Hack Nerd Font'"
+"terminal.integrated.fontFamily": "'Source Code Pro for Powerline', 'Hack Nerd Font'"
 }
 ```
 

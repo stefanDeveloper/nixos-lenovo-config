@@ -1,11 +1,11 @@
-
 { pkgs, config, lib, ... }:
 
 {
   fonts = {
     fontconfig =
       let fonts = config.themes.fonts;
-      in {
+      in
+      {
         enable = lib.mkForce true;
 
         # System-wide default fonts
@@ -13,8 +13,8 @@
           monospace = [ "${fonts.mono.family} ${toString fonts.mono.size}" ];
           sansSerif = [ "${fonts.main.family} ${toString fonts.main.size}" ];
           serif = [ "${fonts.serif.family} ${toString fonts.serif.size}" ];
+        };
       };
-    };
 
     # Enable a basic set of fonts providing font styles and
     # families and reasonable coverage of Unicode

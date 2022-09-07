@@ -24,5 +24,7 @@
 
     apache-directory-studio
 
+    nixpkgs-fmt
+
   ];
-} 
+}

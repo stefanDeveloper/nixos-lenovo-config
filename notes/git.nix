@@ -10,7 +10,7 @@ in
   home-manager.users.stefan = {
     programs.git = {
       enable = true;
-      userName  = "Stefan Machmeier";
+      userName = "Stefan Machmeier";
       userEmail = "stefan-machmeier@outlook.com";
     };
   };

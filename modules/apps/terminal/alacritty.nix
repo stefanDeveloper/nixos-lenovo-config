@@ -25,7 +25,7 @@
 
       # NixOS 22.05
       window = {
-         opacity = 0.3;
+        opacity = 0.3;
       };
 
       colors = {

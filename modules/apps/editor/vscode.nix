@@ -1,9 +1,9 @@
-{ pkgs, ...} :
+{ pkgs, ... }:
 {
   home-manager.users.stefan = {
     programs.vscode = {
       enable = true;
-      package = pkgs.vscodium;    # You can skip this if you want to use the unfree version
+      package = pkgs.vscodium; # You can skip this if you want to use the unfree version
       userSettings = {
         "terminal.integrated.fontFamily" = "'Source Code Pro for Powerline', 'Hack Nerd Font'";
         "workbench.colorTheme" = "Visual Studio Dark";
@@ -11,11 +11,11 @@
         "latex-workshop.view.pdf.viewer" = "tab";
 
         "files.associations" = {
-            "**/.i3/config" = "i3";
-            "**/i3/config" = "i3";
-            "**/i3/config/*" = "i3";
+          "**/.i3/config" = "i3";
+          "**/i3/config" = "i3";
+          "**/i3/config/*" = "i3";
         };
-        
+
         "[nix]" = {
           "editor.defaultFormatter" = "B4dM4n.nixpkgs-fmt";
         };
@@ -35,7 +35,7 @@
       };
       extensions = (with pkgs.vscode-extensions; [
         dracula-theme.theme-dracula
-        
+
         jnoortheen.nix-ide
         # vscodevim.vim 
         bbenoist.nix

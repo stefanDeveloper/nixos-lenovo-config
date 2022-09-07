@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
   services = {
     # Enable the X11 windowing system.
@@ -9,7 +9,7 @@
       desktopManager.gnome.enable = true;
     };
   };
-  
+
   programs.dconf.enable = true;
   services.dbus.packages = [ pkgs.gnome3.dconf ];
   services.udev.packages = [ pkgs.gnome3.gnome-settings-daemon ];
@@ -18,11 +18,11 @@
     # GNOME
     gnome.gnome-tweaks
   ];
-  environment.gnome.excludePackages = with pkgs; [ 
+  environment.gnome.excludePackages = with pkgs; [
     # gnome.cheese 
     # gnome.gnome-terminal 
-    gnome-photos 
-    gnome.gedit 
+    gnome-photos
+    gnome.gedit
     epiphany
     gnome.gnome-characters
     gnome.totem

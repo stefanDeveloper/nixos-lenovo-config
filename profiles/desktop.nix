@@ -18,7 +18,7 @@
     reading
 
     editor
-    
+
     zsh
     alacritty
   ];

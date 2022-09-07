@@ -1,4 +1,4 @@
-{pkgs,...}:
+{ pkgs, ... }:
 {
   nix = {
     package = pkgs.nixUnstable;
@@ -18,5 +18,5 @@
       automatic = true;
       dates = [ "07:00" ];
     };
-   };
+  };
 }

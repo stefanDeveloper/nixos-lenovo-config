@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: 
+{ pkgs, config, ... }:
 {
   allowUnfree = true;
   nix = {
@@ -8,7 +8,7 @@
       keep-outputs = true
       keep-derivations = true
     '';
-   };
+  };
   environment.systemPackages = [
     (pkgs.writeShellScriptBin "nixFlakes" ''
       exec ${pkgs.nixUnstable}/bin/nix --experimental-features "nix-command flakes" "$@"

@@ -14,11 +14,11 @@
     desktopManager = {
       xterm.enable = false;
     };
-   
+
     displayManager = {
-        defaultSession = "none+i3";
+      defaultSession = "none+i3";
     };
-    
+
     windowManager.i3 = {
       enable = true;
       package = pkgs.i3-gaps;
@@ -29,11 +29,11 @@
   services.compton.enable = true;
 
   environment.systemPackages = with pkgs; [
-    xorg.xrandr       # display manager
-    dmenu             # app launcher
-    nitrogen          # wallpaper
-    rofi              # app launcher
-    dunst             # notification
+    xorg.xrandr # display manager
+    dmenu # app launcher
+    nitrogen # wallpaper
+    rofi # app launcher
+    dunst # notification
     # multilockscreen   # lockscreen, outdated and merged with Betterlockscreen
     betterlockscreen
     feh
@@ -42,16 +42,16 @@
     xorg.xrdb
     xorg.xset
 
-    i3lock-pixeled    # i3lock
-    i3status          # status bar
-    flameshot         # screenshot capture
-    xautolock         # autolock inactivity
-    xidlehook         # autolock fetch to allow videos, music without locking
-    libnotify         # notify system
+    i3lock-pixeled # i3lock
+    i3status # status bar
+    flameshot # screenshot capture
+    xautolock # autolock inactivity
+    xidlehook # autolock fetch to allow videos, music without locking
+    libnotify # notify system
     # Under investigation, don't know if it solves the problem
     lxappearance
-    gtkmm2            # for nitrogen
-    gnome-icon-theme  # for nitrogen
+    gtkmm2 # for nitrogen
+    gnome-icon-theme # for nitrogen
   ];
 
   home-manager.users.stefan = {
@@ -72,12 +72,12 @@
       };
       ".xinitrc" = {
         text = ''
-        # set desktop background with custom effect
-        # betterlockscreen -w dim only run that if you want to use the same background as betterlockscreen
+          # set desktop background with custom effect
+          # betterlockscreen -w dim only run that if you want to use the same background as betterlockscreen
 
-        # Alternative (set last used background)
-        # source ~/.fehbg
-        nitrogen --restore &
+          # Alternative (set last used background)
+          # source ~/.fehbg
+          nitrogen --restore &
         '';
       };
     };

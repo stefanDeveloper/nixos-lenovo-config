@@ -1,5 +1,4 @@
-
-{ pkgs, inputs, lib,... }:
+{ pkgs, inputs, lib, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -12,10 +11,10 @@
 
   environment.pathsToLink = [ "/share/zsh" ];
   environment.shells = with pkgs; [ bashInteractive zsh ];
-  
+
   home-manager.users.stefan = {
 
-    home.packages = with pkgs; [git];
+    home.packages = with pkgs; [ git ];
 
     programs.zsh = {
       enable = true;

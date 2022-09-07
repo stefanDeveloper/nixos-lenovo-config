@@ -16,13 +16,15 @@ let
       phases = [ "buildPhase" ];
       buildPhase = "echo '${yaml}' | ${pkgs.yaml2json}/bin/yaml2json > $out";
     }));
-in {
+in
+{
   options = {
     themes = {
-      colors = builtins.listToAttrs (map (name: {
-        inherit name;
-        value = color;
-      }) [
+      colors = builtins.listToAttrs (map
+        (name: {
+          inherit name;
+          value = color;
+        }) [
         "base00"
         "base01"
         "base02"

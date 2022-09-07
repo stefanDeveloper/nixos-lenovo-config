@@ -18,6 +18,6 @@
     brightnessctl # Brightness
 
     update-systemd-resolved
-    
+
   ];
 }

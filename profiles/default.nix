@@ -1,4 +1,3 @@
-
 {
   desktop-sway = ./desktop-sway.nix;
   desktop-gnome = ./desktop-gnome.nix;

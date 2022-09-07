@@ -8,7 +8,8 @@ let
 in
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot = {
@@ -24,7 +25,7 @@ in
       };
 
     };
-    
+
     # Use the latest Linux kernel packages
     # kernelPackages = pkgs.linuxPackages_latest;
 

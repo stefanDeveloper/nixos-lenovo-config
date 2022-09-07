@@ -1,6 +1,6 @@
 {
   description = "NixOS configuration with flakes";
-  
+
   inputs = {
     home-manager.url = "github:nix-community/home-manager/release-22.05";
 
@@ -12,7 +12,7 @@
       repo = "nixos-hardware";
       flake = false;
     };
-    
+
     nix-zsh-completions = {
       type = "github";
       owner = "spwhitt";
@@ -48,12 +48,12 @@
       url = "github:stefanDeveloper/gpg-conf";
       flake = false;
     };
-    
+
     gnus-alias = {
       url = "github:altruizine/gnus-alias";
       flake = false;
     };
-    
+
     nixos-artwork = {
       type = "github";
       owner = "nixos";
@@ -65,7 +65,7 @@
     nur.url = github:nix-community/NUR;
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, nix, self, deploy-rs, nur, home-manager, nixpkgs-fmt, defaultencrypt, gpg-config, gnus-alias, ... } @ inputs:  {
+  outputs = { nixpkgs, nixpkgs-unstable, nix, self, deploy-rs, nur, home-manager, nixpkgs-fmt, defaultencrypt, gpg-config, gnus-alias, ... } @ inputs: {
     nixosModules = import ./modules;
     nixosProfiles = import ./profiles;
 
@@ -73,15 +73,16 @@
       let
         hosts = builtins.attrNames (builtins.readDir ./hosts);
         mkHost = name:
-            nixosSystem {
-              system = removeSuffix "\n" (builtins.readFile (./hosts + "/${name}/system"));
-              modules = [
-                (import (./hosts + "/${name}"))
-                { nixpkgs.overlays = [ nur.overlay ]; }
-              ];
-              specialArgs = { inherit inputs; };
-            };
-      in genAttrs hosts mkHost;
+          nixosSystem {
+            system = removeSuffix "\n" (builtins.readFile (./hosts + "/${name}/system"));
+            modules = [
+              (import (./hosts + "/${name}"))
+              { nixpkgs.overlays = [ nur.overlay ]; }
+            ];
+            specialArgs = { inherit inputs; };
+          };
+      in
+      genAttrs hosts mkHost;
 
     legacyPackages.x86_64-linux =
       (builtins.head (builtins.attrValues self.nixosConfigurations)).pkgs;

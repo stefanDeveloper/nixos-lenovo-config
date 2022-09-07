@@ -1,4 +1,3 @@
-
 { config, lib, pkgs, ... }:
 
 let
@@ -50,7 +49,8 @@ let
       color: #FFFFFF;
     }
   '';
-in {
+in
+{
   home-manager.users.stefan = {
     xdg.configFile."wofi/style.css".text = wofiTheme;
     xdg.configFile."wofi/config".text =

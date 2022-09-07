@@ -49,8 +49,10 @@
     home-manager.users.stefan.xdg.mimeApps = {
       enable = true;
       defaultApplications = with config.defaultApps;
-        builtins.mapAttrs (name: value:
-          if value ? desktop then [ "${value.desktop}.desktop" ] else value) {
+        builtins.mapAttrs
+          (name: value:
+            if value ? desktop then [ "${value.desktop}.desktop" ] else value)
+          {
             "text/html" = browser;
             "image/*" = { desktop = "org.gnome.eog"; };
             "application/zip" = archive;

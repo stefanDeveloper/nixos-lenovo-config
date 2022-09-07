@@ -14,14 +14,15 @@ let
 
   step1 = "1";
   step2 = "10";
-in {
+in
+{
   environment.sessionVariables = {
     _JAVA_AWT_WM_NONREPARENTING = "1";
     XDG_SESSION_TYPE = "wayland";
     QT_QPA_PLATFORM = "wayland";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
   };
-  
+
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
@@ -140,7 +141,8 @@ in {
 
       keybindings =
         let script = name: content: "exec ${pkgs.writeScript name content}";
-        in {
+        in
+        {
           "${modifier}+q" = "kill";
           "${modifier}+Shift+q" = "exec ${pkgs.wlogout}/bin/wlogout";
           "${modifier}+Shift+c" = "reload";
@@ -261,7 +263,7 @@ in {
           "${modifier}+Control+Shift+v" = "layout splitv";
           "${modifier}+h" = "split h";
           "${modifier}+v" = "split v";
-   
+
           "${modifier}+F11" = "output * dpms off";
           "${modifier}+F12" = "output * dpms on";
 

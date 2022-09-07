@@ -15,7 +15,8 @@ let
       ScriptFile=etc/plymouth/themes/ibm/ibm.script
     '';
   };
-in stdenv.mkDerivation rec {
+in
+stdenv.mkDerivation rec {
   name = "ibm";
 
   src = fetchGit {
