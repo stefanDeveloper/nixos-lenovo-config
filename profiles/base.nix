@@ -16,6 +16,7 @@
 
     themes
     overlay
+    mail
 
     monitoring
     fm

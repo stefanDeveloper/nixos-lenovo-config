@@ -61,6 +61,12 @@
       flake = false;
     };
 
+    # A few Nix expressions suitable for inclusion in Nix User Repository
+    rycee = {
+      url = "gitlab:rycee/nur-expressions";
+      flake = false;
+    };
+
     # NUR community for FireFox, and other apps
     nur.url = github:nix-community/NUR;
   };

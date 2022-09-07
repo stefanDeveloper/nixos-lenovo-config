@@ -94,10 +94,6 @@ in
       inherit old;
 
       nerdfonts = nur.balsoft.pkgs.roboto-mono-nerd;
-
-      nix-zsh-completions = super.nix-zsh-completions.overrideAttrs (_: {
-        src = inputs.nix-zsh-completions;
-      });
     })
   ];
 }

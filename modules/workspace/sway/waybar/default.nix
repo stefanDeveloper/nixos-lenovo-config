@@ -16,7 +16,6 @@
           "pulseaudio"
           "network#enp2s0f0"
           "network#wlp3s0"
-          "wifi"
           "cpu"
           "memory"
           "battery"

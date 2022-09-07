@@ -24,7 +24,8 @@ builtins.listToAttrs (builtins.map
   ./keyboard-layout/us-de.nix
 
   ./apps
-
+  
+  ./apps/mail
   # Development
   ./apps/dev
   ./apps/dev/git.nix
