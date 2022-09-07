@@ -7,6 +7,6 @@
     slurp
     pass-wayland
     wf-recorder
-    swaylock
+    swaylock-effects
   ];
 }

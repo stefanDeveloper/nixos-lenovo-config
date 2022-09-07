@@ -27,8 +27,6 @@ let
     }) (attrNames x));
 in {
   nixpkgs.overlays = [
-    # inputs.nixpkgs-wayland.overlay
-
     (self: super: rec {
       nix = super.nix // {
         meta = super.nix.meta // { platforms = lib.platforms.unix; };
@@ -89,19 +87,6 @@ in {
       inherit old;
 
       nerdfonts = nur.balsoft.pkgs.roboto-mono-nerd;
-
-      mtxclient = super.mtxclient.overrideAttrs (_: {
-        src = inputs.mtxclient;
-      });
-
-      nheko = (super.nheko.overrideAttrs (oa: {
-        src = inputs.nheko;
-      })).override { mtxclient = self.mtxclient; };
-
-      weechatScripts.wee-slack = super.weechatScripts.wee-slack.overrideAttrs (oa: {
-        src = inputs.wee-slack;
-        patches = [(builtins.elemAt oa.patches 0)];
-      });
 
       nix-zsh-completions = super.nix-zsh-completions.overrideAttrs (_: {
         src = inputs.nix-zsh-completions;

@@ -8,7 +8,7 @@
       };
       font = rec {
         normal.family = "IBM Plex Mono";
-        size = 8.0;
+        size = 10.0;
         bold = { style = "Bold"; };
       };
       title = "Terminal";

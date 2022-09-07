@@ -9,11 +9,8 @@ let
 
   mod = "Mod1";
   hyper = "Mod4";
-
-  lock_fork =
-    pkgs.writeShellScript "lock_fork" "sudo /run/current-system/sw/bin/lock &";
   lock = pkgs.writeShellScript "lock"
-    "swaymsg 'output * dpms off'; sudo /run/current-system/sw/bin/lock; swaymsg 'output * dpms on'";
+    "swaylock --clock --indicator --screenshots --effect-scale 0.4 --effect-vignette 0.2:0.5 --effect-blur 4x2 --datestr '%a %e.%m.%Y' --timestr '%k:%M'";
 
   step1 = "1";
   step2 = "10";
@@ -120,7 +117,7 @@ in {
         { command = "${pkgs.xorg.xrdb}/bin/xrdb -merge ~/.Xresources"; }
         {
           command =
-            "swayidle -w before-sleep '${lock_fork}' lock '${lock_fork}' unlock 'pkill -9 swaylock'";
+            "swayidle -w timeout 60 '${lock}' timeout 120 'swaymsg output * dpms off' resume 'swaymsg output * dpms on' before-sleep '${lock}'";
         }
         { command = "${pkgs.swaykbdd}/bin/swaykbdd"; }
         { command = "${pkgs.nextcloud-client}/bin/nextcloud"; }
@@ -138,11 +135,6 @@ in {
 
           Right = "resize grow width ${step2} px";
           Left = "resize shrink width ${step2} px";
-
-          h = "resize shrink width ${step2} px";
-          j = "resize grow height ${step2} px";
-          k = "resize shrink height ${step2} px";
-          l = "resize grow width ${step2} px";
         };
       };
 
@@ -267,12 +259,9 @@ in {
 
           "${modifier}+Control+Shift+h" = "layout splith";
           "${modifier}+Control+Shift+v" = "layout splitv";
-          "${modifier}+g" = "split h";
+          "${modifier}+h" = "split h";
           "${modifier}+v" = "split v";
-
-          "${modifier}+F1" = "move to scratchpad";
-          "${modifier}+F2" = "scratchpad show";
-
+   
           "${modifier}+F11" = "output * dpms off";
           "${modifier}+F12" = "output * dpms on";
 
@@ -301,17 +290,6 @@ in {
           # App launch
 
           "${modifier}+Return" = "exec ${term1}";
-
-          "${modifier}+e" = "exec ${apps.editor.cmd}";
-
-          # App focus
-
-          "${hyper}+q" = "[class='Telegram'] focus";
-          "${hyper}+s" = "[class='Slack'] focus";
-          "${hyper}+f" = "[class='Emacs'] focus";
-          "${hyper}+c" = "[class='Code'] focus";
-          "${hyper}+i" = "[class='${apps.term.desktop}'] focus";
-          "${hyper}+b" = "[class='Zathura'] focus";
         };
 
       keycodebindings = { };
