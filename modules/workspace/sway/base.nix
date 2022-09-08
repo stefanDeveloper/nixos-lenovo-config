@@ -123,7 +123,7 @@ in
         { command = "${pkgs.xorg.xrdb}/bin/xrdb -merge ~/.Xresources"; }
         {
           command =
-            "swayidle -w timeout 60 '${lock}' timeout 120 '${screen_off}' resume '${screen_on}' before-sleep '${lock}' timeout 300 'systemctl suspend'";
+            "swayidle -w timeout 300 '${lock}' timeout 330 '${screen_off}' resume '${screen_on}' before-sleep '${lock}' timeout 600 'systemctl suspend'";
         }
         { command = "${pkgs.swaykbdd}/bin/swaykbdd"; }
         { command = "${pkgs.nextcloud-client}/bin/nextcloud"; }

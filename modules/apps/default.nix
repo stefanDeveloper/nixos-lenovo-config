@@ -12,8 +12,8 @@
       };
       editor = {
         cmd =
-          "";
-        desktop = "emacsclient";
+          "${pkgs.vscodium}/bin/vscodium $@";
+        desktop = "vscodium";
       };
       browser = {
         cmd = "${pkgs.firefox}/bin/firefox";
