@@ -22,6 +22,6 @@
     zsh
     alacritty
     
-    base
+    gnome
   ];
 }
