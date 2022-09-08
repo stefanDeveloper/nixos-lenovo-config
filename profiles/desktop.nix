@@ -5,7 +5,8 @@
     workspace
     cursor
     gtk
-    qt
+    # qt
+    gnome
 
     virtualisation
 
@@ -21,7 +22,5 @@
 
     zsh
     alacritty
-    
-    gnome
   ];
 }

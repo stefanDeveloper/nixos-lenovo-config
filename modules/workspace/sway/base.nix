@@ -277,7 +277,7 @@ in
           "${modifier}+b" = "focus mode_toggle";
 
           "${modifier}+Space" =
-            script "" "${pkgs.wofi}/bin/wofi --show run -f -i --width 320";
+            script "" "${pkgs.wofi}/bin/wofi --show run -k -i";
 
           "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
           "XF86AudioNext" = "exec ${pkgs.playerctl}/bin/playerctl next";
@@ -319,6 +319,7 @@ in
         ${mod}+Shift+k move up
         ${mod}+Shift+l move right
       }
+      
       default_border pixel 1
       mouse_warping none
       hide_edge_borders --i3 smart
