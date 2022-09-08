@@ -3,10 +3,6 @@
 {
   # links /libexec from derivations to /run/current-system/sw 
   environment.pathsToLink = [ "/libexec" ];
-  # Support settings to be stored
-  programs.dconf.enable = true;
-  # Used for nautilus to work trash folder
-  services.gvfs.enable = true;
   # i3 settings
   services.xserver = {
     enable = true;

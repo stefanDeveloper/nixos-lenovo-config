@@ -277,7 +277,7 @@ in
           "${modifier}+b" = "focus mode_toggle";
 
           "${modifier}+Space" =
-            script "" "${pkgs.wofi}/bin/wofi --show drun -f -i --width 320";
+            script "" "${pkgs.wofi}/bin/wofi --show run -f -i --width 320";
 
           "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
           "XF86AudioNext" = "exec ${pkgs.playerctl}/bin/playerctl next";

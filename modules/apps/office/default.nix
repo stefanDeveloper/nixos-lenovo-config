@@ -20,5 +20,10 @@
     meld # compare folder
 
     zotero # Citation manager
+
+    gnome3.eog                           # image viewer
+    gnome3.evince                        # pdf reader
+    gnome3.gnome-calendar                # calendar
+    gnome3.nautilus                      # file manager
   ];
 }

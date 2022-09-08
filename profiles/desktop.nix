@@ -21,5 +21,7 @@
 
     zsh
     alacritty
+    
+    base
   ];
 }

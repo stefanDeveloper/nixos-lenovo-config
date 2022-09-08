@@ -10,8 +10,6 @@
     };
   };
 
-  programs.dconf.enable = true;
-  services.dbus.packages = [ pkgs.gnome3.dconf ];
   services.udev.packages = [ pkgs.gnome3.gnome-settings-daemon ];
   services.gnome.games.enable = false;
   environment.systemPackages = with pkgs; [

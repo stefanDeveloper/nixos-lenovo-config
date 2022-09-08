@@ -1,5 +1,26 @@
 { pkgs, old, config, lib, inputs, ... }:
+
+let
+  thm = config.themes.colors;
+  thm' = builtins.mapAttrs (name: value: { hex.rgb = value; }) thm;
+in
 {
+  nixpkgs.overlays = [
+    (self: super: {
+      generated-gtk-theme =
+        pkgs.callPackage "${inputs.rycee}/pkgs/materia-theme" {
+          configBase16 = {
+            name = "Generated";
+            kind = "dark";
+            colors = thm' // {
+              base01 = thm'.base00;
+              base02 = thm'.base00;
+            };
+          };
+        };
+    })
+  ];
+
   home-manager.users.stefan = {
     gtk = {
       enable = true;
@@ -7,16 +28,22 @@
         name = "Papirus-Dark";
         package = pkgs.papirus-icon-theme;
       };
+
       theme = {
-        name = "Ark-Dark";
-        package = pkgs.arc-theme;
+        name = "Generated";
+        package = pkgs.generated-gtk-theme;
       };
-      font = { name = "IBM Plex 12"; };
+      font = {
+        name = with config.themes.fonts; "${main.family} ${toString main.size}";
+      };
+
       gtk3 = {
-        extraConfig = {
-          gtk-cursor-theme-name = "Breeze";
-        };
+        bookmarks = [
+          "file:///home/stefan/projects Projects"
+        ];
       };
     };
+
+    home.sessionVariables.GTK_THEME = "Generated";
   };
 }

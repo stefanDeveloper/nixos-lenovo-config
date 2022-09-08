@@ -70,6 +70,7 @@ builtins.listToAttrs (builtins.map
   ./workspace/qt.nix
   ./workspace/x11
   ./workspace/gnome
+  ./workspace/gnome/base.nix
   ./workspace/i3
   ./workspace/sway
   ./workspace
