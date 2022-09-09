@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "defaultencrypt": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1655135721,
-        "narHash": "sha256-v0Tij7aSFODVjQ/45fwHTq4JwFpjJRPy6sUDXd2MbMI=",
-        "owner": "lechten",
-        "repo": "defaultencrypt",
-        "rev": "316c5402d2e2e314e241cd7fa629db72c6dc9bcc",
-        "type": "gitlab"
-      },
-      "original": {
-        "owner": "lechten",
-        "repo": "defaultencrypt",
-        "type": "gitlab"
-      }
-    },
     "deploy-rs": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -49,22 +33,6 @@
       "original": {
         "owner": "edolstra",
         "repo": "flake-compat",
-        "type": "github"
-      }
-    },
-    "gnus-alias": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1307526521,
-        "narHash": "sha256-NMRQ2e4o1ffwNHulFHMFkVqGWp2t3deuN8ywkCwZvg8=",
-        "owner": "altruizine",
-        "repo": "gnus-alias",
-        "rev": "11a0d73e7cec8cbc2001f3492081db1d23a018da",
-        "type": "github"
-      },
-      "original": {
-        "owner": "altruizine",
-        "repo": "gnus-alias",
         "type": "github"
       }
     },
@@ -103,22 +71,6 @@
         "type": "github"
       }
     },
-    "kitty-themes": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1642593129,
-        "narHash": "sha256-RcDmZ1fbNX18+X3xCqqdRbD+XYPsgNte1IXUNt6CxIA=",
-        "owner": "dexpota",
-        "repo": "kitty-themes",
-        "rev": "b1abdd54ba655ef34f75a568d78625981bf1722c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "dexpota",
-        "repo": "kitty-themes",
-        "type": "github"
-      }
-    },
     "lowdown-src": {
       "flake": false,
       "locked": {
@@ -133,6 +85,22 @@
         "owner": "kristapsdz",
         "repo": "lowdown",
         "type": "github"
+      }
+    },
+    "mail-signature": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1662708565,
+        "narHash": "sha256-2q5n5/LBrFAeUKoniRkHlOExpMCF5ZW4eS8xFBljaQc=",
+        "ref": "refs/heads/main",
+        "rev": "528a066ff64f137657829539cd69090b0a4fab0e",
+        "revCount": 2,
+        "type": "git",
+        "url": "ssh://git@github.com/stefanDeveloper/mail-signature.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/stefanDeveloper/mail-signature.git"
       }
     },
     "nix": {
@@ -314,11 +282,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1662661687,
-        "narHash": "sha256-ze1bQpIad0S7ofPBteBfl+E4e7FQ87PQFyrZT5QI2VY=",
+        "lastModified": 1662704608,
+        "narHash": "sha256-qRMQKcxkjk/EX/Q8mqlVXq1SRic3hrENqI16HFCOmrg=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "cbd713ef9bb050c5859466d97dc692c29e4e5195",
+        "rev": "4bce3038e4e167490c59256d73edf2d3bdb35569",
         "type": "github"
       },
       "original": {
@@ -329,12 +297,10 @@
     },
     "root": {
       "inputs": {
-        "defaultencrypt": "defaultencrypt",
         "deploy-rs": "deploy-rs",
-        "gnus-alias": "gnus-alias",
         "gpg-config": "gpg-config",
         "home-manager": "home-manager",
-        "kitty-themes": "kitty-themes",
+        "mail-signature": "mail-signature",
         "nix": "nix",
         "nix-zsh-completions": "nix-zsh-completions",
         "nixos-artwork": "nixos-artwork",
@@ -349,11 +315,11 @@
     "rycee": {
       "flake": false,
       "locked": {
-        "lastModified": 1662627509,
-        "narHash": "sha256-9JfZgeoWcEq1q5GMyj3H/Yx0uzyNw9LQPz+yZ7zzreo=",
+        "lastModified": 1662696155,
+        "narHash": "sha256-ER/YNV1LqHpW4sAcBHuMn249ObrCti+NFFqlsbHsXuM=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "ffd0b3941db047f1c199e4b5502719fa9be1ae62",
+        "rev": "f91cebaa2e236056d5c47a8a8ef4641e2210ff2b",
         "type": "gitlab"
       },
       "original": {

@@ -24,13 +24,6 @@
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
 
-    kitty-themes = {
-      type = "github";
-      owner = "dexpota";
-      repo = "kitty-themes";
-      flake = false;
-    };
-
     # Nix-flakes deployment tool
     deploy-rs.url = "github:serokell/deploy-rs";
 
@@ -39,8 +32,10 @@
       flake = false;
     };
 
-    defaultencrypt = {
-      url = "gitlab:lechten/defaultencrypt";
+    nixos-artwork = {
+      type = "github";
+      owner = "nixos";
+      repo = "artwork";
       flake = false;
     };
 
@@ -49,15 +44,8 @@
       flake = false;
     };
 
-    gnus-alias = {
-      url = "github:altruizine/gnus-alias";
-      flake = false;
-    };
-
-    nixos-artwork = {
-      type = "github";
-      owner = "nixos";
-      repo = "artwork";
+    mail-signature = {
+      url = "git+ssh://git@github.com/stefanDeveloper/mail-signature.git";
       flake = false;
     };
 
@@ -71,7 +59,7 @@
     nur.url = github:nix-community/NUR;
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, nix, self, deploy-rs, nur, home-manager, nixpkgs-fmt, defaultencrypt, gpg-config, gnus-alias, ... } @ inputs: {
+  outputs = { nixpkgs, nixpkgs-unstable, nix, self, deploy-rs, nur, home-manager, nixpkgs-fmt, mail-signature, ... } @ inputs: {
     nixosModules = import ./modules;
     nixosProfiles = import ./profiles;
 

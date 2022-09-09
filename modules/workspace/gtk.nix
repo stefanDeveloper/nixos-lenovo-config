@@ -40,6 +40,10 @@ in
       gtk3 = {
         bookmarks = [
           "file:///home/stefan/projects Projects"
+          "file:///home/stefan/Seafile" "Seafile"
+          "file:///home/stefan/Documents" "Documents"
+          "file:///home/stefan/Downloads" "Downloads"
+          "file:///home/stefan/Nextcloud" "Nextcloud"
         ];
       };
     };

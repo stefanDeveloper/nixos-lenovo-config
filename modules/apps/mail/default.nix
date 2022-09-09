@@ -1,9 +1,9 @@
-{ config, lib, pkgs, inputs, ... }:
+{ inputs, ... }:
 {
   home-manager.users.stefan = {
     home.file = {
-      ".signature.work" = { source = ./signature.work; };
-      ".signature.prv" = { source = ./signature.prv; };
+      ".signature.work" = { source = "${inputs.mail-signature}/signature.work"; };
+      ".signature.prv" = { source = "${inputs.mail-signature}/signature.prv"; };
     };
   };
 }
