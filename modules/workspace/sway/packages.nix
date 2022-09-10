@@ -8,5 +8,7 @@
     pass-wayland
     wf-recorder
     swaylock-effects
+
+    pcmanfm
   ];
 }

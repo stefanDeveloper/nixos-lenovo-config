@@ -5,7 +5,7 @@
     workspace
     cursor
     gtk
-    # qt
+    qt
     gnome
 
     virtualisation
