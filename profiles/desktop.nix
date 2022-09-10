@@ -17,9 +17,7 @@
     dev
     office
     reading
-
     editor
-
     zsh
     alacritty
   ];
