@@ -38,6 +38,8 @@ builtins.listToAttrs (builtins.map
 
   ./overlay.nix
 
+  ./security.nix
+
   ./apps/messaging
 
   ./apps/web

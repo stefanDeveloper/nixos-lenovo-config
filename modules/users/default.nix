@@ -12,7 +12,26 @@
         initialPassword = "whatever";
         shell = pkgs.zsh;
         home = "/home/stefan";
-        extraGroups = [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
+        extraGroups = [ 
+          "wheel"
+          "video"
+          "audio"
+          "jackaudio"
+          "networkmanager"
+          "input"
+          "scanner"
+          "lp"
+
+          # access to the serial and USB ports
+          "dialout"
+
+          # grant access to Android Debug Bridge (ADB)
+          "adbusers"
+
+          "vboxusers"
+          "wireshark"
+          "docker"
+        ]; # Enable ‘sudo’ for the user.
       };
     };
   };
@@ -20,5 +39,4 @@
   nix.settings.trusted-users = [ "root" "stefan" ];
   # Until NixOS 21.11
   # nix.trustedUsers = [ "root" "stefan" ];
-  security.sudo.wheelNeedsPassword = false;
 }
