@@ -13,7 +13,7 @@
     locale
     home
     users
-    us-de
+    # us-de
 
     themes
     overlay
