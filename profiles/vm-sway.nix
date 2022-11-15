@@ -13,7 +13,6 @@
     locale
     home
     users
-    # us-de
 
     themes
     overlay
@@ -21,8 +20,25 @@
     monitoring
     fm
     tools
-    pentest
 
     git
+
+    workspace
+    cursor
+    gtk
+    qt
+    gnome
+
+    apps
+    dev
+    reading
+    editor
+    zsh
+    alacritty
+
+    vm-shared
+    sway
+    #x11
+    #i3
   ];
 }
