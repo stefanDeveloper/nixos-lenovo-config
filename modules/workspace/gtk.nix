@@ -1,26 +1,6 @@
-{ pkgs, old, config, lib, inputs, ... }:
+{ pkgs, config, lib, inputs, ... }:
 
-let
-  thm = config.themes.colors;
-  thm' = builtins.mapAttrs (name: value: { hex.rgb = value; }) thm;
-in
 {
-  nixpkgs.overlays = [
-    (self: super: {
-      generated-gtk-theme =
-        pkgs.callPackage "${inputs.rycee}/pkgs/materia-theme" {
-          configBase16 = {
-            name = "Generated";
-            kind = "dark";
-            colors = thm' // {
-              base01 = thm'.base00;
-              base02 = thm'.base00;
-            };
-          };
-        };
-    })
-  ];
-
   home-manager.users.stefan = {
     gtk = {
       enable = true;
@@ -30,8 +10,8 @@ in
       };
 
       theme = {
-        name = "Generated";
-        package = pkgs.generated-gtk-theme;
+        name = "Ark-Dark";
+        package = pkgs.arc-theme;
       };
 
       font = {

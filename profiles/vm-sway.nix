@@ -14,8 +14,8 @@
     home
     users
 
-    themes
     overlay
+    themes
 
     monitoring
     fm
@@ -31,14 +31,12 @@
 
     apps
     dev
-    reading
     editor
     zsh
     alacritty
 
     vm-shared
+
     sway
-    #x11
-    #i3
   ];
 }

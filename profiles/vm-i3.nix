@@ -19,8 +19,23 @@
     monitoring
     fm
     tools
-    pentest
 
     git
+
+    workspace
+    cursor
+    gtk
+    qt
+    gnome
+
+    apps
+    dev
+    editor
+    zsh
+    alacritty
+
+    vm-shared
+
+    i3
   ];
 }

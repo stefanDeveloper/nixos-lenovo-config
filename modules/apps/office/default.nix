@@ -9,9 +9,7 @@
     keepassxc # Password database
     libreoffice # Office 
     gimp # Image editing
-    apache-directory-studio # LDAP
 
-    openconnect # VPN university
     remmina # RPD, VNC client
     obs-studio # Recorind screen
 

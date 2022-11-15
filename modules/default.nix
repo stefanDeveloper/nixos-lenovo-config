@@ -70,7 +70,6 @@ builtins.listToAttrs (builtins.map
   ./workspace/cursor.nix
   ./workspace/gtk.nix
   ./workspace/qt.nix
-  ./workspace/x11
   ./workspace/gnome
   ./workspace/i3
   ./workspace/sway

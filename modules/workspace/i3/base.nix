@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, inputs, ... }:
 
 {
   # links /libexec from derivations to /run/current-system/sw 
@@ -57,10 +57,6 @@
         source = ./dunst;
         target = ".config/dunst";
         recursive = true;
-      };
-      "rofi" = {
-        source = ./rofi;
-        target = ".config/rofi";
       };
       "i3status" = {
         source = ./i3status.conf;

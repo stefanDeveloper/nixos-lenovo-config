@@ -4,10 +4,11 @@
   environment.systemPackages = with pkgs; [
     prettyping
     inetutils
-    nmap
     iw
     openstackclient
     openvpn
+    openconnect
     tcpdump
+    update-systemd-resolved
   ];
 }

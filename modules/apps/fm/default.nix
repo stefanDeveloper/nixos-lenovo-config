@@ -3,6 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     ranger
+    pcmanfm
     # An alternative for w3mimgdisplay
     python39Packages.ueberzug
   ];

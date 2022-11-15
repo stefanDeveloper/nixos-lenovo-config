@@ -24,8 +24,8 @@
         desktop = "org.gnome.Nautilus";
       };
       monitor = {
-        cmd = "${pkgs.gnome3.gnome-system-monitor}/bin/gnome-system-monitor";
-        desktop = "gnome-system-monitor";
+        cmd = "${pkgs.htop}/bin/htop";
+        desktop = "htop";
       };
       archive = {
         cmd = "${pkgs.gnome3.file-roller}/bin/file-roller";
