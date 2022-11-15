@@ -69,10 +69,17 @@
         mkHost = name:
           nixosSystem {
             system = removeSuffix "\n" (builtins.readFile (./hosts + "/${name}/system"));
-            modules = [
-              (import (./hosts + "/${name}"))
-              { nixpkgs.overlays = [ nur.overlay ]; }
-            ];
+            modules =
+              let
+                defaults = { pkgs, ... }: {
+                  _module.args.nixpkgs-unstable = import inputs.nixpkgs-unstable { inherit (pkgs.stdenv.targetPlatform) system; };
+                };
+              in
+              [
+                defaults
+                (import (./hosts + "/${name}"))
+                { nixpkgs.overlays = [ nur.overlay ]; }
+              ];
             specialArgs = { inherit inputs; };
           };
       in

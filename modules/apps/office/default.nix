@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, nixpkgs-unstable, ... }:
 
 {
   environment.systemPackages = with pkgs; [
     thunderbird # Mail
     filezilla # SFTP, FTP client
-    nextcloud-client # Nextcloud client
+    nixpkgs-unstable.nextcloud-client # Nextcloud client
     seafile-client # Seafile Cloud
     keepassxc # Password database
     libreoffice # Office 
