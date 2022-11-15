@@ -23,6 +23,7 @@ in
 {
   environment.sessionVariables = {
     _JAVA_AWT_WM_NONREPARENTING = "1";
+    WLR_NO_HARDWARE_CURSORS="1";
     XDG_SESSION_TYPE = "wayland";
     QT_QPA_PLATFORM = "wayland";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
@@ -126,8 +127,6 @@ in
             "swayidle -w timeout 600 '${lock}' timeout 1200 '${screen_off}' resume '${screen_on}' before-sleep '${lock}' timeout 1800 'systemctl suspend'";
         }
         { command = "${pkgs.swaykbdd}/bin/swaykbdd"; }
-        { command = "${pkgs.nextcloud-client}/bin/nextcloud"; }
-        { command = "${pkgs.seafile-client}/bin/seafile-applet"; }
         { command = "${pkgs.flashfocus}/bin/flashfocus"; }
       ];
 

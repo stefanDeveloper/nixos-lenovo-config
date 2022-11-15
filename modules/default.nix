@@ -75,4 +75,6 @@ builtins.listToAttrs (builtins.map
   ./workspace/i3
   ./workspace/sway
   ./workspace
+
+  ./vm/vm-shared.nix
 ])

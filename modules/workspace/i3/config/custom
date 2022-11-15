@@ -6,10 +6,7 @@ set $hyper Mod4
 set $lock betterlockscreen -l dim -- -t -ef -n
 
 set $term1 alacritty
-set $term2 kitty
 set $browser1 firefox
-set $browser2 google-chrome-stable
-set $browser3 tor-browser
 
 # set font
 font IBM Plex Sans 12
@@ -23,15 +20,6 @@ exec --no-startup-id xsettingsd &
 exec --no-startup-id compton -b
 
 # start applications
-exec --no-startup-id nextcloud &
-exec --no-startup-id remmina &
-exec --no-startup-id flameshot &
-exec --no-startup-id seafile-applet
-exec --no-startup-id element-desktop
-exec --no-startup-id signal-desktop
-exec --no-startup-id telegram-desktop
-exec --no-startup-id firefox
-exec --no-startup-id thunderbird
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id betterlockscreen -w dim
 exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 60 "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'" "" --timer 300 "$lock" "" --timer 3600 "systemctl suspend" ""

@@ -33,6 +33,7 @@ in
         name = "Generated";
         package = pkgs.generated-gtk-theme;
       };
+
       font = {
         name = with config.themes.fonts; "${main.family} ${toString main.size}";
       };

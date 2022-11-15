@@ -8,9 +8,5 @@
     pass-wayland
     wf-recorder
     swaylock-effects
-
-    xorg.setxkbmap # necessary to switch keyboard
-
-    pcmanfm
   ];
 }

@@ -125,3 +125,4 @@ Set the font in the `settings.json` correctly:
 
 * [NixOS Flake Example](https://github.com/colemickens/nixos-flake-example)
 * [vyorkin](https://github.com/vyorkin/nixos-config/)
+* [mitchellh](https://github.com/mitchellh/nixos-config)

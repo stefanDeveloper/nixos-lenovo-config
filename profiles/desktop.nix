@@ -11,6 +11,7 @@
     virtualisation
 
     apps
+    mail
     messaging
     web
     media
