@@ -59,7 +59,7 @@
     nur.url = github:nix-community/NUR;
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, nix, self, deploy-rs, nur, home-manager, nixpkgs-fmt, mail-signature, ... } @ inputs: {
+  outputs = { nixpkgs, nixpkgs-unstable, nix, self, deploy-rs, nur, home-manager, nixpkgs-fmt, mail-signature, nixos-artwork, ... } @ inputs: {
     nixosModules = import ./modules;
     nixosProfiles = import ./profiles;
 

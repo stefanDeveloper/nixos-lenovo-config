@@ -62,6 +62,15 @@
         source = ./i3status.conf;
         target = ".config/i3/i3status.conf";
       };
+      "nitrogen" = {
+        target = ".config/nitrogen/bg-saved.cfg";
+        text = ''
+          [xin_-1]
+          file=${inputs.nixos-artwork}/wallpapers/nix-wallpaper-dracula.png
+          mode=1
+          bgcolor=#000000
+        '';
+      };
       ".xinitrc" = {
         text = ''
           # set desktop background with custom effect

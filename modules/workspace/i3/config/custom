@@ -28,7 +28,7 @@ exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 60
 bindsym $super+Return exec $term1
 
 # start dmenu (a program launcher)
-bindsym $super+Shift+d exec --no-startup-id "dmenu_run -nf '#F3F4F5' -nb '#2F343F' -sb '#1793D1' -sf '#f3f4f5' -fn 'firacode-12' -p 'run:'"
+bindsym $super+Shift+d exec --no-startup-id "dmenu_run -nf '#F3F4F5' -nb '#000000' -sb '#1793D1' -sf '#f3f4f5' -fn 'firacode-12' -p 'run:'"
 bindsym $super+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'IBM Plex Sans 12' -show-icons
 
 # common apps keybinds
@@ -37,11 +37,15 @@ bindsym $super+Shift+w exec $browser1
 
 bindsym XF86MonBrightnessUp exec brightnessctl s 10+  # increase screen brightness
 bindsym XF86MonBrightnessDown exec brightnessctl s 10-  # decrease screen brightness
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 # change volume
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
-bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioRaiseVolume exec pamixer -i 2
+bindsym XF86AudioLowerVolume exec pamixer -d 2
+bindsym XF86AudioMute exec pamixer -t
+bindsym XF86AudioMicMute exec pamixer --default-source -t
 
 # kill focused window
 bindsym $super+c kill
@@ -202,20 +206,34 @@ mode "resize" {
 }
 bindsym $super+r mode "resize"
 
+# Custom Colours
+set $bg-color 	         #000000
+set $inactive-bg-color   #e6e6e6
+set $text-color          #FFFFFF
+set $inactive-text-color #666666
+set $urgent-bg-color     #000000
+
+# window colors
+#                       border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $text-color          #00ff00
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+client.background       $bg-color
+
 # panel
 bar {
         strip_workspace_numbers yes
         font pango:IBM Plex Sans, Material Icons, Roboto Mono 12
         colors {
-                background #2f343f
-                statusline #2f343f
-                separator #4b5262
+		background $bg-color
+	    	separator #FFFFFF
 
-                # colour of border, background, and text
-                focused_workspace       #2f343f #bf616a #d8dee8
-                active_workspace        #2f343f #2f343f #d8dee8
-                inactive_workspace      #2f343f #2f343f #d8dee8
-                urgent_workspace        #2f343f #ebcb8b #2f343f
+		#                  border             background         text
+		focused_workspace  $bg-color          #bf4040            $text-color
+                active_workspace   $bg-color          $bg-color          $text-color
+		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+		urgent_workspace   $urgent-bg-color   #bf4040            $text-color
         }
         status_command i3status -c ~/.config/i3/i3status.conf
 }
@@ -229,14 +247,3 @@ assign [class="Gimp|Vlc|Slack|(?i)Spotify"] 8
 assign [class="Signal|Telegram"] 9
 assign [class="Element|Threema"] 10
 assign [class="(?i)Discord"] 10
-
-for_window [class="Nitrogen"] floating enable border normal
-for_window [class="ARandR"] floating enable
-
-# colour of border, background, text, indicator, and child_border
-client.focused              #bf616a #2f343f #d8dee8 #bf616a #d8dee8
-client.focused_inactive     #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.unfocused            #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.urgent               #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.background           #2f343f
