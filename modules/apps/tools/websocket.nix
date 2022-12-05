@@ -2,6 +2,6 @@
 
 {
   environment.systemPackages = with pkgs; [
-    ws
+    # ws no support due to lack of maintenance
   ];
 }

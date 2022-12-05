@@ -1,4 +1,4 @@
-{ pkgs, lib, config, inputs, ... }:
+{ pkgs, lib, config, inputs, nixpkgs-unstable, ... }:
 
 {
   # links /libexec from derivations to /run/current-system/sw 
@@ -38,6 +38,9 @@
     xorg.xrdb
     xorg.xset
 
+    nixpkgs-unstable.keepmenu # testing
+    xdotool
+
     i3lock-pixeled # i3lock
     i3status # status bar
     flameshot # screenshot capture
@@ -69,6 +72,31 @@
           file=${inputs.nixos-artwork}/wallpapers/nix-wallpaper-dracula.png
           mode=1
           bgcolor=#000000
+        '';
+      };
+      "keepmenu" = {
+        target = ".config/keepmenu/config.ini";
+        text = ''
+          [dmenu]
+          # Note that dmenu_command can contain arguments as well
+          dmenu_command = rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'IBM Plex Sans 12' -show-icons
+
+          [dmenu_passphrase]
+          ## Obscure password entry.
+          obscure = True
+          obscure_color = #303030
+
+          [database]
+          database_1 = ~/Documents/KeePassX/private_db.kdbx
+          #database_2 = ~/docs/totp_db.kdbx
+
+          pw_cache_period_min = 720
+
+          type_library = xdotool
+
+          ## Set the global default
+          autotype_default = {PASSWORD}{ENTER}
+          autotype_default_2 = {TOTP}{ENTER}
         '';
       };
       ".xinitrc" = {

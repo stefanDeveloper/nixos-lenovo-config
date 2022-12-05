@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   services.resolved.enable = true;
   networking = {
@@ -12,6 +13,13 @@
     # replicates the default behaviour.
     useDHCP = false;
   };
+  environment.systemPackages = with pkgs; [
+    (writeShellScriptBin "spoof-mac" ''
+      sudo ip link set dev enp6s0f4u1u2 down
+      sudo ip link set dev enp6s0f4u1u2 address 54:05:DB:F5:46:EF
+      sudo ip link set dev enp6s0f4u1u2 up
+    '')
+  ];
 }
 
 # sudo systemd-resolve --set-dns 129.206.7.220 --interface enp2s0f0
