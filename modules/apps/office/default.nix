@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs-unstable, ... }:
+{ pkgs, nixpkgs-unstable, nixpkgs-old, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -10,6 +10,7 @@
     libreoffice # Office 
     gimp # Image editing
 
+    rdesktop
     remmina # RPD, VNC client
     obs-studio # Recorind screen
 

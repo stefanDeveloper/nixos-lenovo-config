@@ -24,6 +24,8 @@
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
 
+    nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-22.11";
+
     # Nix-flakes deployment tool
     deploy-rs.url = "github:serokell/deploy-rs";
 
@@ -59,7 +61,7 @@
     nur.url = github:nix-community/NUR;
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, nix, self, deploy-rs, nur, home-manager, nixpkgs-fmt, mail-signature, nixos-artwork, ... } @ inputs: {
+  outputs = { nixpkgs, nixpkgs-unstable, nixpkgs-old, nix, self, deploy-rs, nur, home-manager, nixpkgs-fmt, mail-signature, nixos-artwork, ... } @ inputs: {
     nixosModules = import ./modules;
     nixosProfiles = import ./profiles;
 
@@ -73,6 +75,7 @@
               let
                 defaults = { pkgs, ... }: {
                   _module.args.nixpkgs-unstable = import inputs.nixpkgs-unstable { inherit (pkgs.stdenv.targetPlatform) system; };
+                  _module.args.nixpkgs-old = import inputs.nixpkgs-old { inherit (pkgs.stdenv.targetPlatform) system; };
                 };
               in
               [

@@ -12,7 +12,7 @@
     };
     docker = {
       enable = true;
-
+      liveRestore = false;
       autoPrune = {
         enable = true;
         dates = "weekly";
