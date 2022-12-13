@@ -137,10 +137,10 @@ workspace 4  output DisplayPort-1 DisplayPort-3 DisplayPort-4 eDP
 workspace 5  output DisplayPort-1 DisplayPort-3 DisplayPort-4 eDP
 workspace 6  output DisplayPort-1 DisplayPort-3 DisplayPort-4 eDP
 
-workspace 7  output HDMI-A-0 DisplayPort-1 DisplayPort-5 eDP
-workspace 8  output HDMI-A-0 DisplayPort-1 DisplayPort-5 eDP
-workspace 9  output HDMI-A-0 DisplayPort-1 DisplayPort-5 eDP
-workspace 10 output HDMI-A-0 DisplayPort-1 DisplayPort-5 eDP
+workspace 7  output HDMI-A-0 DisplayPort-1 DisplayPort-4 eDP
+workspace 8  output HDMI-A-0 DisplayPort-1 DisplayPort-4 eDP
+workspace 9  output HDMI-A-0 DisplayPort-1 DisplayPort-4 eDP
+workspace 10 output HDMI-A-0 DisplayPort-1 DisplayPort-4 eDP
 
 workspace 11 output HDMI-A-0 DisplayPort-1 DisplayPort-5 eDP
 workspace 12 output HDMI-A-0 DisplayPort-1 DisplayPort-5 eDP
