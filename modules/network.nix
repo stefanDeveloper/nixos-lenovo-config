@@ -2,6 +2,7 @@
 {
   services.resolved.enable = true;
   networking = {
+    search = [ "iwr.uni-heidelberg.de" ];
     networkmanager = {
       enable = true;
       dns = "systemd-resolved";

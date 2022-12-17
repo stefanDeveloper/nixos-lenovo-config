@@ -11,7 +11,7 @@
     gimp # Image editing
 
     rdesktop
-    remmina # RPD, VNC client
+    nixpkgs-old.remmina # RPD, VNC client
     obs-studio # Recorind screen
 
     texlive.combined.scheme-full # Latex lib
