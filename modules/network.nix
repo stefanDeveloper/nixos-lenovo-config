@@ -22,5 +22,3 @@
     '')
   ];
 }
-
-# sudo systemd-resolve --set-dns 129.206.7.220 --interface enp2s0f0
