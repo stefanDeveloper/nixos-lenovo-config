@@ -19,6 +19,8 @@
     jmespath
 
     jdk11
+    maven
+    gradle
 
     ansible
     ansible-lint

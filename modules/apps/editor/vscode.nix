@@ -32,6 +32,7 @@
           "!Sub"
           "!vault"
         ];
+        "java.jdt.ls.java.home" = "${pkgs.jdk11}";
       };
       extensions = (with pkgs.vscode-extensions; [
         dracula-theme.theme-dracula
