@@ -33,6 +33,8 @@
           "!vault"
         ];
         "java.jdt.ls.java.home" = "${pkgs.jdk11}";
+        "redhat.telemetry.enabled" = false;
+        "workbench.iconTheme" = "material-icon-theme";
       };
       extensions = (with pkgs.vscode-extensions; [
         dracula-theme.theme-dracula
