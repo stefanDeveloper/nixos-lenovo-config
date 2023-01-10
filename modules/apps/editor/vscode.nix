@@ -36,6 +36,8 @@
       extensions = (with pkgs.vscode-extensions; [
         dracula-theme.theme-dracula
 
+        llvm-vs-code-extensions.vscode-clangd
+
         jnoortheen.nix-ide
         # vscodevim.vim 
         bbenoist.nix
@@ -49,8 +51,9 @@
 
         ms-toolsai.jupyter
         ms-azuretools.vscode-docker
-        #ms-vscode.cpptools
+        ms-vscode.cpptools
 
+        redhat.java
         redhat.vscode-yaml
 
         bierner.emojisense

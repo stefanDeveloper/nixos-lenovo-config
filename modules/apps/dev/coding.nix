@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 {
+  programs.java.enable = true;
   environment.systemPackages = with pkgs; [
     cmake
     gcc11
@@ -25,6 +26,9 @@
     apache-directory-studio
 
     nixpkgs-fmt
+
+    clang
+    clang-tools
 
   ];
 }
