@@ -35,6 +35,7 @@
         "java.jdt.ls.java.home" = "${pkgs.jdk11}";
         "redhat.telemetry.enabled" = false;
         "workbench.iconTheme" = "material-icon-theme";
+        "clangd.detectExtensionConflicts" = false;
       };
       extensions = (with pkgs.vscode-extensions; [
         dracula-theme.theme-dracula
@@ -55,9 +56,12 @@
         ms-toolsai.jupyter
         ms-azuretools.vscode-docker
         ms-vscode.cpptools
+        ms-vscode.cmake-tools
 
         redhat.java
         redhat.vscode-yaml
+
+        twxs.cmake
 
         bierner.emojisense
       ]) ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
