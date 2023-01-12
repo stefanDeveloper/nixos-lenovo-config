@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs; [
     openssl
     gpg-tui
+    sshpass
     libsForQt5.kleopatra
   ];
   services.pcscd.enable = true;

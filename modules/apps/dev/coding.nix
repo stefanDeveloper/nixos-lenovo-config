@@ -32,5 +32,11 @@
     clang
     clang-tools
 
+    powershell
+    mono
+
+    qemu-utils
+
+    cookiecutter
   ];
 }

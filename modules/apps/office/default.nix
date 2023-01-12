@@ -24,5 +24,7 @@
     gnome3.evince # pdf reader
     gnome3.nautilus # file manager
     gnome3.file-roller # archive files
+
+    pandoc
   ];
 }

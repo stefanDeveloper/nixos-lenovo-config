@@ -10,5 +10,6 @@
     openconnect
     tcpdump
     update-systemd-resolved
+    speedtest-cli
   ];
 }
