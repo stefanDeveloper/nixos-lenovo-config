@@ -36,6 +36,23 @@
         "redhat.telemetry.enabled" = false;
         "workbench.iconTheme" = "material-icon-theme";
         "clangd.detectExtensionConflicts" = false;
+
+        "latex-workshop.latex.tools" = [
+          {
+              "name"= "latexmk";
+              "command"= "latexmk";
+              "args"= [
+                  "-shell-escape"
+                  "-synctex=1"
+                  "-interaction=nonstopmode"
+                  "-file-line-error"
+                  "-pdf"
+                  "-outdir=%OUTDIR%"
+                  "%DOC%"
+              ];
+              "env"= {};
+          }
+        ];
       };
       extensions = (with pkgs.vscode-extensions; [
         dracula-theme.theme-dracula
