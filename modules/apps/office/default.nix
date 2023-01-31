@@ -25,6 +25,8 @@
     gnome3.nautilus # file manager
     gnome3.file-roller # archive files
 
+    obsidian
+
     pandoc
   ];
 }
