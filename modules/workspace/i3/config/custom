@@ -15,7 +15,7 @@ font IBM Plex Sans 12
 floating_modifier $super
 
 # autostart
-exec --no-startup-id setxkbmap us
+exec --no-startup-id setxkbmap de
 exec --no-startup-id xsettingsd &
 exec --no-startup-id compton -b
 
@@ -30,7 +30,7 @@ bindsym $super+Return exec $term1
 # start dmenu (a program launcher)
 bindsym $super+Shift+d exec --no-startup-id "dmenu_run -nf '#F3F4F5' -nb '#000000' -sb '#1793D1' -sf '#f3f4f5' -fn 'firacode-12' -p 'run:'"
 bindsym $super+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'IBM Plex Sans 12' -show-icons
-bindsym $super+t exec keepmenu
+bindsym $super+k exec keepmenu
 
 # common apps keybinds
 bindsym --release Print exec "flameshot gui"
@@ -74,6 +74,9 @@ bindsym $super+f fullscreen toggle
 
 # change container layout split
 bindsym $super+s layout toggle split
+
+# change container layout tabbed
+bindsym $super+t layout tabbed
 
 # toggle tiling / floating
 bindsym $super+space floating toggle
@@ -139,7 +142,7 @@ workspace 6  output HDMI-A-0 DisplayPort-1 DisplayPort-3 DisplayPort-4 eDP
 workspace 7  output HDMI-A-0 DisplayPort-1 DisplayPort-4 eDP
 workspace 8  output HDMI-A-0 DisplayPort-1 DisplayPort-4 eDP
 workspace 9  output HDMI-A-0 DisplayPort-1 DisplayPort-4 eDP
-workspace 10 output HDMI-A-0 DisplayPort-1 DisplayPort-4 eDP
+workspace 10 output HDMI-A-0 DisplayPort-1 DisplayPort-4 eDP    
 
 workspace 11 output HDMI-A-0 DisplayPort-1 DisplayPort-5 eDP
 workspace 12 output HDMI-A-0 DisplayPort-1 DisplayPort-5 eDP
