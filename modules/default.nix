@@ -49,7 +49,6 @@ builtins.listToAttrs (builtins.map
   ./apps/office
 
   ./apps/shell/zsh.nix
-  ./apps/shell/fish.nix
 
   ./apps/terminal
   ./apps/terminal/alacritty.nix
