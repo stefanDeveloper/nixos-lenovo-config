@@ -79,7 +79,7 @@
         text = ''
           [dmenu]
           # Note that dmenu_command can contain arguments as well
-          dmenu_command = rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'IBM Plex Sans 12' -show-icons
+          dmenu_command = rofi -lines 12 -padding 18 -width 60 -location 0 -dmenu -columns 3 -font 'IBM Plex Sans 12'
 
           [dmenu_passphrase]
           ## Obscure password entry.
@@ -88,7 +88,6 @@
 
           [database]
           database_1 = ~/Documents/KeePassX/private_db.kdbx
-          #database_2 = ~/docs/totp_db.kdbx
 
           pw_cache_period_min = 720
 
