@@ -8,7 +8,7 @@
     python39
     python39Packages.pip
     python39Packages.setuptools
-    python39Packages.jupyter
+    # python39Packages.jupyter
 
     pre-commit
 

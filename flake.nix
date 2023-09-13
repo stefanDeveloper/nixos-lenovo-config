@@ -13,6 +13,7 @@
       flake = false;
     };
 
+    # Zsh completion
     nix-zsh-completions = {
       type = "github";
       owner = "spwhitt";
@@ -20,17 +21,18 @@
       flake = false;
     };
 
+    # nixpkgs versions
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
-
     nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-23.05";
 
+    # Nix formatter
     nixpkgs-fmt = {
       url = "github:nix-community/nixpkgs-fmt";
       flake = false;
     };
 
+    # NixOS Artwork for background
     nixos-artwork = {
       type = "github";
       owner = "nixos";
@@ -38,11 +40,11 @@
       flake = false;
     };
 
+    # Personal config
     gpg-config = {
       url = "github:stefanDeveloper/gpg-conf";
       flake = false;
     };
-
     mail-signature = {
       url = "git+ssh://git@github.com/stefanDeveloper/mail-signature.git";
       flake = false;
@@ -54,11 +56,17 @@
       flake = false;
     };
 
+    # NixOS Generator for vBox, ISO, ... images
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # NUR community for FireFox, and other apps
     nur.url = github:nix-community/NUR;
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, nixpkgs-old, nix, self, deploy-rs, nur, home-manager, nixpkgs-fmt, mail-signature, nixos-artwork, ... } @ inputs: {
+  outputs = { nixpkgs, nixpkgs-unstable, nixpkgs-old, self, nur, home-manager, nixpkgs-fmt, mail-signature, nixos-artwork, nixos-generators, ... } @ inputs: {
     nixosModules = import ./modules;
     nixosProfiles = import ./profiles;
 
@@ -85,7 +93,25 @@
       in
       genAttrs hosts mkHost;
 
-    legacyPackages.x86_64-linux =
-      (builtins.head (builtins.attrValues self.nixosConfigurations)).pkgs;
+    # For vBox, ISO and VMWare generation
+    packages.x86_64-linux = {
+      iso = nixos-generators.nixosGenerate {
+        system = "x86_64-linux";
+        format = "iso";
+        modules =
+          let
+            defaults = { pkgs, ... }: {
+              _module.args.nixpkgs-unstable = import inputs.nixpkgs-unstable { inherit (pkgs.stdenv.targetPlatform) system; };
+              _module.args.nixpkgs-old = import inputs.nixpkgs-old { inherit (pkgs.stdenv.targetPlatform) system; };
+            };
+          in
+          [
+            defaults
+            inputs.self.nixosProfiles.desktop-i3
+            { nixpkgs.overlays = [ nur.overlay ]; }
+          ];
+        specialArgs = { inherit inputs; };
+      };
+    };
   };
 }

@@ -21,7 +21,6 @@ builtins.listToAttrs (builtins.map
   ./home.nix
   ./nix.nix
   ./users
-  ./keyboard-layout/us-de.nix
 
   ./apps
   
@@ -72,6 +71,4 @@ builtins.listToAttrs (builtins.map
   ./workspace/i3
   ./workspace/sway
   ./workspace
-
-  ./vm/vm-shared.nix
 ])

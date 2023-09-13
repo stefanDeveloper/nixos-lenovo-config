@@ -37,7 +37,7 @@ in
     };
 
     # Delete all files in /tmp during boot
-    cleanTmpDir = true;
+    tmp.cleanOnBoot = true;
 
     # quite - Don't show terminal output unless an error occurs
     # splash - Show splash screen theme (if available)

@@ -35,8 +35,5 @@
       };
     };
   };
-  # NixOS 22.05
   nix.settings.trusted-users = [ "root" "stefan" ];
-  # Until NixOS 21.11
-  # nix.trustedUsers = [ "root" "stefan" ];
 }

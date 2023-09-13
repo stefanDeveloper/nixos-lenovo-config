@@ -12,6 +12,8 @@
   environment.pathsToLink = [ "/share/zsh" ];
   environment.shells = with pkgs; [ bashInteractive zsh ];
 
+  programs.zsh.enable = true;
+
   home-manager.users.stefan = {
 
     home.packages = with pkgs; [ git ];
