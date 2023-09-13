@@ -2,7 +2,7 @@
   description = "NixOS configuration with flakes";
 
   inputs = {
-    home-manager.url = "github:nix-community/home-manager/release-22.11";
+    home-manager.url = "github:nix-community/home-manager/release-23.05";
 
     # NixOS profiles covering hardware quirks:
     # https://github.com/NixOS/nixos-hardware
@@ -22,12 +22,9 @@
 
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
 
-    nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-22.11";
-
-    # Nix-flakes deployment tool
-    deploy-rs.url = "github:serokell/deploy-rs";
+    nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-23.05";
 
     nixpkgs-fmt = {
       url = "github:nix-community/nixpkgs-fmt";
@@ -90,20 +87,5 @@
 
     legacyPackages.x86_64-linux =
       (builtins.head (builtins.attrValues self.nixosConfigurations)).pkgs;
-
-    defaultApp = deploy-rs.defaultApp;
-
-    deploy = {
-      user = "root";
-      nodes.stefan = {
-        hostname = self.nixosConfigurations.stefan.config.networking.hostName;
-        profiles.system.path = deploy-rs.x86_64-linux.activate.nixos self.nixosConfigurations.stefan;
-      };
-
-      nodes.work = {
-        hostname = self.nixosConfigurations.work.config.networking.hostName;
-        profiles.system.path = deploy-rs.x86_64-linux.activate.nixos self.nixosConfigurations.work;
-      };
-    };
   };
 }

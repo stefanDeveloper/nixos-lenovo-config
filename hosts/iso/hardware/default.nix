@@ -1,0 +1,7 @@
+{ inputs, ... }:
+
+{
+  imports = [
+    ./boot.nix
+  ];
+}
