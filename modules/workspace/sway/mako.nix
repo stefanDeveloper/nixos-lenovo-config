@@ -3,7 +3,7 @@
 {
   home-manager.users.stefan = {
     wayland.windowManager.sway.config.startup = [{ command = "mako"; }];
-    programs.mako = {
+    services.mako = {
       enable = true;
       layer = "overlay";
       font = "IBM Plex 13";

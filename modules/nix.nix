@@ -22,8 +22,17 @@
       options = "--delete-older-than 30d";
     };
 
-    settings.substituters = ["https://stefan-nixos.cachix.org"];
-    settings.trusted-public-keys = ["stefan-nixos.cachix.org-1:S1iE7zFwwpUesnnKkihuLgZKWtaG3Buf7Ca/QZtQzzM="];
+    settings.substituters = [
+      "https://stefan-nixos.cachix.org" 
+      "https://hyprland.cachix.org"
+      "https://nix-community.cachix.org"
+      "https://cache.nixos.org/"
+    ];
+    settings.trusted-public-keys = [
+      "stefan-nixos.cachix.org-1:S1iE7zFwwpUesnnKkihuLgZKWtaG3Buf7Ca/QZtQzzM="
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
 
     optimise = {
       # Automatically run the nix optimiser at a specific time
