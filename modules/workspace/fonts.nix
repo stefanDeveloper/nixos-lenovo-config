@@ -6,7 +6,7 @@
       let fonts = config.themes.fonts;
       in
       {
-        enable = lib.mkForce true;
+        enable = lib.mkDefault true;
 
         # System-wide default fonts
         defaultFonts = {

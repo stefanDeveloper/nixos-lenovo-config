@@ -93,11 +93,36 @@
       in
       genAttrs hosts mkHost;
 
+    legacyPackages.x86_64-linux =
+      (builtins.head (builtins.attrValues self.nixosConfigurations)).pkgs;
+    
     # For vBox, ISO and VMWare generation
     packages.x86_64-linux = {
       iso = nixos-generators.nixosGenerate {
         system = "x86_64-linux";
-        format = "iso";
+
+        customFormats = {
+          install-iso-minimal = {
+            imports = [
+              "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+            ];
+
+            systemd.services.sshd.wantedBy = nixpkgs.lib.mkForce ["multi-user.target"];
+
+            isoImage.squashfsCompression = "zstd -Xcompression-level 3";
+            
+            # EFI booting
+            isoImage.makeEfiBootable = true;
+
+            # USB booting
+            isoImage.makeUsbBootable = true;
+
+            formatAttr = "isoImage";
+            fileExtension = "*.iso";
+          };
+        };
+        format = "install-iso-minimal";
+
         modules =
           let
             defaults = { pkgs, ... }: {
@@ -107,10 +132,29 @@
           in
           [
             defaults
-            inputs.self.nixosProfiles.desktop-i3
             { nixpkgs.overlays = [ nur.overlay ]; }
+            inputs.self.nixosProfiles.vm-i3
           ];
         specialArgs = { inherit inputs; };
+
+      };
+      vm = nixos-generators.nixosGenerate {
+        system = "x86_64-linux";
+        format = "vm";
+        modules =
+          let
+            defaults = { pkgs, ... }: {
+              _module.args.nixpkgs-unstable = import inputs.nixpkgs-unstable { inherit (pkgs.stdenv.targetPlatform) system; };
+              _module.args.nixpkgs-old = import inputs.nixpkgs-old { inherit (pkgs.stdenv.targetPlatform) system; };
+            };
+          in
+          [
+            defaults
+            { nixpkgs.overlays = [ nur.overlay ]; }
+            inputs.self.nixosProfiles.vm-sway
+          ];
+        specialArgs = { inherit inputs; };
+
       };
     };
   };
