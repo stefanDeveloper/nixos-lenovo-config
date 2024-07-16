@@ -6,7 +6,6 @@
       vlc
       mpv
       spotify
-      spotify-tui
     ];
   };
 }
