@@ -24,7 +24,6 @@ builtins.listToAttrs (builtins.map
 
   ./apps
   
-  ./apps/mail
   # Development
   ./apps/dev
   ./apps/dev/git.nix
