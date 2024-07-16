@@ -2,7 +2,7 @@
   description = "NixOS configuration with flakes";
 
   inputs = {
-    home-manager.url = "github:nix-community/home-manager/release-23.05";
+    home-manager.url = "github:nix-community/home-manager/release-24.05";
 
     # NixOS profiles covering hardware quirks:
     # https://github.com/NixOS/nixos-hardware
@@ -23,8 +23,8 @@
 
     # nixpkgs versions
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
-    nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-24.05";
 
     # Nix formatter
     nixpkgs-fmt = {

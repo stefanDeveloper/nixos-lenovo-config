@@ -12,7 +12,7 @@
       # Stop obsolte services from the previous generation
       systemd.user.startServices = true;
 
-      home.stateVersion = "23.05";
+      home.stateVersion = "24.05";
     };
   };
 }

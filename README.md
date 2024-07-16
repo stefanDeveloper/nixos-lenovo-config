@@ -18,6 +18,8 @@ nix-channel update
 nix flake update
 # Update system
 nixos-rebuild switch  --flake '.#stefan' --upgrade
+# Build Image
+nix build .#vm
 ```
 
 ### Clean old generations:

@@ -7,7 +7,7 @@
     enable = true;
 
     # Enable all bluez plugins
-    package = pkgs.bluezFull;
+    package = pkgs.bluez;
 
     # Modern headsets will generally try to connect using the A2DP profile.
     # To enable this we need to add the following lines:

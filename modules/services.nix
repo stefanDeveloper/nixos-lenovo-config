@@ -70,7 +70,7 @@
 
     xserver = {
       # Configure keymap in X11
-      layout = "us,de";
+      xkb.layout = "us,de";
     };
   };
 

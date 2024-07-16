@@ -6,10 +6,6 @@
       slack
       discord
       element-desktop
-
-      tdesktop
-      threema-desktop
-      signal-desktop
     ];
   };
 }

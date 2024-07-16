@@ -18,14 +18,14 @@
 
     # Enable a basic set of fonts providing font styles and
     # families and reasonable coverage of Unicode
-    enableDefaultFonts = true;
+    enableDefaultPackages = true;
 
     # Create a directory with links to all fonts in
     # /run/current-system/sw/share/X11/fonts
     fontDir.enable = true;
 
     # List of primary font paths
-    fonts = with pkgs; [
+    packages = with pkgs; [
       ibm-plex
       jetbrains-mono
       hasklig
