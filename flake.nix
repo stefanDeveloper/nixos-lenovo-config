@@ -45,10 +45,6 @@
       url = "github:stefanDeveloper/gpg-conf";
       flake = false;
     };
-    mail-signature = {
-      url = "git+ssh://git@github.com/stefanDeveloper/mail-signature.git";
-      flake = false;
-    };
 
     # A few Nix expressions suitable for inclusion in Nix User Repository
     rycee = {
@@ -66,7 +62,7 @@
     nur.url = github:nix-community/NUR;
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, nixpkgs-old, self, nur, home-manager, nixpkgs-fmt, mail-signature, nixos-artwork, nixos-generators, ... } @ inputs: {
+  outputs = { nixpkgs, nixpkgs-unstable, nixpkgs-old, self, nur, home-manager, nixpkgs-fmt, nixos-artwork, nixos-generators, ... } @ inputs: {
     nixosModules = import ./modules;
     nixosProfiles = import ./profiles;
 
