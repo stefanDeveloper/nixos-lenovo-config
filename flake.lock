@@ -35,22 +35,6 @@
         "type": "github"
       }
     },
-    "mail-signature": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1662708565,
-        "narHash": "sha256-2q5n5/LBrFAeUKoniRkHlOExpMCF5ZW4eS8xFBljaQc=",
-        "ref": "refs/heads/main",
-        "rev": "528a066ff64f137657829539cd69090b0a4fab0e",
-        "revCount": 2,
-        "type": "git",
-        "url": "ssh://git@github.com/stefanDeveloper/mail-signature.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/stefanDeveloper/mail-signature.git"
-      }
-    },
     "nix-zsh-completions": {
       "flake": false,
       "locked": {
@@ -234,7 +218,6 @@
       "inputs": {
         "gpg-config": "gpg-config",
         "home-manager": "home-manager",
-        "mail-signature": "mail-signature",
         "nix-zsh-completions": "nix-zsh-completions",
         "nixos-artwork": "nixos-artwork",
         "nixos-generators": "nixos-generators",
